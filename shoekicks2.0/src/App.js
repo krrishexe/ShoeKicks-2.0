@@ -1,3 +1,5 @@
+import Hero1 from "./Components/Hero1";
+import Hero2 from "./Components/Hero2";
 import Navbar from "./Components/Navbar";
 import Products from "./Components/Products";
 
@@ -5,17 +7,13 @@ import Products from "./Components/Products";
 function App() {
   return (
     <>
-    <Navbar />
-    
-    <section id="hero">
-        <h4>Trade-in-offer</h4>
-        <h2>Super Value Deals</h2>
-        <h1>On all products</h1>
-        <p>Save more with coupons upto 70% off!</p>
-        <button>Shop now</button>
-    </section>
-    
-    <Products price1 = {"150$"} price2 ={"720$"} price3 ={"550$"}/>
+      <Navbar />
+
+      <Hero1 />
+
+      <Products price1={"150$"} price2={"720$"} price3={"550$"} />
+
+      <Hero2 />
     </>
   );
 }
