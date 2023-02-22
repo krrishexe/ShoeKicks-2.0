@@ -11,7 +11,7 @@ function App() {
 
       <Hero1 />
 
-      <Products price1={"150$"} price2={"720$"} price3={"550$"} />
+      <Products />
 
       <Hero2 />
     </>
