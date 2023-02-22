@@ -1,4 +1,5 @@
 import Navbar from "./Components/Navbar";
+import Products from "./Components/Products";
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         <button>Shop now</button>
     </section>
     
-    
+    <Products />
     </>
   );
 }
