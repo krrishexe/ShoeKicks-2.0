@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ProductsItem(props) {
+function ProductsItem1(props) {
     return (
         <div>
             <div className="pro">
@@ -23,4 +23,5 @@ function ProductsItem(props) {
     )
 }
 
-export default ProductsItem
+export default ProductsItem1
+ 

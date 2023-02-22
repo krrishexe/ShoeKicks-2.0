@@ -1,5 +1,9 @@
 import React from 'react'
-import ProductsItem from './ProductsItem'
+import ProductsItem1 from './ProductsItem1'
+import ProductsItem2 from './ProductsItem2'
+import ProductsItem3 from './ProductsItem3'
+
+
 
 
 
@@ -11,11 +15,11 @@ function Products() {
                 <p>You don't wanna miss this!</p>
                 <div className="pro-container">
                     
-                    <ProductsItem price1={"150$"} />
+                    <ProductsItem1 price1={"150$"} />
 
-                    <ProductsItem price2={"720$"}  />
+                    <ProductsItem2 price2={"720$"}  />
 
-                    <ProductsItem price3={"550$"} />
+                    <ProductsItem3 price3={"550$"} />
 
                 </div>
             </section>
