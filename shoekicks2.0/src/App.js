@@ -15,7 +15,7 @@ function App() {
         <button>Shop now</button>
     </section>
     
-    <Products />
+    <Products price1 = {"150$"} price2 ={"720$"} price3 ={"550$"}/>
     </>
   );
 }

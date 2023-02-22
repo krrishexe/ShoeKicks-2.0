@@ -1,6 +1,6 @@
 import React from 'react'
 import "../Media/CSS/style.css"
-import "../Media/images/site_logo.png"
+
 
 function Navbar() {
   return (
