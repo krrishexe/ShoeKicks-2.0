@@ -64,7 +64,7 @@ button.normal{
     align-items: center;
     justify-content: space-between;
     padding: 0px 20px;
-    background-color: #b3a99c;
+    background-color: black;
     box-shadow: 0 5px 15px rgba(224,214, 211, 0.3) ;
     z-index: 999;
     position: sticky;
@@ -87,7 +87,7 @@ button.normal{
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
-    color: #1a1a1a;
+    color: #b3a99c;
     transition: 0.3s ease;
 }
 #navbar li a:hover,
@@ -140,7 +140,7 @@ button.normal{
 #hero button:hover{
     font-weight: 700;
     transition: .3s ease;
-    color: #b5042e;
+    color: black;
     background-color: #b3a99c;
     border: 1px solid #b3a99c;
     
@@ -209,4 +209,7 @@ button.normal{
     position: absolute;
     bottom: 20px;
     right: 10px;
+}
+.logo{
+    filter: invert(100%);
 }
