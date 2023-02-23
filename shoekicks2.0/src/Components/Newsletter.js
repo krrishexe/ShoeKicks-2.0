@@ -13,7 +13,6 @@ function Newsletter() {
                         <button class="normal"> Sign Up</button>
                 </div>
             </section>
-
         </div>
     )
 }
