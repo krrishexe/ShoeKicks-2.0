@@ -1,3 +1,4 @@
+import Carousel from "./Components/Carousel";
 import Hero1 from "./Components/Hero1";
 import Hero2 from "./Components/Hero2";
 import Hero3 from "./Components/Hero3";
@@ -20,6 +21,8 @@ function App() {
       <Products2 head={"New Launches"} para={"Its's NIKE time of the year !!!"} />
 
       <Hero3 />
+
+      <Carousel />
     </>
   );
 }
