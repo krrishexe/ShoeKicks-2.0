@@ -10,10 +10,11 @@ function Products(props) {
                 <p>{props.para}</p>
                 <div className="pro-container">
                     
-                    <ProductsItem1 price1={"150$"} src={require("../Media/images/f1.jpg")}/>
-                    <ProductsItem1 price1={"150$"} src={require("../Media/images/f4.jpg")}/>
-                    <ProductsItem1 price1={"150$"} src={require("../Media/images/p2-4.jpg")} />
+                    <ProductsItem1 price1={"150$"} src={require("../Media/images/f1.jpg")} head={"Nike Retro Jordan 5"} para={"Nike"} />
+                    <ProductsItem1 price1={"250$"} src={require("../Media/images/f4.jpg")}  head={"Adidas Flyby knit 3 (Limited Edition)"} para={"Adidas"}/>
+                    <ProductsItem1 price1={"500$"} src={require("../Media/images/p2-4.jpg")}  head={"Nike Jordan Dior's"} para={"Nike"} />
 
+                    
                 </div>
             </section>
         </div>

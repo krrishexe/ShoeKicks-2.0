@@ -152,6 +152,9 @@ button.normal{
 #product1 > h1 {
     color: #b3a99c;
 }
+#product1 > p{
+    color: #726a69;
+}
 #product1 .pro-container{
     display: flex;
     justify-content: space-between;

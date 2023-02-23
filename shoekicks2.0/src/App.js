@@ -2,6 +2,7 @@ import Hero1 from "./Components/Hero1";
 import Hero2 from "./Components/Hero2";
 import Navbar from "./Components/Navbar";
 import Products from "./Components/Products";
+import Products2 from "./Components/Products2";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
 
       <Hero2 />
 
-      <Products head={"New Launches"} para={"Its's NIKE time of the year !!!"} />
+      <Products2 head={"New Launches"} para={"Its's NIKE time of the year !!!"} />
     </>
   );
 }
