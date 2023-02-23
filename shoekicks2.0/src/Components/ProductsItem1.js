@@ -4,7 +4,7 @@ function ProductsItem1(props) {
     return (
         <div>
             <div className="pro">
-                <img src={require("../Media/images/f1.jpg")} alt="" height="600px" width="300px" />
+                <img src={props.src} alt="" height="600px" width="300px" />
                 <div className="des">
                     <span>Nike</span>
                     <h5>Nike Retro Jordan 5</h5>

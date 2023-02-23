@@ -11,9 +11,11 @@ function App() {
 
       <Hero1 />
 
-      <Products />
+      <Products head={"2022 Featured Products"} para={"You don't wanna miss this!"}/>
 
       <Hero2 />
+
+      <Products head={"New Launches"} para={"Its's NIKE time of the year !!!"} />
     </>
   );
 }
