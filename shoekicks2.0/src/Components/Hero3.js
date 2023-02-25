@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import VanillaTilt from "../Media/JS/Vanilla-tilt"
 
 function Hero3() {
+    useEffect(()=>{
+        VanillaTilt.init(document.querySelectorAll(".socks"), {
+            max: 15,
+            speed: 300,
+            easing: "cubic-bezier(.03,.98,.52,.99)",
+            scale: 1.25,
+        });
+    },[])
     return (
         <>
             <div className="product-month">
@@ -37,11 +45,6 @@ function Hero3() {
         </>
     )
 }
-VanillaTilt.init(document.querySelectorAll(".socks"), {
-    max: 15,
-    speed: 300,
-    easing: "cubic-bezier(.03,.98,.52,.99)",
-    scale: 1.25,
-});
+
 
 export default Hero3
