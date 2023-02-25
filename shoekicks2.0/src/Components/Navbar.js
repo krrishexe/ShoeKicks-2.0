@@ -13,7 +13,7 @@ function Navbar() {
             <li><Link className="active" to={"/"}>Home</Link></li>
             <li><Link to={"/Shop"}>Shop</Link></li>
             <li><Link to={"/Blog"}>Blog</Link></li>
-            <li><Link to={"About"}>About</Link></li>
+            <li><Link to={"/About"}>About</Link></li>
             <li><Link to={"/Contacts"}>Contacts</Link></li>
             <li><a href="Cart.html"><img src="images/shopping-bag.png" alt="" height="25px" /></a></li>
           </ul>
