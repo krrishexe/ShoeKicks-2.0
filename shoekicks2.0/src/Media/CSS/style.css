@@ -560,7 +560,7 @@ footer .copyright{
 }
 .Shop{
     width: 100%;
-    height: 100vh;
+    height: 105vh;
     position: relative;
     padding: 0 5%;
     display: flex;
@@ -569,18 +569,19 @@ footer .copyright{
 }
 .btnShop{
     margin-top: 350px;
-    font-size: 40px;
-    background-color: #000;
-    color: #bfb4b3;
-    border:2px solid;
+    font-size: 35px;
+    background-color: rgba(255, 255, 255, 0.911);
+    color: #333;
+    border:2px solid white;
     border-radius: 50px;
     overflow: hidden;
     padding:14px 60px 14px 60px ;
     cursor: pointer;
     font-weight: 700;
+    transition: .2s ease;
 }
 .btnShop:hover{
-
+    transform: scale(1.04);
     color: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -589,19 +590,43 @@ footer .copyright{
     font-size: 75px;
     color: white;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
+.shop-items{
+    margin-top: 200px;
+    margin-bottom: 200px;
+    height: auto;
+    width: 100%;
+    background-position: top 10% right 0%;
+    padding:0px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: center;
+}
+.shop-items h1{
+    color: #dfe0fe;
+    font-size: 100px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    margin-bottom: 50px;
+}
+.shop-items  p{
+    font-size: 20px;
+    color: #e8f6ea;
+}
+.shop-items  span{
+    color: rgba(255, 255, 255, 0.795);
+    transition: .7s ease;
+}
+.shop-items  span:hover{
+    color: white;
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff, 0 0 80px #fff;
+}
+.Shop h2{
+    color: #dfe0fe;
+    font-size: 70px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    margin-bottom: 50px;
+    writing-mode:vertical-rl;
+}
 
 
 
