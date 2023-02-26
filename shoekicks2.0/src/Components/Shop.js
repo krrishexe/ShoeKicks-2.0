@@ -28,18 +28,24 @@ function Shop() {
     </div>
 
     <div className='shop-items'>
+      <p>The largest heel Max Air unit featured in a basketball shoe provides unprecedented cushioning without sacrificing stability or comfort.</p>
     </div>
+
     <div className='Shop'>
-    <h2> Seize the Moment(um) </h2>
+    <h2> Seize the Momentum </h2>
       <video autoPlay muted loop  playsInline className='backVideo' width={"100%"} height={"100vh"}>
         <source src={require('../Media/images/lebron-17 (2).mp4')} type='video/mp4'/>
       </video>
     </div>
 
-    <div className='shop-items-page'>
-      <h1>HELLLLO</h1>
-      <h1>HELLLLO</h1>
+    <div className='shop-items'>
+      <h3>The largest heel Max Air unit featured in a basketball shoe provides unprecedented cushioning without sacrificing stability or comfort.</h3>
     </div>
+
+    <div className='shop-items-page'>
+    </div>
+    
+    
 
 
 
