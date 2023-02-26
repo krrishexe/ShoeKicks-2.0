@@ -21,6 +21,7 @@ function Shop() {
     </div>
 
     <div className='Shop'>
+    <h3> Force Meets Function </h3>
       <video autoPlay muted loop  playsInline className='backVideo' width={"100%"} height={"100vh"}>
         <source src={require('../Media/images/lebron-17.mp4')} type='video/mp4'/>
       </video>
@@ -29,12 +30,16 @@ function Shop() {
     <div className='shop-items'>
     </div>
     <div className='Shop'>
-    <h2> Force <span>Meets</span> Function </h2>
+    <h2> Seize the Moment(um) </h2>
       <video autoPlay muted loop  playsInline className='backVideo' width={"100%"} height={"100vh"}>
         <source src={require('../Media/images/lebron-17 (2).mp4')} type='video/mp4'/>
       </video>
     </div>
 
+    <div className='shop-items-page'>
+      <h1>HELLLLO</h1>
+      <h1>HELLLLO</h1>
+    </div>
 
 
 
