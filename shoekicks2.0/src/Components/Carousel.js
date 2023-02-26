@@ -20,7 +20,7 @@ function Carousel() {
                                     <h5>Premium Section</h5>
                                     <p>Some representative placeholder content for the first slide.</p>
                                     <div className="slider-btn">
-                                        <button className="btn btn-1">Our services</button>
+                                        <button className="btn btn-1">Explore more</button>
                                     </div>
                                 </div>
                         </div>
@@ -30,7 +30,7 @@ function Carousel() {
                                     <h5>Greedy Greens</h5>
                                     <p>Some representative placeholder content for the first slide.</p>
                                     <div className="slider-btn">
-                                        <button className="btn btn-1">Our services</button>
+                                        <button className="btn btn-1">Explore more</button>
                                     </div>
 
                                 </div>
@@ -42,7 +42,7 @@ function Carousel() {
                                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing..</p>
 
                                     <div className="slider-btn">
-                                        <button className="btn btn-1">Our services</button>
+                                        <button className="btn btn-1">Explore more</button>
                                     </div>
 
                                 </div>

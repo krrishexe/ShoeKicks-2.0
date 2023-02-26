@@ -6,7 +6,7 @@ function Newsletter() {
             <section id="newsletter" class="section-p1 section-m1">
                 <div class="newstext">
                     <h2> Sign Up for our Newsletter</h2>
-                    <p>Get E-mail updates about our latest products and <span>special offers.</span> </p>
+                    <p>Get E-mail updates about our <span>latest products</span>  and <span>special offers.</span> </p>
                 </div>
                 <div class="form">
                     <input type="email" placeholder="Your email address here" />
