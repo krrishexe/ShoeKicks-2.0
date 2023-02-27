@@ -16,6 +16,10 @@ body{
     overflow-y: scroll; */
     
 }
+::selection{
+    color: #dfe0fe;
+    background-color: #b5042e;
+}
 h1{
     font-size: 50px;
     line-height: 64px;
