@@ -17,8 +17,8 @@ body{
     
 }
 ::selection{
-    color: #dfe0fe;
-    background-color: #b5042e;
+    color: #eb0e2f;
+    /* background-color: #b5042e; */
 }
 h1{
     font-size: 50px;
@@ -251,8 +251,23 @@ button.normal{
     background: var(--socks-bg);
     border-radius: 20px;
     transform-style: preserve-3d;
+    /* animation: bounce; */
 }
-
+.bounce {
+	animation-name: bounce;
+	animation-timing-function: ease;
+	animation-iteration-count: infinite;
+	animation-duration: 3s;
+}
+@keyframes bounce {
+	0% {
+		transform: translateY(0);
+	} 50% {
+		transform: translateY(-50px);
+	} 100% {
+		transform: translateY(0);
+	}
+}
 .bottle .socks::before {
     content: 'NIKE';
     position: absolute;

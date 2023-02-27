@@ -26,7 +26,7 @@ function Hero3() {
                     </div>
 
 
-                    <div className="socks">
+                    <div className="socks bounce">
                         <h2 className="name">Nike Air Max</h2>
                         <a href="/" className="buy">Buy Now</a>
                         <div className="circle"></div>
