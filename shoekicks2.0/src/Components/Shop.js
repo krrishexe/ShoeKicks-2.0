@@ -1,4 +1,5 @@
 import React from 'react'
+import GsapScroll from './GsapScroll'
 import "../Media/images/Nike_Avatars_Process-vimeo-442444722-hls-fastly_skyfire-2828.mp4"
 import "../Media/images/lebron-17.mp4"
 import "../Media/images/lebron-17 (2).mp4"
@@ -46,7 +47,7 @@ function Shop() {
     </div>
     
     
-
+    <GsapScroll />
 
 
     
