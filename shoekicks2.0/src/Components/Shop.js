@@ -1,6 +1,7 @@
 import React from 'react'
 // import GsapScroll from './GsapScroll'
 import Carousel2 from './Carousel2'
+import Footer from './Footer'
 import "../Media/images/Nike_Avatars_Process-vimeo-442444722-hls-fastly_skyfire-2828.mp4"
 import "../Media/images/lebron-17.mp4"
 import "../Media/images/lebron-17 (2).mp4"
@@ -29,7 +30,7 @@ function Shop() {
       </video>
     </div>
 
-    <div className='shop-items'>
+    <div className='shop-items space'>
       <p>The largest heel Max Air unit featured in a basketball shoe provides unprecedented cushioning without sacrificing stability or comfort.</p>
     </div>
 
@@ -48,10 +49,16 @@ function Shop() {
     </div>
     
     
-    {/* <GsapScroll /> */}
+    
+
+    <div className='shop-items'>
+      <h4>~</h4>
+    </div>
+
     <Carousel2 />
 
-
+    
+    <Footer />
     
     </>
   )

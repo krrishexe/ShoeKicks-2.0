@@ -50,12 +50,12 @@ function Carousel2() {
                     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                         data-bs-slide="prev">
                         {/* <span className="carousel-control-prev-icon" aria-hidden="true"></span> */}
-                        <span className="visually-hidden">Previous</span>
+                        <span className="" style={{color:'black', fontSize:'100px'}}>&#8592;</span>
                     </button>
                     <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
                         data-bs-slide="next">
                         {/* <span className="carousel-control-next-icon" aria-hidden="true"></span> */}
-                        <span className="visually-hidden">Next</span>
+                        <span className=""  style={{color:'black', fontSize:'100px'}}>&#8594;</span>
                     </button>
                 </div>
             </section>
