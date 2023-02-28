@@ -52,7 +52,7 @@ function Shop() {
     
 
     <div className='shop-items'>
-      <h4>~</h4>
+      <h4>to be done</h4>
     </div>
 
     <Carousel2 />

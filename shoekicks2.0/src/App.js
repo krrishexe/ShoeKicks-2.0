@@ -1,6 +1,6 @@
 import Navbar from "./Components/Navbar";
 import Shop from "./Components/Shop";
-import Blog from "./Components/Shop";
+import Blog from "./Components/Blog";
 import Content from "./Components/Content";
 
 import {
