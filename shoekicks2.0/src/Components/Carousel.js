@@ -18,7 +18,7 @@ function Carousel() {
                             <img src={require("../Media/images/186668.jpg")} className="d-block w-100" alt="..." />
                                 <div className="carousel-caption d-none d-md-block">
                                     <h5>Premium Section</h5>
-                                    <p>Some representative placeholder content for the first slide.</p>
+                                    {/* <p>Some representative placeholder content for the first slide.</p> */}
                                     <div className="slider-btn">
                                         <button className="btn btn-1">Explore more</button>
                                     </div>
@@ -26,20 +26,20 @@ function Carousel() {
                         </div>
                         <div className="carousel-item">
                             <img src={require("../Media/images/JGwAprF-nike-shoes-wallpaper.jpg")} className="d-block w-100" alt="..." />
-                                <div className="carousel-caption d-none d-md-block">
+                                {/* <div className="carousel-caption d-none d-md-block">
                                     <h5>Greedy Greens</h5>
                                     <p>Some representative placeholder content for the first slide.</p>
                                     <div className="slider-btn">
                                         <button className="btn btn-1">Explore more</button>
                                     </div>
 
-                                </div>
+                                </div> */}
                         </div>
                         <div className="carousel-item">
                             <img src={require("../Media/images/mick-haupt-O8_sTTWaJ14-unsplash.jpg")} className="d-block w-100" alt="..." />
                                 <div className="carousel-caption d-none d-md-block">
-                                    <h5>Lorem ipsum dolor</h5>
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing..</p>
+                                    <h4>Lorem ipsum dolor</h4>
+                                    {/* <p>Lorem, ipsum dolor sit amet consectetur adipisicing..</p> */}
 
                                     <div className="slider-btn">
                                         <button className="btn btn-1">Explore more</button>
