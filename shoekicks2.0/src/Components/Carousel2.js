@@ -32,58 +32,18 @@ function Carousel2() {
                         </div>
                         <div className="carousel-item">
                             <img src={require("../Media/images/shoes/lebron-17 (1).jpg")} className="d-block w-100" alt="..." />
-                                {/* <div className="carousel-caption d-none d-md-block">
-                                    <h5>Greedy Greens</h5>
-                                    <p>Some representative placeholder content for the first slide.</p>
-                                    <div className="slider-btn">
-                                        <button className="btn btn-1">Explore more</button>
-                                    </div>
-
-                                </div> */}
                         </div>
                         <div className="carousel-item">
                             <img src={require("../Media/images/shoes/lebron-17 (2).jpg")} className="d-block w-100" alt="..." />
-                                {/* <div className="carousel-caption d-none d-md-block">
-                                    <h5>Greedy Greens</h5>
-                                    <p>Some representative placeholder content for the first slide.</p>
-                                    <div className="slider-btn">
-                                        <button className="btn btn-1">Explore more</button>
-                                    </div>
-
-                                </div> */}
                         </div>
                         <div className="carousel-item">
                             <img src={require("../Media/images/shoes/lebron-17 (3).jpg")} className="d-block w-100" alt="..." />
-                                {/* <div className="carousel-caption d-none d-md-block">
-                                    <h5>Greedy Greens</h5>
-                                    <p>Some representative placeholder content for the first slide.</p>
-                                    <div className="slider-btn">
-                                        <button className="btn btn-1">Explore more</button>
-                                    </div>
-
-                                </div> */}
                         </div>
                         <div className="carousel-item">
                             <img src={require("../Media/images/shoes/lebron-17 (4).jpg")} className="d-block w-100" alt="..." />
-                                {/* <div className="carousel-caption d-none d-md-block">
-                                    <h5>Greedy Greens</h5>
-                                    <p>Some representative placeholder content for the first slide.</p>
-                                    <div className="slider-btn">
-                                        <button className="btn btn-1">Explore more</button>
-                                    </div>
-
-                                </div> */}
                         </div>
                         <div className="carousel-item">
                             <img src={require("../Media/images/shoes/lebron-17 (5).jpg")} className="d-block w-100" alt="..." />
-                                {/* <div className="carousel-caption d-none d-md-block">
-                                    <h5>Greedy Greens</h5>
-                                    <p>Some representative placeholder content for the first slide.</p>
-                                    <div className="slider-btn">
-                                        <button className="btn btn-1">Explore more</button>
-                                    </div>
-
-                                </div> */}
                         </div>
 
                     </div>
