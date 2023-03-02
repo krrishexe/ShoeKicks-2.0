@@ -562,6 +562,7 @@ footer .copyright{
     font-size: 1rem;
 }
 .backVideo{
+    padding: 0 5%;
     position: absolute;
     /* top: 10;
     left: 0; */
@@ -631,10 +632,10 @@ footer .copyright{
 }
 .shop-items  p{
     /* text-align: center; */
-    margin-top: -30px;
+    margin-top: 30px;
     margin-left: 100px;
     margin-bottom: 50px;
-    font-size: 20px;
+    font-size: 30px;
     color: #e8f6ea;
 }
 .shop-items  h3{
@@ -657,24 +658,11 @@ footer .copyright{
     color: white;
     text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff, 0 0 80px #fff;
 }
-.Shop h2{
-    position: absolute;
-    right: 20px;
-    color: #DBCDCB;
-    font-size: 70px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
-    margin-bottom: 50px;
-    writing-mode:vertical-rl;
+.bigText{
+    font-size: 80px;
+    line-height: 50px;
 }
-.Shop h3{
-    position: absolute;
-    left: 20px;
-    color: #DBCDCB;
-    font-size: 70px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
-    margin-bottom: 50px;
-    writing-mode:vertical-rl;
-}
+
 .shop-items-page{
     background-image: url("../images/home2.JPEG");
     background-size: cover;
