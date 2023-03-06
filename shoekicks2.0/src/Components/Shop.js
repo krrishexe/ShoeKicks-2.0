@@ -46,6 +46,7 @@ function Shop() {
     </div>
 
     <div className='shop-items-page'>
+      hello
     </div>
     
     
