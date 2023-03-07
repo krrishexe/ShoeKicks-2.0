@@ -668,14 +668,24 @@ footer .copyright{
     background-size: cover;
     margin-top: 200px;
     /* margin-bottom: 200px; */
-    height: 120vh;
+    height: 110vh;
     width: 100%;
     background-position: top 10% right 0%;
-    padding:0px 80px;
+    padding:80px 80px;
     display: flex;
     flex-direction: column;
     align-items:flex-start;
     justify-content: center;
+}
+.paper-plane{
+    height: 100px;
+    top: 50%;
+    left: 0%;
+    position: absolute;
+}
+.animation{
+    position: relative;                 
+    overflow: hidden;
 }
 
 .container {
