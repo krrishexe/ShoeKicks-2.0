@@ -61,7 +61,7 @@ function Shop() {
 
       <div className='shop-items center'>
       <h4>History of Lebron's.</h4>
-      <p> <span className='bigText'>S</span>croll to see some magic <img style={{margin:"100px 20px" ,height:"100px" }} src={require("../Media/images/magic-wand_1fa84.png")} alt="" /> </p>
+      <p> <span className='bigText'>S</span>croll to see some magic <img className='imgHover' src={require("../Media/images/magic-wand_1fa84.png")} alt="" /> </p>
       </div>
 
       {/* <Carousel2 /> */}

@@ -695,6 +695,13 @@ footer .copyright{
     font-family: 'Genos', sans-serif;
     font-weight: 100;
 }
+.imgHover{
+    margin: 100px 20px;
+    height: 100px;
+}
+.imgHover :hover{
+    transform: scale(2);
+}
                             /* Hz scrolling starts from here  */
 .Hz{
     background-color: white;
