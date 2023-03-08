@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
-import { Scene,ScrollMagic } from 'scrollmagic'
-import { Timeline, TweenLite , Power1 } from 'gsap/gsap-core'
+import { Controller, Scene } from 'react-scrollmagic';
+import { Timeline, Tween , Power1 } from 'gsap/gsap-core'
 // import GsapScroll from './GsapScroll'
 import Carousel2 from './Carousel2'
 import Footer from './Footer'
@@ -35,7 +35,7 @@ function Shop() {
     const tween = new Timeline();
 
     tween.add(
-      TweenLite.to('.paper-plane', 3, {
+      Tween.to('.paper-plane', 3, {
         bezier: flightPath,
         ease: Power1.easeInOut
       })
@@ -52,7 +52,7 @@ function Shop() {
 
     })
       .setTween(tween)
-      // .addIndicators()
+      .addIndicators()
       .setPin(".animation")
       .addTo(controller);
 
