@@ -12,23 +12,23 @@ function HzScroll() {
                     <img src={require("../Media/images/shoes/lebron-17.jpg")} className="d-block w-100" alt="..." />
                 </div>
 
-                <div className="main bg1" >
+                <div className="main bg" >
                     <img src={require("../Media/images/shoes/lebron-17 (1).jpg")} className="d-block w-100" alt="..." />
                 </div>
 
-                <div className="main bg2" >
+                <div className="main bg" >
                     <img src={require("../Media/images/shoes/lebron-17 (2).jpg")} className="d-block w-100" alt="..." />
                 </div>
 
-                <div className="main bg3" >
+                <div className="main bg" >
                     <img src={require("../Media/images/shoes/lebron-17 (3).jpg")} className="d-block w-100" alt="..." />
                 </div>
 
-                <div className="main bg4" >
+                <div className="main bg" >
                     <img src={require("../Media/images/shoes/lebron-17 (4).jpg")} className="d-block w-100" alt="..." />
                 </div>
 
-                <div className="main bg5" >
+                <div className="main bg" >
                     <img src={require("../Media/images/shoes/lebron-17 (5).jpg")} className="d-block w-100" alt="..." />
                 </div>
 

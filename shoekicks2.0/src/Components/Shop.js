@@ -47,14 +47,13 @@ function Shop() {
       </div>
 
       <div className='shop-items-page '>
-        
       </div>
 
+      
 
-
-
-      <div className='shop-items'>
-        
+      <div className='shop-items center'>
+      <h2>History of Lebron's.</h2>
+      <p> <span className='bigText'>S</span>croll to see some magic <img style={{margin:"100px 20px"}} src={require("../Media/images/magic-wand_1fa84.png")} alt="" /> </p>
       </div>
 
       {/* <Carousel2 /> */}

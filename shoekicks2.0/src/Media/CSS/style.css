@@ -10,8 +10,9 @@
 body{
     background-color: black;
     width: 100%;
-    -webkit-overflow-scrolling: touch;
-    overflow-scrolling: touch;
+    overflow-x: hidden;
+    /* -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch; */
     /* overflow-x: hidden;
     overflow-y: scroll; */
     
@@ -610,7 +611,7 @@ footer .copyright{
 }
 .shop-items{
     margin-top: 200px;
-    margin-bottom: 200px;
+    margin-bottom: 250px;
     /* height: 100vh; */
     width: 100%;
     background-position: top 10% right 0%;
@@ -618,6 +619,14 @@ footer .copyright{
     display: flex;
     flex-direction: column;
     align-items:flex-start;
+    justify-content: center;
+}
+.center{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items:center;
     justify-content: center;
 }
 .shop-items .space{
@@ -681,31 +690,16 @@ footer .copyright{
 .Hz{
     background-color: white;
     width: 100vw;
-    height: 100vh;
+    height: 112vh;
 }
 .main{
     width: 100vw;
     height: 100vh;
 }
 .bg{
-    padding-bottom: 500px;
 
 }
-.bg1{
-    
-}
-.bg2{
-    
-}
-.bg3{
-    
-}
-.bg4{
-    
-}
-.bg5{
-    
-}
+
 
 
 
