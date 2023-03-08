@@ -1,13 +1,20 @@
 import React from 'react'
+import { useScroll,useTransform} from 'framer-motion'
 // import Carousel2 from './Carousel2'
 import Footer from './Footer'
 import "../Media/images/Nike_Avatars_Process-vimeo-442444722-hls-fastly_skyfire-2828.mp4"
 import "../Media/images/lebron-17.mp4"
 import "../Media/images/lebron-17 (2).mp4"
 import HzScroll from './HzScroll'
+// import { useScroll } from 'framer-motion'
 
 function Shop() {
-  
+
+  const {scrollYProgress} = useScroll();
+  const x = useTransform(scrollYProgress,[0,1],[0,-600]);
+
+
+
   return (
     <>
       <div className='Shop'>
@@ -47,13 +54,14 @@ function Shop() {
       </div>
 
       <div className='shop-items-page '>
+        <h1 style={{x}} >Helllloooo Worldddd</h1>
       </div>
 
       
 
       <div className='shop-items center'>
-      <h2>History of Lebron's.</h2>
-      <p> <span className='bigText'>S</span>croll to see some magic <img style={{margin:"100px 20px"}} src={require("../Media/images/magic-wand_1fa84.png")} alt="" /> </p>
+      <h4>History of Lebron's.</h4>
+      <p> <span className='bigText'>S</span>croll to see some magic <img style={{margin:"100px 20px" ,height:"100px" }} src={require("../Media/images/magic-wand_1fa84.png")} alt="" /> </p>
       </div>
 
       {/* <Carousel2 /> */}
