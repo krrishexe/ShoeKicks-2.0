@@ -107,7 +107,7 @@ button.normal{
 #navbar li a.active::after,
 #navbar li a:hover::after{
     content: "";
-    width: 30%;
+    width: 40%;
     height: 2px;
     background: #a92322;
     position: absolute;
@@ -562,7 +562,7 @@ footer .copyright{
     font-size: 1rem;
 }
 .backVideo{
-    padding: 0 5%;
+    padding: 0 0%;
     position: absolute;
     /* top: 10;
     left: 0; */
@@ -676,16 +676,6 @@ footer .copyright{
     flex-direction: column;
     align-items:flex-start;
     justify-content: center;
-}
-.paper-plane{
-    height: 100px;
-    top: 50%;
-    left: 0%;
-    position: absolute;
-}
-.animation{
-    position: relative;                 
-    overflow: hidden;
 }
 
 .container {
