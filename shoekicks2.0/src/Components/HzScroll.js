@@ -7,7 +7,7 @@ function HzScroll() {
 
     return (
         <div className='Hz'>
-            <HorizontalScroll>
+            <HorizontalScroll reverseScroll = { true } config= {{ stiffness: 100, damping: 10 }}  animValues    = { 10 }>
                 <div className="main bg" >
                     <img src={require("../Media/images/shoes/lebron-17.jpg")} className="d-block w-100" alt="..." />
                 </div>
