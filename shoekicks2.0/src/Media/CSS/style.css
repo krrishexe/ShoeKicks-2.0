@@ -675,7 +675,7 @@ footer .copyright{
 
 .shop-items-page{
     position: relative;
-    background-image: url("../images/home2.JPEG");
+    background-image: url("../images/lebron-17.jpg");
     background-size: cover;
     height: 110vh;
     width: 100%;
@@ -683,7 +683,8 @@ footer .copyright{
     /* padding:80px 80px; */
     
 }
-.shop-items-page h1{
+/* Textwrap nowrap so that the text doesnt break into multiple lines */
+/* .shop-items-page h1{
     position: absolute;
     bottom: 7%;
     left: 0;
@@ -691,11 +692,10 @@ footer .copyright{
     z-index: 1;
     font-size: 20em;
     white-space: nowrap;                    
-                            /* Textwrap nowrap so that the text doesnt break into multiple lines */
     transition: all 2s cubic-bezier(0.165 , 0.84 ,0.44, 1);
     font-family: 'Genos', sans-serif;
     font-weight: 400;
-}
+} */
 .imgHover{
     margin: 100px 20px;
     height: 100px;

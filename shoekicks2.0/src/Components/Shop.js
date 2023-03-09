@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { useScroll, useTransform ,useMotionValueEvent, useSpring} from 'framer-motion'
+import { Title } from './Style'
 // import Carousel2 from './Carousel2'
 import Footer from './Footer'
 import "../Media/images/Nike_Avatars_Process-vimeo-442444722-hls-fastly_skyfire-2828.mp4"
 import "../Media/images/lebron-17.mp4"
 import "../Media/images/lebron-17 (2).mp4"
 import HzScroll from './HzScroll'
-// import { useScroll } from 'framer-motion'
+
 
 const Shop = () => {
-  
-  
-  const styles = {
-    // transform: `translate(${position}px)` 
-  };
+
+  const { scrollYProgress } = useScroll();
+  const x = useTransform(scrollYProgress, [0, 1], [-550, 1200]);
+
 
   return (
     <>
@@ -30,10 +31,10 @@ const Shop = () => {
 
       </div>
 
-      <div className='Shop'>
-        <video autoPlay muted loop playsInline className='backVideo' width={"100%"} height={"100vh"}>
-          <source src={require('../Media/images/lebron-17.mp4')} type='video/mp4' />
-        </video>
+      <div className='shop-items-page '>
+      <Title style={{x}}> Just Do It !! </Title>
+        {/* <h1 style={styles}>Helllloooo Worldddd</h1> */}
+        {/* <h1 style={{transform:`translateX(${scrollYProgress}px)`}}>Helllloooo Worldddd</h1> */}
       </div>
 
       <div className='shop-items space'>
@@ -42,7 +43,7 @@ const Shop = () => {
 
       <div className='Shop'>
         <video autoPlay muted loop playsInline className='backVideo' width={"100%"} height={"100vh"}>
-          <source src={require('../Media/images/lebron-17 (2).mp4')} type='video/mp4' />
+          <source src={require('../Media/images/lebron-17.mp4')} type='video/mp4' />
         </video>
       </div>
 
@@ -52,9 +53,14 @@ const Shop = () => {
         </p>
       </div>
 
-      <div className='shop-items-page '>
-        <h1 id='blocks' style={styles}>Helllloooo Worldddd</h1>
+      <div className='Shop'>
+        <video autoPlay muted loop playsInline className='backVideo' width={"100%"} height={"100vh"}>
+          <source src={require('../Media/images/lebron-17 (2).mp4')} type='video/mp4' />
+        </video>
       </div>
+
+
+      
 
 
 
