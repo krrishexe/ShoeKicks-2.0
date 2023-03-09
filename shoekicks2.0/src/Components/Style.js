@@ -5,7 +5,7 @@ export const Title = styled(motion.h1)`
     position: absolute;
     bottom: 7%;
     left: 5%;
-    color: black;
+    color: white;
     z-index: 1;
     font-size: 20em;
     white-space: nowrap;                    

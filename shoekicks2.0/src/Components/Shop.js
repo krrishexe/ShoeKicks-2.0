@@ -1,5 +1,5 @@
 import React from 'react'
-import { useScroll, useTransform ,useMotionValueEvent, useSpring} from 'framer-motion'
+import { useScroll, useTransform } from 'framer-motion'
 import { Title } from './Style'
 // import Carousel2 from './Carousel2'
 import Footer from './Footer'
@@ -12,7 +12,7 @@ import HzScroll from './HzScroll'
 const Shop = () => {
 
   const { scrollYProgress } = useScroll();
-  const x = useTransform(scrollYProgress, [0, 1], [-550, 1200]);
+  const x = useTransform(scrollYProgress, [0, 1], [-550, 1220]);
 
 
   return (
