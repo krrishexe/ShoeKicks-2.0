@@ -1,15 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // import Carousel2 from './Carousel2'
 import Footer from './Footer'
 import "../Media/images/Nike_Avatars_Process-vimeo-442444722-hls-fastly_skyfire-2828.mp4"
 import "../Media/images/lebron-17.mp4"
 import "../Media/images/lebron-17 (2).mp4"
 import HzScroll from './HzScroll'
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 
 const Shop = () => {
 
-
+  useEffect(()=>{
+    gsap.to(".head",{
+      x:-600,
+      color:"#333",
+      scrollTrigger:{
+        trigger:".head",
+        toggleActions:"play pause reverse none",
+        start:"top center",
+        scrub:true,
+        markers:true,
+    },
+      duration:2,
+    })
+  })
   return (
     <>
       <div className='Shop'>
@@ -27,8 +44,8 @@ const Shop = () => {
       </div>
 
       <div className='shop-items-page '>
-        <h2>17</h2>
-      <h1 className='head'>Lebron<span className="comma">'</span>s</h1>
+        {/* <h3 className='headh3'>17</h3> */}
+      <h1 className='head'>Lebron<span className="comma">'</span>s 17</h1>
       </div>
 
       <div className='shop-items space'>
