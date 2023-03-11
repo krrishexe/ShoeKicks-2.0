@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Genos:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 *{
     margin: 0;
@@ -681,21 +682,23 @@ footer .copyright{
     width: 100%;
     background-position: top 10% right 0%;
     /* padding:80px 80px; */
-    
 }
+
 /* Textwrap nowrap so that the text doesnt break into multiple lines */
-/* .shop-items-page h1{
+.head{
     position: absolute;
-    bottom: 7%;
+    bottom: 5%;
     left: 0;
     color: white;
     z-index: 1;
     font-size: 20em;
     white-space: nowrap;                    
-    transition: all 2s cubic-bezier(0.165 , 0.84 ,0.44, 1);
-    font-family: 'Genos', sans-serif;
+    font-family: 'Righteous', cursive;
     font-weight: 400;
-} */
+}
+.comma{
+    color: #eb0e2f;
+}
 .imgHover{
     margin: 100px 20px;
     height: 100px;

@@ -1,6 +1,4 @@
 import React from 'react'
-import { useScroll, useTransform } from 'framer-motion'
-import { Title } from './Style'
 // import Carousel2 from './Carousel2'
 import Footer from './Footer'
 import "../Media/images/Nike_Avatars_Process-vimeo-442444722-hls-fastly_skyfire-2828.mp4"
@@ -10,9 +8,6 @@ import HzScroll from './HzScroll'
 
 
 const Shop = () => {
-
-  const { scrollYProgress } = useScroll();
-  const x = useTransform(scrollYProgress, [0, 1], [-550, 1220]);
 
 
   return (
@@ -32,9 +27,8 @@ const Shop = () => {
       </div>
 
       <div className='shop-items-page '>
-      <Title style={{x}}> Just Do It !! </Title>
-        {/* <h1 style={styles}>Helllloooo Worldddd</h1> */}
-        {/* <h1 style={{transform:`translateX(${scrollYProgress}px)`}}>Helllloooo Worldddd</h1> */}
+        <h2>17</h2>
+      <h1 className='head'>Lebron<span className="comma">'</span>s</h1>
       </div>
 
       <div className='shop-items space'>
