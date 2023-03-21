@@ -7,25 +7,39 @@ import "../Media/images/lebron-17 (2).mp4"
 import HzScroll from './HzScroll'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+// import ScrollMagic from "scrollmagic";
+// import { Controller, Scene } from 'react-scrollmagic';
 
-gsap.registerPlugin(ScrollTrigger);
+
+gsap.registerPlugin(ScrollTrigger,MotionPathPlugin);
+
+// var controller = new ScrollMagic.Controller();
+
+
 
 
 const Shop = () => {
-
+  
   useEffect(()=>{
+
     gsap.to(".head",{
       x:-600,
-      color:"#333",
+      color:"rgba(255, 255, 255, 0)",
       scrollTrigger:{
         trigger:".head",
-        toggleActions:"play pause reverse none",
-        start:"top center",
-        scrub:true,
-        markers:true,
-    },
+        // toggleActions:"play pause reverse none",
+        start:"top bottom",
+        // markers:true,
+        scrub:3,
+      },
       duration:2,
     })
+
+    
+    
+    
+
   })
   return (
     <>
