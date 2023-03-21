@@ -5,7 +5,7 @@ import "../Media/images/Nike_Avatars_Process-vimeo-442444722-hls-fastly_skyfire-
 import "../Media/images/lebron-17.mp4"
 import "../Media/images/lebron-17 (2).mp4"
 import HzScroll from './HzScroll'
-import { gsap } from "gsap";
+import { gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 // import ScrollMagic from "scrollmagic";
@@ -16,7 +16,14 @@ gsap.registerPlugin(ScrollTrigger,MotionPathPlugin);
 
 // var controller = new ScrollMagic.Controller();
 
-
+const values = [
+  {x:-900,y:-20},
+  {x:-700,y:30},
+  // {x:950,y:-100},
+  // {x:650,y:-100},
+  // {x:1000,y:100},
+  // {x:window.innerWidth,y:-300}
+]
 
 
 const Shop = () => {
@@ -35,11 +42,27 @@ const Shop = () => {
       },
       duration:2,
     })
-
-    
-    
     
 
+    gsap.to(".imgHover",{
+    //   motionPath:{
+    //     values:"values"
+    //     // curviness:"1.5",
+        
+    // },
+      motionPath:values,
+      scrollTrigger:{
+        trigger:".imgHover",
+        toggleActions:"play pause reverse none",
+        start:"top 700px",
+        end:"bottom",
+        markers:true,
+        scrub:3,
+      },
+      duration:10,
+    })
+
+    
   })
   return (
     <>
