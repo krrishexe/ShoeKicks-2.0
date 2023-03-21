@@ -113,8 +113,8 @@ const Shop = () => {
 
 
       <div className='shop-items center'>
-        <h4>History of Lebron's.</h4>
         <p> <span className='bigText'>S</span>croll to see some magic <img className='imgHover' src={require("../Media/images/magic-wand_1fa84.png")} alt="" /> </p>
+        <h4>History of Lebron's.</h4>
       </div>
 
       {/* <Carousel2 /> */}
