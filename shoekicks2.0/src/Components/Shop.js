@@ -8,20 +8,23 @@ import HzScroll from './HzScroll'
 import { gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { Draggable } from "gsap/Draggable";
+
 // import ScrollMagic from "scrollmagic";
 // import { Controller, Scene } from 'react-scrollmagic';
 
 
-gsap.registerPlugin(ScrollTrigger,MotionPathPlugin);
+gsap.registerPlugin(ScrollTrigger,MotionPathPlugin,Draggable);
 
-// var controller = new ScrollMagic.Controller();
+
 
 const values = [
-  {x:-900,y:-20},
-  {x:-700,y:30},
-  // {x:950,y:-100},
+  {y:600},
+  // {x:-900,y:-200},
+  // {x:-700,y:30},
+  // {x:-200,y:600},
   // {x:650,y:-100},
-  // {x:1000,y:100},
+  
   // {x:window.innerWidth,y:-300}
 ]
 
@@ -43,24 +46,28 @@ const Shop = () => {
       duration:2,
     })
     
-
-    gsap.to(".imgHover",{
-    //   motionPath:{
-    //     values:"values"
-    //     // curviness:"1.5",
-        
-    // },
-      motionPath:values,
-      scrollTrigger:{
-        trigger:".imgHover",
-        toggleActions:"play pause reverse none",
-        start:"top 700px",
-        end:"bottom",
-        markers:true,
-        scrub:3,
-      },
-      duration:10,
+    Draggable.create('#dragMe',{
+      bounds:'center'
     })
+
+    // gsap.to(".imgHover",{
+    // //   motionPath:{
+    // //     values:"values"
+    // //     // curviness:"1.5",
+        
+    // // },
+    //   motionPath:values,
+    //   scrollTrigger:{
+    //     trigger:".imgHover",
+    //     toggleActions:"play pause reverse none",
+    //     start:"top 700px",
+    //     // end:"bottom top",
+    //     markers:true,
+    //     scrub:3,
+    //   },
+    //   scale:2,
+    //   duration:2,
+    // })
 
     
   })
@@ -113,7 +120,7 @@ const Shop = () => {
 
 
       <div className='shop-items center'>
-        <p> <span className='bigText'>S</span>croll to see some magic <img className='imgHover' src={require("../Media/images/magic-wand_1fa84.png")} alt="" /> </p>
+        <p> <span className='bigText'>S</span>croll to see some magic <img id='dragMe' className='imgHover' src={require("../Media/images/magic-wand_1fa84.png")} alt="" /> </p>
         <h4>History of Lebron's.</h4>
       </div>
 
