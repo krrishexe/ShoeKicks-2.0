@@ -8,15 +8,15 @@ import HzScroll from './HzScroll'
 import { gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-import { Draggable } from "gsap/Draggable";
+
 
 // import ScrollMagic from "scrollmagic";
 // import { Controller, Scene } from 'react-scrollmagic';
 
 
-gsap.registerPlugin(ScrollTrigger,MotionPathPlugin,Draggable);
+gsap.registerPlugin(ScrollTrigger,MotionPathPlugin);
 
-
+// const center = '.center'
 
 const values = [
   {y:600},
@@ -46,9 +46,9 @@ const Shop = () => {
       duration:2,
     })
     
-    Draggable.create('#dragMe',{
-      bounds:'center'
-    })
+    // Draggable.create('#dragMe',{
+    //   bounds:center
+    // })
 
     // gsap.to(".imgHover",{
     // //   motionPath:{
