@@ -1,8 +1,10 @@
 const express = require('express')
-
 const router = express.Router();
+const Post= require("../models/Post");
 
-router.get('/',function(req,res){
+
+
+router.post('/',function(req,res){
     res.send("posts")
 })
 
@@ -10,7 +12,7 @@ router.get('/',function(req,res){
 
 // TO GO DEEPER INTO ROUTES WE CAN ADD MORE ROUTES AND IT WILL READ THEM AS  --> "/POSTS/SPECIFIC"
 
-router.get('/specific',function(req,res){
+router.post('/specific',function(req,res){
     res.send("Specific posts")
 })
 
