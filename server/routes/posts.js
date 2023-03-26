@@ -4,11 +4,17 @@ const router = express.Router();
 
 //GETS BACK A SPECIFIC POST
 
-router.get('/:postId',()=>{
-    console.log(req.params.postId)
+router.get('/:postId',async (req,res)=>{
+    try {
+        const post = await Post.findById(req.params.postId)
+        res.json(post)
+    } catch (error) {
+        console.log(error)
+    }
+
 } )
 
-// GETS BACK ALL THE POST
+// GETS BACK ALL THE POST   
 router.get('/', async function(req,res){
     try {
         const posts = await Post.find();
@@ -18,6 +24,7 @@ router.get('/', async function(req,res){
     }
 })
 
+// ADDS A NEW POST 
 router.post('/',async function(req,res){
     // console.log(req.body
     const post_data = new Post({
@@ -35,6 +42,15 @@ router.post('/',async function(req,res){
     }
 });
 
+//DELETES A SPECIFIC POST
+router.delete('/:postId',async (req,res)=>{
+    try {
+        const removedPost = await Post.findByIdAndRemove(req.body.postId);
+        res.json(removedPost)
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 
 
