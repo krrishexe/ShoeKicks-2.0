@@ -43,9 +43,10 @@ router.post('/',async function(req,res){
 });
 
 //DELETES A SPECIFIC POST
+
 router.delete('/:postId',async (req,res)=>{
     try {
-        const removedPost = await Post.findByIdAndRemove(req.body.postId);
+        const removedPost = await Post.findByIdAndDelete({_id:req.body.postId},);      // in new mongoose update it only works with findOneAndDelete() function
         res.json(removedPost)
     } catch (error) {
         console.log(error)
@@ -53,6 +54,27 @@ router.delete('/:postId',async (req,res)=>{
 })
 
 
+// UPDATES A SPECIFIC POST
+
+router.patch('/:postId', async (req,res)=>{
+    try {
+        const updatedPost = await Post.findOneAndUpdate({_id:req.body.postId},{$set:
+            {
+                "vendor" : "shoekicks",
+                "name":"null",
+                "price": "00",
+                "images": [
+                                  "https://cdn.shopify.com/s/files/1/0659/0722/8923/products/DUNK1.jpg?v=1679742723&width=533",
+                                  "https://cdn.shopify.com/s/files/1/0659/0722/8923/products/DUNK1.jpg-2.jpg?v=1679742723&width=533"
+                              ]
+                
+                
+        }})
+        res.json(updatedPost)
+    } catch (error) {
+        res.json(error)
+    }
+})
 
 
 
