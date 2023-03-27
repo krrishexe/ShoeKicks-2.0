@@ -7,6 +7,7 @@ import "../Media/images/lebron-17 (2).mp4"
 import HzScroll from './HzScroll'
 import { gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Draggable } from "gsap/Draggable";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 
@@ -14,19 +15,19 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 // import { Controller, Scene } from 'react-scrollmagic';
 
 
-gsap.registerPlugin(ScrollTrigger,MotionPathPlugin);
+gsap.registerPlugin(ScrollTrigger,MotionPathPlugin,Draggable);
 
 // const center = '.center'
 
-const values = [
-  {y:600},
-  // {x:-900,y:-200},
-  // {x:-700,y:30},
-  // {x:-200,y:600},
-  // {x:650,y:-100},
+// const values = [
+//   {y:600},
+//   // {x:-900,y:-200},
+//   // {x:-700,y:30},
+//   // {x:-200,y:600},
+//   // {x:650,y:-100},
   
-  // {x:window.innerWidth,y:-300}
-]
+//   // {x:window.innerWidth,y:-300}
+// ]
 
 
 const Shop = () => {
@@ -46,10 +47,10 @@ const Shop = () => {
       duration:2,
     })
     
-    // Draggable.create('#dragMe',{
-    //   bounds:center
-    // })
-
+    Draggable.create('#dragMe',{
+      bounds:".center"
+    })
+    
     // gsap.to(".imgHover",{
     // //   motionPath:{
     // //     values:"values"
