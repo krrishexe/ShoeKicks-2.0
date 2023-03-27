@@ -3,7 +3,11 @@ import React from 'react'
 function About() {
   return (
     <div>
-      <h1>this is products page</h1>
+      <div class="container">
+        <div class="big"></div>
+        <div class="smol-1"></div>
+        <div class="smol-2"></div>
+      </div>
     </div>
   )
 }

@@ -1,0 +1,16 @@
+.container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 10px;
+    grid-auto-flow: column;
+    grid-template-areas:
+      "big big big smol-1"
+      "big big big smol-2";
+  }
+  
+  .big { grid-area: big; }
+  
+  .smol-1 { grid-area: smol-1; }
+  
+  .smol-2 { grid-area: smol-2; }
+  
