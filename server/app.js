@@ -32,6 +32,6 @@ async function main() {
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
 
-app.listen(3000,function(){
-    console.log("server started Successfuly at localhost 3000")
+app.listen(5000,function(){
+    console.log("server started Successfuly at localhost 5000")
 })

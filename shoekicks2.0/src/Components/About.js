@@ -1,5 +1,5 @@
 import React from 'react'
-import ShoeItem from './ShoeItem'
+import Shoe from './Shoe'
 
 function About() {
   return (
@@ -23,7 +23,7 @@ function About() {
               <h2>New Arrivals</h2>
             </div>
 
-            <ShoeItem />
+            <Shoe />
 
 
 
