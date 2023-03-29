@@ -4,28 +4,29 @@ import ShoeItem from './ShoeItem'
 const Shoe = (props) => {
 
     const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
 
     useEffect(() => {
         fetch(`http://localhost:5000/posts`,{mode:'no-cors'})
             .then(response => response.json())
             .then((usefulData) => {
                 console.log(usefulData);
-                setLoading(false);
+                // setLoading(false);
                 setData(usefulData);
             })
             .catch((e) => {
                 console.error(`An error occurred: ${e}`)
-            });
+            })
     }, [])
 
 
     return (
         <div>
             <div className="App">
-                {loading && <p>Loading...</p>}
-                {!loading && <p>Fetched data</p>}
+                <ShoeItem />
+                {/* {loading && <p>Loading...</p>}
+                {!loading && <p>Fetched data</p>} */}
             </div>
 
 
