@@ -60,7 +60,7 @@ router.delete('/:postId',async (req,res)=>{
 
 router.patch('/:postId', async (req,res)=>{
     try {
-        const updatedPost = await Post.findOneAndUpdate({_id:ObjectId(req.body.postId)},{$set:
+        const updatedPost = await Post.findOneAndUpdate({_id:ObjectId(req.params.postId)},{$set:
             {
                 "vendor" : "shoekicks",
                 "name":"null",

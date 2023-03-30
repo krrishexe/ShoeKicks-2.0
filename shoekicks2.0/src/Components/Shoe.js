@@ -2,26 +2,25 @@ import React, { useState, useEffect } from 'react'
 import ShoeItem from './ShoeItem'
 
 const Shoe = (props) => {
-
     const [data, setData] = useState(null);
     // const [loading, setLoading] = useState(true);
     // const [error, setError] = useState(null);
 
-    
+
 
     useEffect(() => {
-        fetch('http://localhost:5000/posts/',{
+        fetch('http://localhost:5000/posts/', {
             mode: 'no-cors',
-            method: 'GET',
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            }
         })
-            .then(response => response.json())
-            .then((json) => {
-                console.log(json);
+        .then(response => response.json())
+        .then((json) => {
+                console.log(json.images);
                 // setLoading(false);
-                setData(json);
-            })
-            .catch((e) => {
-                console.error(`An error occurred: ${e}`)
+                // setData(json);
             })
     }, [])
 
