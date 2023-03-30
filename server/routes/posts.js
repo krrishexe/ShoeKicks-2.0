@@ -3,6 +3,7 @@ const Post = require('../models/Post');
 const router = express.Router();
 
 //GETS BACK A SPECIFIC POST
+var ObjectId = require('mongodb').ObjectID;
 
 router.get('/:postId',async (req,res)=>{
     try {
@@ -46,7 +47,8 @@ router.post('/',async function(req,res){
 
 router.delete('/:postId',async (req,res)=>{
     try {
-        const removedPost = await Post.findByIdAndDelete({_id:req.body.postId},);      // in new mongoose update it only works with findOneAndDelete() function
+        console.log(req.params.postId)
+        const removedPost = await Post.findByIdAndDelete({_id:req.params.postId},);      // in new mongoose update it only works with findOneAndDelete() function
         res.json(removedPost)
     } catch (error) {
         console.log(error)
@@ -58,7 +60,7 @@ router.delete('/:postId',async (req,res)=>{
 
 router.patch('/:postId', async (req,res)=>{
     try {
-        const updatedPost = await Post.findOneAndUpdate({_id:req.body.postId},{$set:
+        const updatedPost = await Post.findOneAndUpdate({_id:ObjectId(req.body.postId)},{$set:
             {
                 "vendor" : "shoekicks",
                 "name":"null",

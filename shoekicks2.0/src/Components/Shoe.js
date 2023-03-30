@@ -10,7 +10,7 @@ const Shoe = (props) => {
     
 
     useEffect(() => {
-        fetch(`http://localhost:5000/posts`,{
+        fetch('http://localhost:5000/posts/',{
             mode: 'no-cors',
             method: 'GET',
         })
