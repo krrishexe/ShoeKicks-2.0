@@ -18,7 +18,10 @@ app.use('/posts',postsRoute);
 
 //ROUTES
 app.get('/',function(req,res){
-    res.send("hello")
+    res.set({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    });
 })
 
 

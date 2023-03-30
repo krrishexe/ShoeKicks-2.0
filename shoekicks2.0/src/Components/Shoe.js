@@ -7,13 +7,18 @@ const Shoe = (props) => {
     // const [loading, setLoading] = useState(true);
     // const [error, setError] = useState(null);
 
+    
+
     useEffect(() => {
-        fetch(`http://localhost:5000/posts`,{mode:'no-cors'})
+        fetch(`http://localhost:5000/posts`,{
+            mode: 'no-cors',
+            method: 'GET',
+        })
             .then(response => response.json())
-            .then((usefulData) => {
-                console.log(usefulData);
+            .then((json) => {
+                console.log(json);
                 // setLoading(false);
-                setData(usefulData);
+                setData(json);
             })
             .catch((e) => {
                 console.error(`An error occurred: ${e}`)
