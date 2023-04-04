@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ShoeItem from './ShoeItem'
 
 const Shoe = (props) => {
-    const [articles, setArticles] = useState([]);
+    const [products, setProducts] = useState([]);
 
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const Shoe = (props) => {
         });
         let parsedData = await data.json()
         console.log(parsedData)
-        setArticles(articles.concat(parsedData.articles))
+        setProducts(products.concat(parsedData.articles))
         // setTotalResults(parsedData.totalResults)
     };
 
@@ -31,7 +31,7 @@ const Shoe = (props) => {
             <div className="App">
                 <ShoeItem />
 
-                {articles.map((element) => {
+                {products.map((element) => {
                     return <div>
                         <ShoeItem vendor={element.vendor ? element.vendor : ""} name={element.name ? element.name : ""} images={element.images} source={element.source.name} />
                     </div>
