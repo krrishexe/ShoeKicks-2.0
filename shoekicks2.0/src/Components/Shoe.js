@@ -9,32 +9,19 @@ const Shoe = (props) => {
 
         fetchMoreData();
 
-
-        // fetch('http://localhost:5000/posts/', {
-        //     mode: 'no-cors',
-        //     method: 'GET',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     }
-        // })
-        // .then(response => response.json())
-        // .then((json) => {
-        //         console.log(json.images);
-                // setLoading(false);
-                // setData(json);
-        //     })
     })
 
     const fetchMoreData = async () => {
-        const url = `http://localhost:5000/posts`;
+        const url = `http://localhost:5000/posts/`;
         let data = await fetch(url,{
-            mode: 'no-cors',
+            mode: 'cors',
             method: 'GET',
             headers: {
                 'content-type': 'application/json'
-            }
+                }
         });
         let parsedData = await data.json()
+        console.log(parsedData)
         setArticles(articles.concat(parsedData.articles))
         // setTotalResults(parsedData.totalResults)
     };
@@ -42,13 +29,13 @@ const Shoe = (props) => {
     return (
         <div>
             <div className="App">
-            <div className="row">
+                <ShoeItem />
+
                 {articles.map((element) => {
                     return <div>
                         <ShoeItem vendor={element.vendor ? element.vendor : ""} name={element.name ? element.name : ""} images={element.images} source={element.source.name} />
                     </div>
                 })}
-            </div> 
             </div>
 
 

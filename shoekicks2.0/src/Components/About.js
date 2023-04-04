@@ -1,7 +1,7 @@
 import React from 'react'
 import Shoe from './Shoe'
 
-function About() {
+function About(props) {
   return (
     <div>
       <div className="bigContainer">

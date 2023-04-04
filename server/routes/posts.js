@@ -5,24 +5,26 @@ const router = express.Router();
 //GETS BACK A SPECIFIC POST
 var ObjectId = require('mongodb').ObjectID;
 
+var cors = require('cors')
+var corsOptions = {
+    origin: 'http://localhost:3000',
+  }
+  
+
 router.get('/:postId',async (req,res)=>{
     try {
         const post = await Post.findById(req.params.postId)
-        res.json(post)
     } catch (error) {
+        res.json(post)
         console.log(error)
     }
 
 } )
 
 // GETS BACK ALL THE POST   
-router.get('/', async function(req,res){
-    try {
-        const posts = await Post.find();
-        res.json(posts)
-    } catch (error) {
-        res.json(error)
-    }
+router.get('/',cors(corsOptions), async function(req,res){
+    const posts = await Post.find();
+    res.json(posts)
 })
 
 // ADDS A NEW POST 
