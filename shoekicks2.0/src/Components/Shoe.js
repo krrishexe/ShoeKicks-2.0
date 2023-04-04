@@ -22,7 +22,8 @@ const Shoe = (props) => {
         });
         let parsedData = await data.json()
         console.log(parsedData)
-        setProducts(products.concat(parsedData.articles))
+        console.log(parsedData[0])
+        setProducts(products.concat(parsedData[0].products))
         // setTotalResults(parsedData.totalResults)
     };
 
@@ -33,7 +34,7 @@ const Shoe = (props) => {
 
                 {products.map((element) => {
                     return <div>
-                        <ShoeItem vendor={element.vendor ? element.vendor : ""} name={element.name ? element.name : ""} images={element.images} source={element.source.name} />
+                        <ShoeItem vendor={element.vendor ? element.vendor : ""} name={element.name ? element.name : ""} images={element.images} price={element.price} />
                     </div>
                 })}
             </div>
