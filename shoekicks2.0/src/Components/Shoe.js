@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ShoeItem from './ShoeItem'
+import Cardskeleton from './Cardskeleton';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
 
@@ -43,135 +44,17 @@ const Shoe = (props) => {
                         loading
                             ?
                             <>
-                                <div className="bigCard">
-                                    <div className='moreCards'>
-                                        <div class="product-card" >
-                                            <div class="badge">Hot</div>
-                                            <div class="product-tumb">
-                                                <Skeleton height={303} width={380} />
-                                            </div>
-                                            <div class="product-details">
-                                                <span class="product-catagory"> <Skeleton /> </span>
-                                                <h4><a href="#"> <Skeleton /> </a></h4>
-                                                <div class="product-bottom-details">
-                                                    <div class="product-price"><Skeleton /> </div>
-                                                    <div class="product-links">
-                                                        <a href="#"><i class="fa fa-heart"></i></a>
-                                                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="bigCard">
-                                    <div className='moreCards'>
-                                        <div class="product-card" >
-                                            <div class="badge">Hot</div>
-                                            <div class="product-tumb">
-                                                <Skeleton height={303} width={380} />
-                                            </div>
-                                            <div class="product-details">
-                                                <span class="product-catagory"> <Skeleton /> </span>
-                                                <h4><a href="#"> <Skeleton /> </a></h4>
-                                                <div class="product-bottom-details">
-                                                    <div class="product-price"><Skeleton /> </div>
-                                                    <div class="product-links">
-                                                        <a href="#"><i class="fa fa-heart"></i></a>
-                                                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="bigCard">
-                                    <div className='moreCards'>
-                                        <div class="product-card" >
-                                            <div class="badge">Hot</div>
-                                            <div class="product-tumb">
-                                                <Skeleton height={303} width={380} />
-                                            </div>
-                                            <div class="product-details">
-                                                <span class="product-catagory"> <Skeleton /> </span>
-                                                <h4><a href="#"> <Skeleton /> </a></h4>
-                                                <div class="product-bottom-details">
-                                                    <div class="product-price"><Skeleton /> </div>
-                                                    <div class="product-links">
-                                                        <a href="#"><i class="fa fa-heart"></i></a>
-                                                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="bigCard">
-                                    <div className='moreCards'>
-                                        <div class="product-card" >
-                                            <div class="badge">Hot</div>
-                                            <div class="product-tumb">
-                                                <Skeleton height={303} width={380} />
-                                            </div>
-                                            <div class="product-details">
-                                                <span class="product-catagory"> <Skeleton /> </span>
-                                                <h4><a href="#"> <Skeleton /> </a></h4>
-                                                <div class="product-bottom-details">
-                                                    <div class="product-price"><Skeleton /> </div>
-                                                    <div class="product-links">
-                                                        <a href="#"><i class="fa fa-heart"></i></a>
-                                                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="bigCard">
-                                    <div className='moreCards'>
-                                        <div class="product-card" >
-                                            <div class="badge">Hot</div>
-                                            <div class="product-tumb">
-                                                <Skeleton height={303} width={380} />
-                                            </div>
-                                            <div class="product-details">
-                                                <span class="product-catagory"> <Skeleton /> </span>
-                                                <h4><a href="#"> <Skeleton /> </a></h4>
-                                                <div class="product-bottom-details">
-                                                    <div class="product-price"><Skeleton /> </div>
-                                                    <div class="product-links">
-                                                        <a href="#"><i class="fa fa-heart"></i></a>
-                                                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="bigCard">
-                                    <div className='moreCards'>
-                                        <div class="product-card" >
-                                            <div class="badge">Hot</div>
-                                            <div class="product-tumb">
-                                                <Skeleton height={303} width={380} />
-                                            </div>
-                                            <div class="product-details">
-                                                <span class="product-catagory"> <Skeleton /> </span>
-                                                <h4><a href="#"> <Skeleton /> </a></h4>
-                                                <div class="product-bottom-details">
-                                                    <div class="product-price"><Skeleton /> </div>
-                                                    <div class="product-links">
-                                                        <a href="#"><i class="fa fa-heart"></i></a>
-                                                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <Cardskeleton />
+                                <Cardskeleton />
+                                <Cardskeleton />
+                                <Cardskeleton />
+                                <Cardskeleton />
+                                <Cardskeleton />
+                                   
                             </>
 
                             :
+                            
                             products.map((element) => {
                                 return <div key={element.url} className='bigCard'>
                                     <ShoeItem vendor={element.vendor ? element.vendor : ""} name={element.name ? element.name : ""} images={element.images} price={element.price} />
