@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import ShoeItem from './ShoeItem'
+import Skeleton from 'react-loading-skeleton';
 
 const Shoe = (props) => {
     const [products, setProducts] = useState([]);
+    const [loading,setLoading]= useState(true)
 
 
     useEffect(() => {
 
-        fetchMoreData();
-
+        setTimeout(() => {
+            
+            fetchMoreData();
+        }, 2000);
     })
 
     const fetchMoreData = async () => {
@@ -21,9 +25,10 @@ const Shoe = (props) => {
                 }
         });
         let parsedData = await data.json()
-        console.log(parsedData)
-        console.log(parsedData[0])
+        // console.log(parsedData)
+        // console.log(parsedData[0])
         setProducts(products.concat(parsedData[0].products))
+    
         // setTotalResults(parsedData.totalResults)
     };
 
@@ -33,7 +38,7 @@ const Shoe = (props) => {
                 <ShoeItem />
 
                 {products.map((element) => {
-                    return <div>
+                    return <div key={element.url}>
                         <ShoeItem vendor={element.vendor ? element.vendor : ""} name={element.name ? element.name : ""} images={element.images} price={element.price} />
                     </div>
                 })}
