@@ -4,14 +4,21 @@
     padding: 0 5%;
 }
     /* CARD CSS */
+.bigCard{
+    display: inline-block;
+}
+.moreCards{
+    margin: 0 20px;
+    
+}
 
 .product-card {
-    display: inline-block;
+    display: block;
     flex: 0.3;
     width: 380px;
     position: relative;
     box-shadow: 0 2px 7px #dfdfdf;
-    margin: 50px auto;
+    margin: 50px 10%;
     background: #363636;
     border-radius: 10px;
 }

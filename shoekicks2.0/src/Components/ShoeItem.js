@@ -6,7 +6,7 @@ const ShoeItem =(props)=>{
 
 
   return (
-    <div>
+    <div className='moreCards'>
      
      <div class="product-card" >
 		<div class="badge">Hot</div>
