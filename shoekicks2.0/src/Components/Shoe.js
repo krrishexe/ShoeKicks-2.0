@@ -37,35 +37,39 @@ const Shoe = (props) => {
         <div>
             <div className="App">
                 <SkeletonTheme baseColor="#202020" highlightColor="#444">
-                <div class="product-card" >
-                    <div class="badge">Hot</div>
-                    <div class="product-tumb">
-                        <Skeleton  height={303} width={380} /> 
-                    </div>
-                    <div class="product-details">
-                        <span class="product-catagory"> <Skeleton /> </span>
-                        <h4><a href="#"> <Skeleton /> </a></h4>
-                        {/* <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p> */}
-                        <div class="product-bottom-details">
-                            <div class="product-price"><Skeleton/> </div>
-                            <div class="product-links">
-                                <a href="#"><i class="fa fa-heart"></i></a>
-                                <a href="#"><i class="fa fa-shopping-cart"></i></a>
+
+                    {
+                        loading
+                        ?
+                        <div class="product-card" >
+                            <div class="badge">Hot</div>
+                            <div class="product-tumb">
+                                <Skeleton  height={303} width={380} /> 
+                            </div>
+                            <div class="product-details">
+                                <span class="product-catagory"> <Skeleton /> </span>
+                                <h4><a href="#"> <Skeleton /> </a></h4>
+                                <div class="product-bottom-details">
+                                    <div class="product-price"><Skeleton/> </div>
+                                    <div class="product-links">
+                                        <a href="#"><i class="fa fa-heart"></i></a>
+                                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
+                        :
+                        {/* {products.map((element) => {
+                                return <div key={element.url}>
+                                    <ShoeItem vendor={element.vendor ? element.vendor : ""} name={element.name ? element.name : ""} images={element.images} price={element.price} />
+                                </div>
+                            })} */}
+                    }
                 </SkeletonTheme>
             </div>
 
-            <ShoeItem />
 
-            {/* {products.map((element) => {
-                    return <div key={element.url}>
-                        <ShoeItem vendor={element.vendor ? element.vendor : ""} name={element.name ? element.name : ""} images={element.images} price={element.price} />
-                    </div>
-                })} */}
+            
         </div>
 
 
