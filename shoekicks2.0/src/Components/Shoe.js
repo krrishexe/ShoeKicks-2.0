@@ -14,7 +14,7 @@ const Shoe = (props) => {
 
             fetchMoreData();
         }, 2000);
-    })
+    },[])
 
     const fetchMoreData = async () => {
         const url = `http://localhost:5000/posts/`;
@@ -28,7 +28,7 @@ const Shoe = (props) => {
         let parsedData = await data.json()
         // console.log(parsedData)
         // console.log(parsedData[0])
-        setProducts(products.concat(parsedData[0].products))
+        setProducts((parsedData[0].products))
         setLoading(false)
 
         // setTotalResults(parsedData.totalResults)
@@ -176,7 +176,7 @@ const Shoe = (props) => {
                                 return <div key={element.url} className='bigCard'>
                                     <ShoeItem vendor={element.vendor ? element.vendor : ""} name={element.name ? element.name : ""} images0={element.images[0]} images1={element.images[1]} price={element.price} />
                                 </div>
-                            })
+                            }).slice(0,6)
                     }
                 </SkeletonTheme>
             </div>

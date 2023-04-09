@@ -39,5 +39,5 @@ async function main() {
 }
 
 app.listen(5000,function(){
-    console.log("server started Successfuly at localhost 5000")
+    console.log("server started Successfuly at localhost http://localhost:5000/posts/")
 })
