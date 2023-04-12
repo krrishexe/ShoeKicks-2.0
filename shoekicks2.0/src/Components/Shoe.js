@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import ShoeItem from './ShoeItem'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
+import Footer from './Footer' 
+
 
 const Shoe = (props) => {
     const [products, setProducts] = useState([]);
@@ -25,8 +27,8 @@ const Shoe = (props) => {
             // console.log({ scrollTop, scrollHeight, clientHeight });
 
             console.log(past_height, scrollHeight)
-                    if (clientHeight + scrollTop >= scrollHeight - 200) {
-                        console.log("to the bottom");
+                    if (clientHeight + scrollTop >= scrollHeight - 400) {
+                        // console.log("to the bottom");
                         // show the loading animation once 
 
                         if (scrollHeight > past_height){
@@ -49,7 +51,7 @@ const Shoe = (props) => {
                 fetchMoreData();
                 loading.classList.remove('show');
                 
-            }, 1000);
+            }, 2000);
 
         }
 
@@ -228,7 +230,8 @@ const Shoe = (props) => {
                     <div class="ball"></div>
                 </div>
             </div>
-
+            
+        <Footer />
 
 
         </div>
