@@ -9,7 +9,7 @@ const Shoe = (props) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true)
 
-    let page = 1;
+    let page = 0;
 
     let past_height = 0;
 
@@ -72,7 +72,7 @@ const Shoe = (props) => {
         // console.log(parsedData[0])
 
 
-        setProducts((parsedData[0].products).slice(0,page * 6))
+        setProducts((parsedData[0].products).slice(0,6 + page * 12))
         page+=1;
         setLoading(false)
        
