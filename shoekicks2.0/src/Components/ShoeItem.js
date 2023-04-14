@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ShoeDetails from './ShoeDetails';
 
 
 const ShoeItem = (props) => {
@@ -23,7 +24,7 @@ const ShoeItem = (props) => {
 				</div>
 				<div class="product-details">
 					<span class="product-catagory">{!vendor ? "Nike" : vendor}</span>
-					<h4><a href="#">{!name ? "AIR MAX 90 SE 'SUMMIT WHITE/SAFETY ORANGE-SESAME'" : name}</a></h4>
+					<h4><a href="./ShoeDetails.js" >{!name ? "AIR MAX 90 SE 'SUMMIT WHITE/SAFETY ORANGE-SESAME'" : name}</a></h4>
 					{/* <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p> */}
 					<div class="product-bottom-details">
 						<div class="product-price">{!price ? "\u20b9 12,795.00" : price}</div>
