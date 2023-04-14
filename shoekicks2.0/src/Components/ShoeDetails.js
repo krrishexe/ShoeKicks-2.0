@@ -7,7 +7,7 @@ function ShoeDetails() {
             <Navbar />
 
             <div>
-                <div className="images-section">
+                <div className="images-section parent">
                     <img src="" alt="" />
                     <img src="" alt="" />
                     <img src="" alt="" />
@@ -36,7 +36,7 @@ function ShoeDetails() {
                     </div>
 
                     <div>
-                        <button>Add to cart </button>
+                        <button>Add to cart</button>
                     </div>
                     
                 </div>
