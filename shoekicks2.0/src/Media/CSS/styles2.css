@@ -134,9 +134,19 @@
     grid-template-rows: repeat(2, 2fr);
     grid-column-gap: 20px;
     grid-row-gap: 20px;
-
 }
+.twoFlex{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+/* .images-section{
+    display: flex;
+}
+.articles-desc{
+    display: flex;
 
+} */
 
 
 
