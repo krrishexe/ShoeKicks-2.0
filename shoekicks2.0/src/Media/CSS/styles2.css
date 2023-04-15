@@ -134,19 +134,36 @@
     grid-template-rows: repeat(2, 2fr);
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+
+}
+.tcCenter{
+    margin: 30px 20px;
+    text-align: center;
 }
 .twoFlex{
+    /* padding:0 2%; */
     display: flex;
-    justify-content: space-evenly;
-    
+    justify-content: space-between;
 }
-/* .images-section{
+.spacey{
+    margin: 0 30px;
+}
+.spacey-bw{
+    margin: 0 10px;
+}
+.images-section{
     display: flex;
+    flex:0.7 ;
+    flex-direction: column;
 }
 .articles-desc{
+    margin-top: 70px;
+    padding: 0 30px;
     display: flex;
+    flex: 0.4;
+    flex-direction: column;
 
-} */
+}
 
 
 

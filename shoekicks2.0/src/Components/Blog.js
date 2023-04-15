@@ -3,17 +3,20 @@ import Navbar from './Navbar'
 
 function Blog() {
   return (
+    <>
+
+    <h1 className='bigText tcCenter'>Home - Product name</h1>
+
     <div className='twoFlex'>
 
-      <div>
         <div className="images-section parent">
-          <div className="twoFlex">
-            <img src="../Media/images/f1.jpg" alt="" height={"300px"} width={"300px"} />
-            <img src="../Media/images/f2-1.png" alt="" height={"300px"} width={"300px"} />
+          <div className="spacey">
+            <img className='spacey-bw' src="../Media/images/f1.jpg" alt="" height={"400px"} width={"400px"} />
+            <img className='spacey-bw' src="../Media/images/f2-1.png" alt="" height={"400px"} width={"400px"} />
           </div>
-          <div className="twoFlex">
-            <img src="../Media/images/f3-2.jpg" alt="" height={"300px"} width={"300px"} />
-            <img src="../Media/images/f4-1.jpg" alt="" height={"300px"} width={"300px"} />
+          <div className="spacey">
+            <img className='spacey-bw' src="../Media/images/f3-2.jpg" alt="" height={"400px"} width={"400px"} />
+            <img className='spacey-bw' src="../Media/images/f4-1.jpg" alt="" height={"400px"} width={"400px"} />
           </div>
         </div>
         <div className="articles-desc">
@@ -26,7 +29,7 @@ function Blog() {
           <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum!</h2>
 
           <div className='twoFlex'>
-            <h2 className='price'></h2>
+            <h3 className='price'>price</h3>
             <span>Size Chart</span>
           </div>
 
@@ -43,9 +46,9 @@ function Blog() {
           </div>
 
         </div>
-      </div>
 
     </div>
+    </>
   )
 }
 
