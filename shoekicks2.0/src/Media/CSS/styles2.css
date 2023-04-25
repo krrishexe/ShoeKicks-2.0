@@ -178,7 +178,7 @@
     background: white;
     color: black;
     height: 70px;
-    width: 400px;
+    width: 500px;
     font-size: 30px;
 }
 .vendor{
@@ -189,7 +189,12 @@
 .descc{
     font-size: 25px;
 }
-
+.redirect{
+    margin-bottom: 7px;
+    margin-left: 20px;
+    font-size: 20px;
+    color: white;
+}
 
 
 

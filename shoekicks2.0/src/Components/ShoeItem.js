@@ -30,7 +30,7 @@ const ShoeItem = (props) => {
 						<div class="product-price">{!price ? "\u20b9 12,795.00" : price}</div>
 						<div class="product-links">
 							<a href="#"><i class="fa fa-heart"></i></a>
-							<a href="#"><i class="fa fa-shopping-cart"></i></a>
+							
 						</div>
 					</div>
 				</div>
