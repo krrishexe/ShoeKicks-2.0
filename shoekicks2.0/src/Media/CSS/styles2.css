@@ -166,26 +166,29 @@
     height: 70vh;
 }
 .checkbox{
-    height: 40px;
-    width: 40px;
+
+    margin-right: 20px;
+    height: 60px;
+    width:60px;
+    background: white;
+    font-size: 40px;
 }
 .add-to-cart{
+    margin-top: 30px;
     background: white;
     color: black;
-    height: 40px;
-    width: 300px;
+    height: 70px;
+    width: 400px;
+    font-size: 30px;
 }
 .vendor{
     font-size: 30px;
-    color: #999;
+    color: #999;    
 
 }
-.heart{
-    font-size: 30px;
-    color: #999;
+.descc{
+    font-size: 25px;
 }
-
-
 
 
 

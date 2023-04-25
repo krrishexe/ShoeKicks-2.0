@@ -1,5 +1,5 @@
 import React from 'react'
-import {AiOutlineHeart} from 'react-icons/ai'
+import {AiOutlineHeart,AiOutlineShoppingCart} from 'react-icons/ai'
 
 function Blog() {
   return (
@@ -22,27 +22,28 @@ function Blog() {
         <div className="articles-desc">
 
           <div className='twoFlex'>
-            <span className='vendor'>NIKE</span>
-            <AiOutlineHeart className='heart' />
+            <span className='vendor'>NIKE &gt; Shoe_type </span>
+            <AiOutlineHeart className='vendor' />
           </div>
 
-          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum!</h2>
+          <h2>Naame Of The shoe</h2>
+          <p className='descc'>description of the shoe</p>
 
           <div className='twoFlex'>
-            <h3 className='price'>price</h3>
-            <span>Size Chart</span>
+            <h3 className='vendor'>price</h3>
+            <span className='vendor'>shoe Type </span>
           </div>
 
           <div>
-            <button type='checkbox'>1</button>
-            <button type='checkbox'>2</button>
-            <button type='checkbox'>3</button>
-            <button type='checkbox'>4</button>
-            <button type='checkbox'>5</button>
+            <button type='checkbox' className='checkbox'>1</button>
+            <button type='checkbox' className='checkbox'>2</button>
+            <button type='checkbox' className='checkbox'>3</button>
+            <button type='checkbox' className='checkbox'>4</button>
+            <button type='checkbox' className='checkbox'>5</button>
           </div>
 
           <div>
-            <button className='add-to-cart '>Add to cart</button>
+            <button className='add-to-cart '>Add to cart <AiOutlineShoppingCart /> </button>
           </div>
 
         </div>
