@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from './Navbar'
+import {AiOutlineHeart} from 'react-icons/ai'
 
 function Blog() {
   return (
@@ -22,8 +22,8 @@ function Blog() {
         <div className="articles-desc">
 
           <div className='twoFlex'>
-            <span>NIKE</span>
-            <i>heart</i>
+            <span className='vendor'>NIKE</span>
+            <AiOutlineHeart className='heart' />
           </div>
 
           <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum!</h2>
@@ -34,15 +34,15 @@ function Blog() {
           </div>
 
           <div>
-            <button type='checkbox'></button>
-            <button type='checkbox'></button>
-            <button type='checkbox'></button>
-            <button type='checkbox'></button>
-            <button type='checkbox'></button>
+            <button type='checkbox'>1</button>
+            <button type='checkbox'>2</button>
+            <button type='checkbox'>3</button>
+            <button type='checkbox'>4</button>
+            <button type='checkbox'>5</button>
           </div>
 
           <div>
-            <button>Add to cart</button>
+            <button className='add-to-cart '>Add to cart</button>
           </div>
 
         </div>

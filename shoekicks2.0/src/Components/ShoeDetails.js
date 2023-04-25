@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
+import "../Media/CSS/styles2.css"
 
 function ShoeDetails() {
     return (
@@ -36,7 +37,7 @@ function ShoeDetails() {
                     </div>
 
                     <div>
-                        <button>Add to cart</button>
+                        <button className='add-to-cart'>Add to cart</button>
                     </div>
                     
                 </div>
