@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 
 const ShoeItem = (props) => {
+	const navigate = useNavigate();
 
 	let { name, price, images0, vendor, images1 } = props;
 	const [over, setOver] = useState(false);
 
-	
+	const shoes=()=>{
+		navigate('/shoes')
+	}
 
 
 
@@ -30,7 +34,7 @@ const ShoeItem = (props) => {
 						<div class="product-price">{!price ? "\u20b9 12,795.00" : price}</div>
 						<div class="product-links">
 							<a href="#"><i class="fa fa-heart"></i></a>
-							
+							<button className='redirect' onClick={shoes}> Add to cart</button>
 						</div>
 					</div>
 				</div>

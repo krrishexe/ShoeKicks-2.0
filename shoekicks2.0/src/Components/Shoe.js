@@ -26,7 +26,7 @@ const Shoe = (props) => {
             const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
             // console.log({ scrollTop, scrollHeight, clientHeight });
 
-            console.log(past_height, scrollHeight)
+            // console.log(past_height, scrollHeight)
                     if (clientHeight + scrollTop >= scrollHeight - 400) {
                         // console.log("to the bottom");
                         // show the loading animation once 
@@ -67,7 +67,6 @@ const Shoe = (props) => {
             }
         });
         let parsedData = await data.json()
-        // console.log(parsedData[0])
 
 
         setProducts((parsedData[0].products).slice(0,6 + page * 12))

@@ -1,7 +1,7 @@
 import React from 'react'
 import {AiOutlineHeart,AiOutlineShoppingCart} from 'react-icons/ai'
 
-function Blog() {
+function Shoes() {
   return (
     <>
 
@@ -43,7 +43,7 @@ function Blog() {
           </div>
 
           <div>
-            <button className='add-to-cart '>Add to cart <AiOutlineShoppingCart /> </button>
+            <button className='add-to-cart'>Add to cart <AiOutlineShoppingCart /> </button>
           </div>
 
         </div>
@@ -53,4 +53,4 @@ function Blog() {
   )
 }
 
-export default Blog
+export default Shoes

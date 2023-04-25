@@ -99,6 +99,7 @@
 }
 
 .product-price {
+    margin-top: 5px;
     font-size: 18px;
     color: #F7F7F7;
     font-weight: 600;
@@ -193,7 +194,9 @@
     margin-bottom: 7px;
     margin-left: 20px;
     font-size: 20px;
-    color: white;
+    padding: 4px;
+    color: black;
+    border-radius: 10px;
 }
 
 
