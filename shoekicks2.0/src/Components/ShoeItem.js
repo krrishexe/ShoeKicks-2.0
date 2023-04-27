@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ShoeItem = (props) => {
+
 	const navigate = useNavigate();
 
 	let { name, price, images0, vendor, images1 } = props;
@@ -12,6 +13,7 @@ const ShoeItem = (props) => {
 		navigate('/shoes')
 	}
 
+	console.log("props",props)
 
 
 	return (

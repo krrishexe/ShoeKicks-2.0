@@ -12,7 +12,7 @@ export default function items(initialState,action){
                 ...state ,
                 cartData:action.data
             }
-            break
+            
         case REMOVE_FROM_CART :
             return{
                 ...state,
