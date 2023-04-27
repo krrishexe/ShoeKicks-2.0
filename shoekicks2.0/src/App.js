@@ -9,7 +9,9 @@ import {
   Routes,
 } from "react-router-dom";
 import About from "./Components/About";
-// import Shoes from "./Components/Shoes";
+import Cart from "./Components/Cart";
+import SingleProduct from "./Components/SingleProduct";
+import Footer from "./Components/Footer";
 
  
 function App() {
@@ -24,9 +26,11 @@ function App() {
           <Route exact path="/Shop" key="Shop" element={<Shop />} />
           <Route exact path="/Blog" key="Blog" element={<Blog />} />
           <Route exact path="/Products" key="Products" element={<About />} />
-          {/* <Route exact path="/About" key="About" element={<Shoes />} /> */}
+          <Route exact path="/Cart" key="Cart" element={<Cart />} />
+          <Route exact path="/SingleProduct/:id" key="SingleProduct" element={<SingleProduct />} />
 
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

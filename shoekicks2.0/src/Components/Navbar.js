@@ -15,7 +15,6 @@ function Navbar() {
             <li><Link to={"/Blog"}>Blog</Link></li>
             <li><Link to={"/Products"}>Products</Link></li>
             <li><Link to={"/Cart"}> <FaShoppingCart/> </Link></li>
-            <li><a href="Cart.html"><img src="images/shopping-bag.png" alt="" height="25px" /></a></li>
           </ul>
         </div>
       </section>

@@ -6,7 +6,7 @@ import Products from "../Components/Products";
 import Products2 from "../Components/Products2";
 import Carousel from "../Components/Carousel";
 import Newsletter from "../Components/Newsletter";
-import Footer from "../Components/Footer";
+
 
 function Content() {
     return (
@@ -25,7 +25,6 @@ function Content() {
 
             <Newsletter />
 
-            <Footer />
         </div>
     )
 }
