@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import "../Media/CSS/style.css"
-
+import {FaShoppingCart} from 'react-icons/fa'
 
 function Navbar() {
   return (
@@ -14,7 +14,7 @@ function Navbar() {
             <li><Link to={"/Shop"}>Shop</Link></li>
             <li><Link to={"/Blog"}>Blog</Link></li>
             <li><Link to={"/Products"}>Products</Link></li>
-            <li><Link to={"/About"}>About</Link></li>
+            <li><Link to={"/Cart"}> <FaShoppingCart/> </Link></li>
             <li><a href="Cart.html"><img src="images/shopping-bag.png" alt="" height="25px" /></a></li>
           </ul>
         </div>
