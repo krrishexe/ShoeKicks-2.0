@@ -1,9 +1,21 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import "../Media/CSS/style.css"
 import {FaShoppingCart} from 'react-icons/fa'
 
 function Navbar() {
+  const handleScroll =()=>{
+    console.log(window.scrollY)
+    if(window.scrollY > 500){
+      document.getElementById("header").classList.add("sticky")
+    }else{
+      document.getElementById("header").classList.remove("sticky")
+    } 
+  }
+  useEffect(()=>{
+    window.addEventListener('scroll',handleScroll)
+  },[])
+
   return (
     <>
       <section id="header">

@@ -78,15 +78,16 @@ button.normal{
     background-color: black;
     box-shadow: 0 5px 15px rgba(224,214, 211, 0.3) ;
     z-index: 999;
+    height: 100px;
+}
+.sticky{
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
-    left: 0;
-    /* max-width: 1200px;
-    margin: 0 auto; */
+
 }
 #navbar{
     position: relative;
-    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,7 +135,12 @@ button.normal{
     font-weight: 500;
 }
 
-
+@media  (max-width: 768px) {
+    #header {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
 
 
 #hero{
