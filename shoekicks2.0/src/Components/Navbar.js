@@ -14,7 +14,7 @@ function Navbar() {
             <li><Link to={"/Shop"}>Shop</Link></li>
             <li><Link to={"/Blog"}>Blog</Link></li>
             <li><Link to={"/Products"}>Products</Link></li>
-            <li><Link to={"/Cart"}> <FaShoppingCart/> </Link></li>
+            <li><Link to={"/Cart"}> <FaShoppingCart/> <span className='cart-counter'>5</span> </Link></li>
           </ul>
         </div>
       </section>

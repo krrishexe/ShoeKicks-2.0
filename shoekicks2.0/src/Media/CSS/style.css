@@ -81,10 +81,12 @@ button.normal{
     position: sticky;
     top: 0;
     left: 0;
-    height: 90px;
-
+    /* max-width: 1200px;
+    margin: 0 auto; */
 }
 #navbar{
+    position: relative;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,6 +119,23 @@ button.normal{
     bottom: -4px;
     left: 20px;
 }
+.cart-counter{
+    min-width: 20px;
+    text-align: center;
+    background-color: #b5042e;
+    position: absolute;
+    padding: 2.5px;
+    top: -5px;
+    right: 5px;
+    color: #b3a99c;
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+
+
 
 #hero{
     background-image: url("../images/wp9688170-jordan-shoe-desktop-wallpapers.jpg");
