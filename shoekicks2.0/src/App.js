@@ -12,26 +12,28 @@ import About from "./Components/About";
 import Cart from "./Components/Cart";
 import SingleProduct from "./Components/SingleProduct";
 import Footer from "./Components/Footer";
+import appContext from "./Utils/Context";
 
- 
 function App() {
   return (
     <Router>
-      <div>
-        <Navbar />
+      <appContext>
+        <div>
+          <Navbar />
 
-        <Routes>
+          <Routes>
 
-          <Route exact path="/" key="Home" element={<Content />} />
-          <Route exact path="/Shop" key="Shop" element={<Shop />} />
-          <Route exact path="/Blog" key="Blog" element={<Blog />} />
-          <Route exact path="/Products" key="Products" element={<About />} />
-          <Route exact path="/Cart" key="Cart" element={<Cart />} />
-          <Route exact path="/SingleProduct/:id" key="SingleProduct" element={<SingleProduct />} />
+            <Route exact path="/" key="Home" element={<Content />} />
+            <Route exact path="/Shop" key="Shop" element={<Shop />} />
+            <Route exact path="/Blog" key="Blog" element={<Blog />} />
+            <Route exact path="/Products" key="Products" element={<About />} />
+            <Route exact path="/Cart" key="Cart" element={<Cart />} />
+            <Route exact path="/SingleProduct/:id" key="SingleProduct" element={<SingleProduct />} />
 
-        </Routes>
-        <Footer />
-      </div>
+          </Routes>
+          <Footer />
+        </div>
+      </appContext>
     </Router>
   );
 }
