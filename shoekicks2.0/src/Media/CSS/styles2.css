@@ -223,7 +223,13 @@
 .quantity-buttons span:nth-child(3){
     border-left: 2px solid rgba(255, 255, 255, 0.8);   
 }
-
+.related-products{
+    width: 100vw;
+    display:flex;
+    margin-left: 100px;
+    align-items: center;
+    
+}
 
 
 

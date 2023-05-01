@@ -6,7 +6,7 @@ function Shoes() {
   return (
     <>
 
-      <h1 className='bigText tcCenter'>Home - Product name</h1>
+      <h2 className='bigText tcCenter'>Home - Product name</h2>
 
       <div className='twoFlex'>
 
