@@ -45,7 +45,7 @@ function Shoes() {
           <div className='quantity-buttons'>
             <span>-</span>
             <span>5</span>
-            <span>+</span>
+            <span>+</span> 
           </div>
           <div>
             <button className='add-to-cart'>Add to cart <AiOutlineShoppingCart /> </button>
