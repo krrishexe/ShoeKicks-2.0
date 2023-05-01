@@ -1,13 +1,14 @@
 import React from 'react'
-import {AiOutlineHeart,AiOutlineShoppingCart} from 'react-icons/ai'
+import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
+import RelatedProducts from './RelatedProducts'
 
 function Shoes() {
   return (
     <>
 
-    <h1 className='bigText tcCenter'>Home - Product name</h1>
+      <h1 className='bigText tcCenter'>Home - Product name</h1>
 
-    <div className='twoFlex'>
+      <div className='twoFlex'>
 
         <div className="images-section parent">
           <div className="spacey">
@@ -41,14 +42,19 @@ function Shoes() {
             <button type='checkbox' className='checkbox'>4</button>
             <button type='checkbox' className='checkbox'>5</button>
           </div>
-
+          <div className='quantity-buttons'>
+            <span>-</span>
+            <span>5</span>
+            <span>+</span>
+          </div>
           <div>
             <button className='add-to-cart'>Add to cart <AiOutlineShoppingCart /> </button>
           </div>
 
         </div>
 
-    </div>
+      </div>
+      <RelatedProducts />
     </>
   )
 }

@@ -80,12 +80,7 @@ button.normal{
     z-index: 999;
     height: 100px;
 }
-.sticky{
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
 
-}
 #navbar{
     position: relative;
     display: flex;
@@ -133,6 +128,21 @@ button.normal{
     line-height: 1;
     border-radius: 10px;
     font-weight: 500;
+}
+.sticky{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    animation: appear 0.4s ease forwards; 
+    transform: translateY(-100px);
+}
+@keyframes appear {
+    0% {
+        transform: translateY(-100px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
 }
 
 @media  (max-width: 768px) {
