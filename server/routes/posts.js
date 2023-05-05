@@ -5,6 +5,7 @@ const router = express.Router();
 //GETS BACK A SPECIFIC POST
 var ObjectId = require('mongodb').ObjectID;
 
+// THIS WAS INSERTED SO THAT IT DOES NOT THROW ANY ERROR RELATED TO CORS
 var cors = require('cors')
 var corsOptions = {
     origin: 'http://localhost:3000',
@@ -29,10 +30,15 @@ router.get('/',cors(corsOptions), async function(req,res){
 
 // ADDS A NEW POST 
 router.post('/',async function(req,res){
-    // console.log(req.body
+    // console.log(req.body)
     const post_data = new Post({
+        id:req.body.id,
         vendor:req.body.vendor,
         name:req.body.name,
+        shoe_type:req.body.shoe_type,
+        description:req.body.description,
+        size_type:req.body.size_type,
+        sizes:req.body.sizes,
         price:req.body.price,
         images:req.body.images,
     });

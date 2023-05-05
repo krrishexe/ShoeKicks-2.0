@@ -2,8 +2,13 @@ const mongoose = require('mongoose')
 const {Schema} = mongoose;
 
 const postSchema = new Schema({
+    id:Number,
     vendor :String,
     name:String,
+    shoe_type:String,
+    description:String,
+    size_type:String,
+    sizes:Array,
     price:String,
     images:Array,
 })
