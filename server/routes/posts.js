@@ -11,7 +11,7 @@ var corsOptions = {
     origin: 'http://localhost:3000',
   }
   
-
+//GETS BACK A SPECIFIC POST
 router.get('/:postId',async (req,res)=>{
     try {
         const post = await Post.findById(req.params.postId)

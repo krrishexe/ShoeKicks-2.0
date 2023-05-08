@@ -19,3 +19,9 @@ module.exports = mongoose.model('Posts',postSchema);
                 // mongoose.model('router_name', 'schema_name')
 // module.exports = mongoose.model('Posts',postSchema);
         
+
+
+
+// DATABASE >>> COLLECTION >>> DOCUMENTS 
+//COLLECTION ==> TABLES
+//DOCUMENTS ==> DATA 

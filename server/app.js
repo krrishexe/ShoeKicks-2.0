@@ -9,7 +9,7 @@ app.use(cors())
 require('dotenv/config')
 
 
-
+  
 //MIDDLEWARES
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
@@ -33,6 +33,7 @@ main().catch(err => console.log(err));
 
 async function main() {
   await mongoose.connect(process.env.DB_CONNECTION)
+  .then(()=> console.log("Mongoose Connected Successfuly"))
     .catch(error => console.log(error));
 
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
