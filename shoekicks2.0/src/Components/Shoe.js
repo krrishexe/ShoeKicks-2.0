@@ -57,7 +57,7 @@ const Shoe = (props) => {
     
 
     const fetchMoreData = async () => {
-        const url = `http://localhost:5000/posts/`;
+        const url = `https://shoekicks.onrender.com/posts/`;
         let data = await fetch(url, {
             mode: 'cors',
             method: 'GET',
