@@ -1,21 +1,21 @@
 const { User } = require('../models/User.js')
-const jwt  = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 const bcryptjs = require('bcryptjs')
 require('dotenv').config({
     path: './.env'
-  })
-  
-  
-  
+})
+
+
+
 
 const generateAccessAndRefreshToken = async (userId) => {
     try {
         const user = await User.findById(userId)
-        console.log(user)
+
         const accessToken = jwt.sign({ id: user._id, email: user.email, username: user.username }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" })
-        console.log(accessToken)
+
         const refreshToken = jwt.sign({ id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" })
-        console.log(refreshToken)
+
         user.refreshToken = refreshToken
         await user.save({ validateBeforeSave: false })
         return { accessToken, refreshToken }
@@ -71,14 +71,36 @@ const loginUser = async (req, res) => {
         }
 
         res
-        .status(200)
-        .cookie('refreshToken',refreshToken,cookieOptions)
-        .cookie('accessToken',accessToken,cookieOptions)
-        .json({ message: "User logged in successfully", status: 200, user: loggedInUser })
+            .status(200)
+            .cookie('refreshToken', refreshToken, cookieOptions)
+            .cookie('accessToken', accessToken, cookieOptions)
+            .json({ message: "User logged in successfully", status: 200, user: loggedInUser })
 
 
     } catch (error) {
         console.log("Error Logging in user : ", error)
+    }
+}
+
+const logoutUser = async (req, res) => {
+    try {
+        await User.findByIdAndUpdate(req.user._id, {
+            $set: {
+                refreshToken: undefined
+            }
+        },{new:true})
+        const cookieOptions = {
+            httpOnly: true,
+            secure: true
+        }
+        res
+            .status(200)
+            .clearCookie('refreshToken', cookieOptions)
+            .clearCookie('accessToken', cookieOptions)
+            .json({ message: "User logged out successfully", status: 200 })
+            
+    } catch (error) {
+        console.log("Error Logging out user : ", error.message)
     }
 }
 
@@ -94,4 +116,4 @@ const verifyMail = async (req, res) => {
 
 
 
-module.exports = { registerUser, loginUser }
+module.exports = { registerUser, loginUser, logoutUser }
