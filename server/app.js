@@ -4,34 +4,30 @@ const mongoose = require('mongoose')
 const app = express();
 var cors = require('cors')
 const connectDB = require('./db/conn.js')
-
-app.use(cors())
-
 require('dotenv/config')
 
 
-  
+
 //MIDDLEWARES
+app.use(cors())
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
+//Routes
 const postsRoute = require('./routes/posts')
-app.use('/posts',postsRoute);
+app.use('/api/v1/posts', postsRoute);
+
+const authRouter = require('./routes/UserAuth.js')
+app.use('/api/v1/user', authRouter)
 
 
-//ROUTES
-app.get('/',function(req,res){
-    res.send("helloo")
-    // res.set({
-    // "Content-Type": "application/json",
-    // "Access-Control-Allow-Origin": "*",
-    // });
+
+
+connectDB().then(() => {
+  app.listen(5000, () => {
+    console.log("server started Successfuly at localhost http://localhost:5000/posts/")
+  })
 })
-
-
-
-
-app.listen(5000,()=>{
-  connectDB()
-  console.log("server started Successfuly at localhost http://localhost:5000/posts/")
-})
+  .catch((err) => {
+    console.log("Error in starting server : ", err)
+  })
