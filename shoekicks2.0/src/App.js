@@ -12,12 +12,12 @@ import About from "./Components/About";
 import Cart from "./Components/Cart";
 import SingleProduct from "./Components/SingleProduct";
 import Footer from "./Components/Footer";
-import appContext from "./Utils/Context";
+
 
 function App() {
   return (
     <Router>
-      <appContext>
+      
         <div>
           <Navbar />
 
@@ -33,7 +33,6 @@ function App() {
           </Routes>
           <Footer />
         </div>
-      </appContext>
     </Router>
   );
 }

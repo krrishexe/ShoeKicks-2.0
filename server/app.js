@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose')
 const app = express();
 var cors = require('cors')
+const connectDB = require('./db/conn.js')
 
 app.use(cors())
 
@@ -28,17 +29,9 @@ app.get('/',function(req,res){
 })
 
 
-// Connect to DB
-main().catch(err => console.log(err));
 
-async function main() {
-  await mongoose.connect(process.env.DB_CONNECTION)
-  .then(()=> console.log("Mongoose Connected Successfuly"))
-    .catch(error => console.log(error));
 
-  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
-}
-
-app.listen(5000,function(){
-    console.log("server started Successfuly at localhost http://localhost:5000/posts/")
+app.listen(5000,()=>{
+  connectDB()
+  console.log("server started Successfuly at localhost http://localhost:5000/posts/")
 })
