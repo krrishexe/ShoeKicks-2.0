@@ -1,6 +1,7 @@
 const { User } = require('../models/User.js')
 const jwt = require('jsonwebtoken')
 const bcryptjs = require('bcryptjs')
+const sendMail = require('../utils/Mailer.js')
 require('dotenv').config({
     path: './.env'
 })
@@ -39,9 +40,11 @@ const registerUser = async (req, res) => {
         const hashedPassword = await bcryptjs.hash(password, salt)
 
         const user = await User.create({ email, password: hashedPassword, username: username.trim().toLowerCase() })
+        await sendMail({ email, emailType: 'VERIFY', userId: user._id })
         const createdUser = await User.findById(user._id).select("-password")
-        res.json({ message: "User created successfully", status: 200, user: createdUser })
 
+
+        res.json({ message: "User created successfully", status: 200, user: createdUser })
 
     } catch (error) {
         console.log("Error in registering user : ", error)
@@ -88,7 +91,7 @@ const logoutUser = async (req, res) => {
             $set: {
                 refreshToken: undefined
             }
-        },{new:true})
+        }, { new: true })
         const cookieOptions = {
             httpOnly: true,
             secure: true
@@ -98,7 +101,7 @@ const logoutUser = async (req, res) => {
             .clearCookie('refreshToken', cookieOptions)
             .clearCookie('accessToken', cookieOptions)
             .json({ message: "User logged out successfully", status: 200 })
-            
+
     } catch (error) {
         console.log("Error Logging out user : ", error.message)
     }
@@ -107,6 +110,19 @@ const logoutUser = async (req, res) => {
 
 const verifyMail = async (req, res) => {
     try {
+        const { token } = req.body;
+        if (!token) {
+            return res.json({ message: "Token not found", status: 400 })
+        }
+        const user = await User.findOne({ verifyToken: token, verifyTokenExpiry: { $gt: Date.now() } })
+        if (!user) {
+            return res.json({ message: "Invalid or expired token", status: 400 })
+        }
+        user.isVerified = true;
+        user.verifyToken = undefined;
+        user.verifyTokenExpiry = undefined;
+        await user.save({ validateBeforeSave: false })
+        res.json({ message: "Email verified successfully", status: 200 })
 
     } catch (error) {
         console.log("Error Verifying mail : ", error)
@@ -116,4 +132,4 @@ const verifyMail = async (req, res) => {
 
 
 
-module.exports = { registerUser, loginUser, logoutUser }
+module.exports = { registerUser, loginUser, logoutUser, verifyMail }
