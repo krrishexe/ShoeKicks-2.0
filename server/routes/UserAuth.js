@@ -1,10 +1,10 @@
 const express = require('express');
-const { registerUser } = require('../controllers/User.controller');
+const { registerUser, loginUser } = require('../controllers/User.controller');
 
 const authRouter = express.Router();
 
 authRouter.post('/signup', registerUser)
-// authRouter.post('/login',)
+authRouter.post('/login', loginUser)
 // authRouter.post('/logout',)
 // authRouter.post('/refreshToken',)
 // authRouter.post('/verifyemail',)

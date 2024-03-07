@@ -1,6 +1,29 @@
 const { User } = require('../models/User.js')
-const { jwt } = require('jsonwebtoken')
+const jwt  = require('jsonwebtoken')
 const bcryptjs = require('bcryptjs')
+require('dotenv').config({
+    path: './.env'
+  })
+  
+  
+  
+
+const generateAccessAndRefreshToken = async (userId) => {
+    try {
+        const user = await User.findById(userId)
+        console.log(user)
+        const accessToken = jwt.sign({ id: user._id, email: user.email, username: user.username }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" })
+        console.log(accessToken)
+        const refreshToken = jwt.sign({ id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" })
+        console.log(refreshToken)
+        user.refreshToken = refreshToken
+        await user.save({ validateBeforeSave: false })
+        return { accessToken, refreshToken }
+    } catch (error) {
+        throw new Error("Error in generating access and refresh token : ", error)
+        console.log("Something went wrong while generating access and refresh token")
+    }
+}
 
 const registerUser = async (req, res) => {
     try {
@@ -32,9 +55,27 @@ const loginUser = async (req, res) => {
             return res.json({ message: "Please fill all the fields", status: 400 })
         }
         const user = await User.findOne({ email })
-        if (!emailCheck) {
-            return res.json({ message: "User does not exist", status: 400 })
+        if (!user) {
+            return res.json({ message: "User does not exist, Please signup first", status: 400 })
         }
+        const passMatch = await bcryptjs.compare(password, user.password)
+        if (!passMatch) {
+            return res.json({ message: "Invalid credentials", status: 400 })
+        }
+        const { refreshToken, accessToken } = await generateAccessAndRefreshToken(user._id)
+        const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
+
+        const cookieOptions = {
+            httpOnly: true,
+            secure: true
+        }
+
+        res
+        .status(200)
+        .cookie('refreshToken',refreshToken,cookieOptions)
+        .cookie('accessToken',accessToken,cookieOptions)
+        .json({ message: "User logged in successfully", status: 200, user: loggedInUser })
+
 
     } catch (error) {
         console.log("Error Logging in user : ", error)
