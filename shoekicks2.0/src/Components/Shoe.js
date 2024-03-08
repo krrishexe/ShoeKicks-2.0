@@ -57,7 +57,8 @@ const Shoe = (props) => {
     
 
     const fetchMoreData = async () => {
-        const url = `https://shoekicks.onrender.com/posts/`;
+        const url = `http://localhost:5000/api/v1/posts`;
+        // const url = `https://shoekicks.onrender.com/posts/`;
         let data = await fetch(url, {
             mode: 'cors',
             method: 'GET',
@@ -66,7 +67,7 @@ const Shoe = (props) => {
             }
         });
         let parsedData = await data.json()
-
+        // console.log(parsedData[0].products.slice(0,6 + page * 12))
 
         setProducts((parsedData[0].products).slice(0,6 + page * 12))
         page+=1;
@@ -86,7 +87,7 @@ const Shoe = (props) => {
                                 <div className="bigCard">
                                     <div className='moreCards'>
                                         <div class="product-card" >
-                                            <div class="badge">Hot</div>
+                                            
                                             <div class="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
@@ -107,7 +108,7 @@ const Shoe = (props) => {
                                 <div className="bigCard">
                                     <div className='moreCards'>
                                         <div class="product-card" >
-                                            <div class="badge">Hot</div>
+                                            
                                             <div class="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
@@ -128,7 +129,7 @@ const Shoe = (props) => {
                                 <div className="bigCard">
                                     <div className='moreCards'>
                                         <div class="product-card" >
-                                            <div class="badge">Hot</div>
+                                            
                                             <div class="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
@@ -149,7 +150,7 @@ const Shoe = (props) => {
                                 <div className="bigCard">
                                     <div className='moreCards'>
                                         <div class="product-card" >
-                                            <div class="badge">Hot</div>
+                                            
                                             <div class="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
@@ -170,7 +171,7 @@ const Shoe = (props) => {
                                 <div className="bigCard">
                                     <div className='moreCards'>
                                         <div class="product-card" >
-                                            <div class="badge">Hot</div>
+                                            
                                             <div class="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
@@ -191,7 +192,7 @@ const Shoe = (props) => {
                                 <div className="bigCard">
                                     <div className='moreCards'>
                                         <div class="product-card" >
-                                            <div class="badge">Hot</div>
+                                            
                                             <div class="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
@@ -214,7 +215,7 @@ const Shoe = (props) => {
                             :
                             products.map((element) => {
                                 return <div key={element.url} className='bigCard'>
-                                    <ShoeItem vendor={element.vendor ? element.vendor : ""} name={element.name ? element.name : ""} images0={element.images[0]} images1={element.images[1]} price={element.price} />
+                                    <ShoeItem id={element.id ? element.id : ""} vendor={element.vendor ? element.vendor : ""} name={element.name ? element.name : ""} images0={element.images[0]} images1={element.images[1]} price={element.price} />
                                 </div>
                             })
                     }

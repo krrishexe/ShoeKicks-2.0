@@ -28,7 +28,7 @@ app.use('/api/v1/user', authRouter)
 
 connectDB().then(() => {
   app.listen(5000, () => {
-    console.log("server started Successfuly at localhost http://localhost:5000/posts/")
+    console.log("server started Successfuly at localhost http://localhost:5000/api/v1/posts/")
   })
 })
   .catch((err) => {

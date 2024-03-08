@@ -5,7 +5,7 @@ import {FaShoppingCart} from 'react-icons/fa'
 
 function Navbar() {
   const handleScroll =()=>{
-    console.log(window.scrollY)
+    // console.log(window.scrollY)
     if(window.scrollY > 500){
       document.getElementById("header").classList.add("sticky")
     }else{

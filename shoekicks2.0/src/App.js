@@ -12,13 +12,14 @@ import About from "./Components/About";
 import Cart from "./Components/Cart";
 import SingleProduct from "./Components/SingleProduct";
 import Footer from "./Components/Footer";
+import UserContextProvider from "./Context/UserContextProvider";
 
 
 function App() {
   return (
     <Router>
       
-        <div>
+        <UserContextProvider>
           <Navbar />
 
           <Routes>
@@ -28,11 +29,11 @@ function App() {
             <Route exact path="/Blog" key="Blog" element={<Blog />} />
             <Route exact path="/Products" key="Products" element={<About />} />
             <Route exact path="/Cart" key="Cart" element={<Cart />} />
-            <Route exact path="/SingleProduct/:id" key="SingleProduct" element={<SingleProduct />} />
+            <Route exact path="/singleproduct/:id" key="SingleProduct" element={<SingleProduct />} />
 
           </Routes>
           <Footer />
-        </div>
+        </UserContextProvider>
     </Router>
   );
 }

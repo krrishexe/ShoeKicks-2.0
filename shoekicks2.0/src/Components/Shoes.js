@@ -1,12 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import RelatedProducts from './RelatedProducts'
+import UserContext from '../Context/UserContext'
+import { useContext } from 'react'
+import { useParams } from 'react-router-dom'
 
 function Shoes() {
+  const [particularData, setParticularData] = useState([])
+
+  const { id } = useParams()
+  const { data } = useContext(UserContext)
+
+  const fetchParticularData = async () => {
+    const url = `http://localhost:5000/api/v1/posts/${id}`
+    let data = await fetch(url, {
+      mode: 'cors',
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json'
+      }
+    });
+    let parsedData = await data.json()
+    console.log(parsedData.products[0])
+
+    setParticularData(parsedData.products[0])
+  }
+  useEffect(() => {
+    fetchParticularData()
+  },[])
+
   return (
     <>
 
-      <h2 className='bigText tcCenter'>Home - Product name</h2>
+      <h2 className='bigText tcCenter'>Product name</h2>
 
       <div className='twoFlex'>
 
@@ -45,7 +71,7 @@ function Shoes() {
           <div className='quantity-buttons'>
             <span>-</span>
             <span>5</span>
-            <span>+</span> 
+            <span>+</span>
           </div>
           <div>
             <button className='add-to-cart'>Add to cart <AiOutlineShoppingCart /> </button>
