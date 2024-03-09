@@ -43,7 +43,7 @@ function Shoes() {
       {
         particularData.map((item) => {
           return (
-            <>
+            <div key={item.id}>
 
               <div className="container1">
                 <div className="row">
@@ -68,45 +68,46 @@ function Shoes() {
                 <div className='twoFlex'>
 
                   <div className="images-section parent">
-                    <div className="spacey">
-                      <img className='spacey-bw' src={item.images[0]} alt="" height={"400px"} width={"400px"} />
-                      <img className='spacey-bw' src={item.images[1]} alt="" height={"400px"} width={"400px"} />
+                    <div className="main-image">
+                      <img className='spacey-bw' src={item.images[0]} alt="" />
                     </div>
-                    <div className="spacey">
-                      <img className='spacey-bw' src={item.images[2]} alt="" height={"400px"} width={"400px"} />
-                      <img className='spacey-bw' src={item.images[3]} alt="" height={"400px"} width={"400px"} />
+                    <div className="small-images">
+                      <img className='spacey-bw' src={item.images[1]} alt="" />
+                      <img className='spacey-bw' src={item.images[2]} alt="" />
+                      <img className='spacey-bw' src={item.images[3]} alt="" />
                     </div>
                   </div>
+
                   <div className="articles-desc">
 
                     <div className='vendor-name'>
                       <span className='vendor'>{
-                        item.vendor.includes('Nike') ? <div> <SiNike /> <p>{item.vendor}</p></div> :
-                          item.vendor.includes('Adidas') ? <div> <SiAdidas /> {item.vendor}</div> :
-                            item.vendor.includes('Puma') ? <div> <SiPuma /> {item.vendor}</div> :
-                            item.vendor.includes('Reebok') ? <div> <SiReebok /> {item.vendor}</div> :
-                              item.vendor.includes('Jordan') ? <div> <SiJordan /> {item.vendor}</div> : <div>
-                                <GiConverseShoe /> {item.vendor}
-                              </div>
+                        item.vendor.includes('Nike') ? <div className='flx-wave'> <SiNike className='brand-logo' />  {item.vendor}</div> :
+                          item.vendor.includes('Adidas') ? <div className='flx-wave'> <SiAdidas className='brand-logo' /> {item.vendor}</div> :
+                            item.vendor.includes('Puma') ? <div className='flx-wave'> <SiPuma className='brand-logo' /> {item.vendor}</div> :
+                              item.vendor.includes('Reebok') ? <div className='flx-wave'> <SiReebok className='brand-logo' /> {item.vendor}</div> :
+                                item.vendor.includes('Jordan') ? <div className='flx-wave'> <SiJordan className='brand-logo' /> {item.vendor}</div> : <div>
+                                  <GiConverseShoe /> {item.vendor}
+                                </div>
                       }</span>
 
                     </div>
 
                     <h2 className='genos'>{item.name}</h2>
+                    <span className='descc'>{item.shoe_type} </span>
                     <p className='descc'>{item.description}</p>
 
-                    <div className='twoFlex'>
-                      <h3 className='vendor'>{item.price}</h3>
-                      <span className='vendor'>shoe Type </span>
+
+                    <h3 className='vendor'>{item.price}</h3>
+
+                      <span className='descc'>{item.size_type} : </span>
+                    <div>
+                      {item.sizes.map((size, index) => (
+                        <button key={index} type='checkbox' className='checkbox'>{size}</button>
+                      ))}
+                      
                     </div>
 
-                    <div>
-                      <button type='checkbox' className='checkbox'>1</button>
-                      <button type='checkbox' className='checkbox'>2</button>
-                      <button type='checkbox' className='checkbox'>3</button>
-                      <button type='checkbox' className='checkbox'>4</button>
-                      <button type='checkbox' className='checkbox'>5</button>
-                    </div>
                     <div className='quantity-buttons'>
                       <span>-</span>
                       <span>5</span>
@@ -121,7 +122,7 @@ function Shoes() {
                 </div>
                 <RelatedProducts />
               </div>
-            </>
+            </div>
           )
         })
       }
