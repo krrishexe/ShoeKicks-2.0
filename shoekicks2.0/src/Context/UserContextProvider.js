@@ -25,7 +25,6 @@ const UserContextProvider = ({ children }) => {
     useEffect(() => {
         fetchMoreData()
     }, [])
-    const [user, setUser] = useState(null)
     return (
         <UserContext.Provider value={{ data, setData }}>
             {children}

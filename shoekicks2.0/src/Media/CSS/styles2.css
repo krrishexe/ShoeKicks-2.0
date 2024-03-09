@@ -140,6 +140,7 @@
 }
 .spacey-bw{
     margin: 0 10px;
+    border-radius: 15px;
 }
 .images-section{
     display: flex;
@@ -176,8 +177,8 @@
     color: #999;    
 
 }
-.descc{
-    font-size: 25px;
+p .descc{
+    font-size: 15px;
 }
 .redirect{
     background-color: white;
