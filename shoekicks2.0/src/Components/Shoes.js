@@ -146,7 +146,7 @@ function Shoes() {
                         </button>
                       ))}
                     </div>
-                    <a className='descc'>Size Chart</a>
+                    <a href='https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/w_363,c_limit/8056cc98-b505-4ef7-b0fd-7737b1a40f5e/how-to-measure-your-foot-to-find-the-right-shoe-size.jpg' rel='noreferrer'  target="_blank" className='descc'>Size Chart</a>
 
                   </div>
                   <span className='descc'>Quantity : </span>

@@ -67,8 +67,6 @@ const Shoe = (props) => {
             }
         });
         let parsedData = await data.json()
-        // let rand = Math.floor(Math.random() * 135)
-        console.log(parsedData[0].products[rand])
 
         setProducts((parsedData[0].products).slice(0,6 + page * 12))
         page+=1;
