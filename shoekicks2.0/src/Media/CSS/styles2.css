@@ -116,7 +116,47 @@
 .product-links a:hover {
     color: #958a88;
 }
-
+.container1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+.breadcrumb {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .breadcrumb-item {
+    margin-right: 10px;
+  }
+  
+  .breadcrumb-item a {
+    text-decoration: none;
+    color: #555;
+  }
+  
+  .breadcrumb-item.active {
+    color: #e1e1e1;
+  }
+  
+  .fa-home {
+    margin-right: 5px;
+  }
 /* shoeDetails component css  */
 .parent{
     display: grid;
@@ -127,11 +167,14 @@
 
 }
 .tcCenter{
-    margin: 50px 20px;
+    font-size: 30px;
+    font-family: 'Genos';
+    margin: 50px auto;
     text-align: center;
+    color: #e1e1e1;
 }
 .twoFlex{
-    /* padding:0 2%; */
+    /* padding:0 2%; */ 
     display: flex;
     justify-content: space-between;
 }
@@ -172,10 +215,19 @@
     width: 500px;
     font-size: 30px;
 }
-.vendor{
-    font-size: 30px;
-    color: #999;    
+.genos{
+    font-family: 'Genos';
+    font-size: 24px;
+    color: #fff;
 
+}
+.vendor{
+    font-style: italic;
+    font-size: 30px;
+    color: #fff;    
+}
+.vendor-name{
+    padding: 20px 0;
 }
 p .descc{
     font-size: 15px;
