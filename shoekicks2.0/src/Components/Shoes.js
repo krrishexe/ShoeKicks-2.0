@@ -19,9 +19,21 @@ function Shoes() {
   const [particularData, setParticularData] = useState([])
   const [selectedSize, setSelectedSize] = useState(null);
   const [mainImage, setMainImage] = useState(null);
+  const [quantity, setQuantity] = useState(1)
 
   const { id } = useParams()
-  const { /* data */ } = useContext(UserContext) // Commented out as it's not used
+  const { handleAddToCart, handleRemoveFromCart } = useContext(UserContext) // Commented out as it's not used
+
+  const increment = () => {
+    setQuantity((prev) => prev + 1)
+  }
+
+  const decrement = () => {
+    setQuantity((prevState) => {
+      if (prevState === 1) return 1;
+      return prevState - 1
+    })
+  }
 
   const handleImageSwap = (index) => {
     setMainImage(particularData[0].images[index]);
@@ -146,17 +158,20 @@ function Shoes() {
                         </button>
                       ))}
                     </div>
-                    <a href='https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/w_363,c_limit/8056cc98-b505-4ef7-b0fd-7737b1a40f5e/how-to-measure-your-foot-to-find-the-right-shoe-size.jpg' rel='noreferrer'  target="_blank" className='descc'>Size Chart</a>
+                    <a href='https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/w_363,c_limit/8056cc98-b505-4ef7-b0fd-7737b1a40f5e/how-to-measure-your-foot-to-find-the-right-shoe-size.jpg' rel='noreferrer' target="_blank" className='descc'>Size Chart</a>
 
                   </div>
                   <span className='descc'>Quantity : </span>
                   <div className='quantity-buttons'>
-                    <span>-</span>
-                    <span>5</span>
-                    <span>+</span>
+                    <span onClick={decrement}>-</span>
+                    <span>{quantity}</span>
+                    <span onClick={increment}>+</span>
                   </div>
                   <div style={{ marginTop: "20px", width: "600px" }}>
-                    <button className='add-to-cart'> <span className='IconContainer'><AiOutlineShoppingCart /></span > <p className='text1'>Add to cart</p> </button>
+                    <button onClick={() => {
+                      handleAddToCart(item, quantity)
+                      setQuantity(1)
+                    }} className='add-to-cart'> <span className='IconContainer'><AiOutlineShoppingCart /></span > <p className='text1'>Add to cart</p> </button>
                   </div>
 
                 </div>

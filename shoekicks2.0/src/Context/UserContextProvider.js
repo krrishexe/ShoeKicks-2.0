@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react"
 import UserContext from "./UserContext"
+import { useLocation } from 'react-router-dom'
 
 
 const UserContextProvider = ({ children }) => {
     const [data, setData] = useState([])
+    const [cartItems, setCartItems] = useState([])
+    const [cartTotal, setCartTotal] = useState(0)
+    const [cartSubTotal, setCartSubTotal] = useState(0)
+    const location = useLocation()
+
 
 
     const fetchMoreData = async () => {
@@ -17,16 +23,46 @@ const UserContextProvider = ({ children }) => {
             }
         });
         let parsedData = await data.json()
-        console.log(parsedData[0].products)
-
+        // console.log(parsedData[0].products)
         setData((parsedData[0].products))
-
     };
+
+    useEffect(() => {
+
+    }, [cartItems])
+
+    const handleAddToCart = (product, quantity) => {
+
+        let items = [...cartItems]
+        let index = items.findIndex((item) => item.id === product.id)
+        if (index === -1) {
+            items.push({ ...product, quantity: 1 })
+        } else {
+            items[index].quantity += quantity
+        }
+        setCartItems(items)
+    }
+
+    const handleRemoveFromCart = (product) => {
+        let items = [...cartItems]
+        let index = items.findIndex((item) => item.id === product.id)
+        if (index === -1) {
+            return
+        } else {
+            items.splice(index, 1)
+            setCartItems(items)
+        }
+    }
+
+    const cartProductQuantity = (type, product) => {
+
+    }
+
     useEffect(() => {
         fetchMoreData()
     }, [])
     return (
-        <UserContext.Provider value={{ data, setData }}>
+        <UserContext.Provider value={{ data, setData, cartItems, setCartItems, cartTotal, setCartTotal, cartSubTotal, setCartSubTotal, handleAddToCart, handleRemoveFromCart, cartProductQuantity }}>
             {children}
         </UserContext.Provider>
     )
