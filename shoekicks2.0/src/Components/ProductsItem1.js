@@ -6,8 +6,8 @@ function ProductsItem1(props) {
             <div className="pro">
 
                 
-                <img src={props.images0} alt="" height="600px" width="300px" />
-                {/* <img src={props.src} alt="" height="600px" width="300px" /> */}
+                {/* <img src={props.images0} alt="" height="600px" width="300px" /> */}
+                <img src={props.src} alt="" height="600px" width="300px" />
                 <div className="des">
                     <span>{props.para}</span>
                     <h5>{props.head}</h5>

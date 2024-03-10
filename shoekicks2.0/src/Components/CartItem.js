@@ -3,41 +3,110 @@ import UserContext from '../Context/UserContext'
 import { useContext } from 'react'
 import { MdClose } from 'react-icons/md'
 import "../Media/CSS/cart.css"
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 
-function CartItem() {
 
-  const { cartItems, handleCartProductQuantity, handleRemoveFromCart } = useContext(UserContext)
+function CartItem({item}) {
 
-  useEffect(()=>{
-    console.log(cartItems)
-  },[cartItems])
-  return (
-    <>
-        {
-            cartItems.map((item) => (
-                <tr key={item.id} >
-                    <td  className="cart_product_img">
-                        <a href="#"><img src={item.images[0]} alt="Product" className="cart-item-image" /></a>
-                        <h5>{item.name}</h5>
-                    </td>
-                    <td className="qty">
-                        <div className="quantity">
-                            <span className="qty-minus" onClick={() => { handleCartProductQuantity('dec', item) }}><i className="fa fa-minus" aria-hidden="true" /></span>
+    const { cartItems, handleCartProductQuantity, handleRemoveFromCart } = useContext(UserContext)
 
-                            <span className='qty-text'>{item.quantity}</span>
-                            <span className="qty-plus" onClick={() => { handleCartProductQuantity('inc', item) }}><i className="fa fa-plus" aria-hidden="true" /></span>
+    useEffect(() => {
+        console.log(cartItems)
+    }, [cartItems])
+    
+    return (
+        <div className="cart-item">
+            {/* IMAGE START */}
+            <div className="cart-item-image">
+                <img
+                    src={item.images[0]}
+                    alt={item.name}
+                    width={'120px'}
+                    height={'120px'}
+                />
+            </div>
+    
+            <div className="cart-item-details">
+                <div className="cart-item-header">
+                    {/* PRODUCT TITLE */}
+                    <div className="cart-item-title">
+                        {item.name}
+                    </div>
+    
+                    {/* PRODUCT SUBTITLE */}
+                    
+    
+                    {/* PRODUCT PRICE */}
+                    <div className="cart-item-price">
+                        MRP : &#8377;{item.price}
+                    </div>
+                </div>
+    
+                
+    
+                <div className="cart-item-footer">
+                    <div className="cart-item-options">
+                        <div className="cart-item-option">
+                            <div className="cart-item-option-title">Size:</div>
+                            {/* <select
+                                className="cart-item-option-select"
+                                onChange={(e) =>
+                                    updateCartItem(e, "selectedSize")
+                                }
+                            >
+                                {p.size.data.map((item, i) => {
+                                    return (
+                                        <option
+                                            key={i}
+                                            value={item.size}
+                                            disabled={
+                                                !item.enabled ? true : false
+                                            }
+                                            selected={
+                                                data.selectedSize === item.size
+                                            }
+                                        >
+                                            {item.size}
+                                        </option>
+                                    );
+                                })}
+                            </select> */}
                         </div>
-                    </td>
-                    <td className="price"><span>${item.price}</span></td>
-                    <td className="total_price"><span>${item.price * item.quantity}</span></td>
-                    <td className="action"><MdClose className='close-btn' onClick={() => { handleRemoveFromCart(item) }} /></td>
-                </tr>
-            ))
-        }
-    </>
-
-)
-}
+    
+                        <div className="cart-item-option">
+                            <div className="cart-item-option-title">Quantity:</div>
+                            {/* <select
+                                className="cart-item-option-select"
+                                onChange={(e) => updateCartItem(e, "quantity")}
+                            >
+                                {Array.from(
+                                    { length: 10 },
+                                    (_, i) => i + 1
+                                ).map((q, i) => {
+                                    return (
+                                        <option
+                                            key={i}
+                                            value={q}
+                                            selected={data.quantity === q}
+                                        >
+                                            {q}
+                                        </option>
+                                    );
+                                })}
+                            </select> */}
+                        </div>
+                    </div>
+                    <RiDeleteBin6Line
+                        // onClick={() =>
+                        //     dispatch(removeFromCart({ id: data.id }))
+                        // }
+                        className="cart-item-delete"
+                    />
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default CartItem

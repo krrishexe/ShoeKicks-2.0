@@ -44,22 +44,17 @@ function Cart() {
         </div>
       }
 
-      {!!cartItems?.length && <div className='container1'>
-        <div className='row'>
-        <table className="table table-responsive">
-          <thead>
-            <tr>
-              <th>Products</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>TOTAL</th>
-              <th />
-            </tr>
-          </thead>
-          <tbody>
-              <CartItem />
-          </tbody>
-        </table>
+      {!!cartItems?.length && <div className='container2'>
+        <div className='row1'>
+          <div style={{ flex: '2' }}>
+            <div style={{ fontSize: '24px', fontWeight: '600', color: '#fff', marginBottom: '10px' }}>
+              Cart Items :
+            </div>
+            {cartItems.map((item) => (
+              <CartItem key={item.id} item={item} />
+            ))}
+          </div>
+
         </div>
       </div>
       }

@@ -1225,99 +1225,98 @@
   background-color: #f2f4f5; }
 
 /* :: 9.0 Cart Area CSS */
-.cart-table {
-  position: relative;
-  z-index: 1; }
-  .cart-table thead tr,
-  .cart-table thead th {
-    width: 20%; }
-  .cart-table thead th {
-    border: none;
-    border-bottom: none;
-    font-size: 20px;
-    padding: 0 0 30px 0;
-    color: #303030;
-    font-weight: 500;
-    text-transform: uppercase;
-    text-align: left; }
-    .cart-table thead th:first-child {
-      width: 40%; }
-  .cart-table tbody tr {
-    position: relative;
-    z-index: 1;
-    border-bottom: 1px solid #ebebeb; }
-    .cart-table tbody tr td {
-      position: relative;
-      z-index: 1;
-      padding: 30px 15px;
-      font-size: 18px;
-      font-weight: 600;
-      color: #303030;
-      vertical-align: middle; }
-      .cart-table tbody tr td.cart_product_img {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -ms-grid-row-align: center;
-        align-items: center; }
-        .cart-table tbody tr td.cart_product_img a {
-          -webkit-box-flex: 0;
-          -ms-flex: 0 0 100px;
-          flex: 0 0 100px;
-          max-width: 100px;
-          width: 100px;
-          display: inline-block;
-          margin-right: 20px;
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-          margin-left: 2px; }
-        .cart-table tbody tr td.cart_product_img h5 {
-          font-size: 18px;
-          margin-bottom: 0; }
-      .cart-table tbody tr td i {
-        font-size: 36px;
-        color: #c42525; }
-  .cart-table .quantity {
-    position: relative;
-    z-index: 1;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 100px;
-    flex: 0 0 100px;
-    max-width: 100px;
-    width: 100px; }
-    .cart-table .quantity .qty-text {
-      height: 46px;
-      padding: 5px 15px;
-      width: 100px;
-      -moz-appearance: textfield;
-      -webkit-appearance: textfield;
-      appearance: textfield;
-      font-size: 14px;
-      border: none;
-      background-color: #f2f4f5;
-      text-align: center; }
-    .cart-table .quantity .qty-minus,
-    .cart-table .quantity .qty-plus {
-      display: block;
-      height: 100%;
-      position: absolute;
-      left: 10px;
-      text-align: center;
-      top: 0;
-      width: 30px;
-      z-index: 99;
-      cursor: pointer;
-      font-size: 8px;
-      line-height: 46px;
-      color: #303030; }
-      .cart-table .quantity .qty-minus i,
-      .cart-table .quantity .qty-plus i {
-        font-size: 10px;
-        color: #303030; }
-    .cart-table .quantity .qty-plus {
-      left: auto;
-      right: 10px; }
+.cart-item {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item-image {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+}
+
+.cart-item-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart-item-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.cart-item-subtitle-mobile {
+  font-size: 16px;
+  font-weight: medium;
+  color: rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+.cart-item-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+}
+
+.cart-item-subtitle-desktop {
+  font-size: 16px;
+  font-weight: medium;
+  color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.cart-item-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cart-item-options {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+}
+
+.cart-item-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-item-option-title {
+  font-weight: bold;
+}
+
+.cart-item-option-select {
+  color: black;
+  &:hover {
+    color: black;
+  }
+}
+
+.cart-item-delete {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+  &:hover {
+    color: black;
+  }
+  font-size: 16px;
+}
 
 .coupon-discount {
   position: relative;
