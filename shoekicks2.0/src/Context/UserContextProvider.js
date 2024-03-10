@@ -5,7 +5,10 @@ import { useLocation } from 'react-router-dom'
 
 const UserContextProvider = ({ children }) => {
     const [data, setData] = useState([])
-    const [cartItems, setCartItems] = useState([])
+    const [cartItems, setCartItems] = useState(() => {
+        const savedCartItems = localStorage.getItem('cartItems');
+        return savedCartItems ? JSON.parse(savedCartItems) : [];
+      });
     const [cartTotal, setCartTotal] = useState(0)
     const [cartSubTotal, setCartSubTotal] = useState(0)
     const [cartCount, setCartCount] = useState(0)
@@ -29,10 +32,13 @@ const UserContextProvider = ({ children }) => {
     };
 
     useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }, [cartItems]);
+
+    useEffect(() => {
         let count = 0;
         cartItems.map((item) => count += item.quantity)
         setCartCount(count)
-        console.log(cartCount)
         let subTotal = 0;
         cartItems.map((item) => 
             subTotal += (Number(item.price.slice(2, item.price.length)) * item.quantity)

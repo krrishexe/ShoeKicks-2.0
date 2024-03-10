@@ -18,22 +18,22 @@ import UserContextProvider from "./Context/UserContextProvider";
 function App() {
   return (
     <Router>
-      
-        <UserContextProvider>
-          <Navbar />
 
-          <Routes>
+      <UserContextProvider>
+        <Navbar />
 
-            <Route exact path="/" key="Home" element={<Content />} />
-            <Route exact path="/Shop" key="Shop" element={<Shop />} />
-            <Route exact path="/Blog" key="Blog" element={<Blog />} />
-            <Route exact path="/Products" key="Products" element={<About />} />
-            <Route exact path="/Cart" key="Cart" element={<Cart />} />
-            <Route exact path="/singleproduct/:id" key="SingleProduct" element={<SingleProduct />} />
+        <Routes>
 
-          </Routes>
-          <Footer />
-        </UserContextProvider>
+          <Route exact path="/" key="Home" element={<Content />} />
+          <Route exact path="/lebron" key="Shop" element={<Shop />} />
+          <Route exact path="/Blog" key="Blog" element={<Blog />} />
+          <Route exact path="/Products" key="Products" element={<About />} />
+          <Route exact path="/Cart" key="Cart" element={<Cart />} />
+          <Route exact path="/singleproduct/:id" key="SingleProduct" element={<SingleProduct />} />
+
+        </Routes>
+        <Footer />
+      </UserContextProvider>
     </Router>
   );
 }

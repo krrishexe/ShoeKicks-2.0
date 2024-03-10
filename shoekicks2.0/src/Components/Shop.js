@@ -8,6 +8,7 @@ import { gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Draggable } from "gsap/Draggable";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { Link } from 'react-router-dom'
 
 
 // import ScrollMagic from "scrollmagic";
@@ -77,7 +78,7 @@ const Shop = () => {
         <video autoPlay muted loop playsInline className='backVideo' width={"100%"} height={"100vh"}>
           <source src={require('../Media/images/Adidas_-_2019_Brand_Video-vimeo-310693777-hls-akfire_interconnect_quic-2886.mp4')} type='video/mp4' />
         </video>
-        <button className='btnShop'>Explore</button>
+        <button className='btnShop'><Link style={{textDecoration:'none',color:'black'}} to={'/singleproduct/14'}>Explore</Link></button>
       </div>
 
       <div className='shop-items'>

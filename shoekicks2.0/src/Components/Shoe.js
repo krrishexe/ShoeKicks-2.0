@@ -214,7 +214,7 @@ const Shoe = (props) => {
                             :
                             products.map((element) => {
                                 return <div key={element.url} className='bigCard'>
-                                    <ShoeItem id={element.id ? element.id : ""} vendor={element.vendor ? element.vendor : ""} name={element.name ? element.name : ""} images0={element.images[0]} images1={element.images[1]} price={element.price} />
+                                    <ShoeItem id={element.id ? element.id : ""} vendor={element.vendor ? element.vendor : ""} name={element.name ? element.name : ""} images0={element.images[0]} images1={element.images[1]} price={element.price} element={element} />
                                 </div>
                             })
                     }

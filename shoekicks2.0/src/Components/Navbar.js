@@ -27,10 +27,10 @@ function Navbar() {
         <div>
           <ul id="navbar">
             <li><NavLink activeClassname="active" to={"/"}>Home</NavLink></li>
-            <li><NavLink activeClassname="active" to={"/Shop"}>Shop</NavLink></li>
-            <li><NavLink activeClassname="active" to={"/Blog"}>Blog</NavLink></li>
+            <li><NavLink activeClassname="active" to={"/lebron"}>Lebron</NavLink></li>
             <li><NavLink activeClassname="active" to={"/Products"}>Products</NavLink></li>
             <li><NavLink activeClassname="active" to={"/Cart"}> <FaShoppingCart /> {!!cartCount && <span className='cart-counter'>{cartCount}</span>} </NavLink></li>
+            <li><NavLink activeClassname="active" to={"/Blog"}>Blog</NavLink></li>
           </ul>
         </div>
       </section>

@@ -39,8 +39,11 @@ function Cart() {
 
       {
         !cartItems?.length && <div className='empty-cart'>
+          <p className='bo-happy' style={{ color: "#000", textAlign: 'center' }}>Please add some products in <br></br> cart to make <span>Bo </span> happy <span> :)</span>
+          </p>
           <Bo />
-          <div style={{ display: 'block', height: '150px' }}></div>
+          <div style={{ display: 'block', height: '50px', fontSize: '12px' }}>Yes, Bo is me.</div>
+
         </div>
       }
 

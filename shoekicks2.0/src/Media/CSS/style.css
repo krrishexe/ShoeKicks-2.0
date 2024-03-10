@@ -852,11 +852,21 @@ footer .copyright{
     content: " ";
   }
   .move-area{
-      width: 98vw;
+      width: 105vw;
       height: 50vh;
       padding: 4% 45%;
     }
 /* Bo face */
+.bo-happy{
+    font-family: 'Miteria';
+    font-size: 30px;
+    line-height: 50px;
+}
+.bo-happy span{
+    font-family: 'Miteria';
+    color: #eb0e2f;
+
+}
 .face {
   position: relative;
   width: 300px;
