@@ -8,6 +8,7 @@ const UserContextProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([])
     const [cartTotal, setCartTotal] = useState(0)
     const [cartSubTotal, setCartSubTotal] = useState(0)
+    const [cartCount, setCartCount] = useState(0)
     const location = useLocation()
 
 
@@ -28,15 +29,22 @@ const UserContextProvider = ({ children }) => {
     };
 
     useEffect(() => {
-
-    }, [cartItems])
+        let count = 0;
+        cartItems.map((item) => count += item.quantity)
+        setCartCount(count)
+        console.log(cartCount)
+        let subTotal = 0;
+        cartItems.map((item) => 
+            subTotal += (Number(item.price.slice(2, item.price.length)) * item.quantity)
+        )
+        setCartSubTotal(subTotal)
+    }, [cartItems,cartCount])
 
     const handleAddToCart = (product, quantity, selectedSize) => {
-
         let items = [...cartItems]
         let index = items.findIndex((item) => item.id === product.id)
         if (index === -1) {
-            items.push({ ...product, quantity: 1, selectedSize })
+            items.push({ ...product, quantity: quantity, selectedSize })
         } else {
             items[index].quantity += quantity
         }
@@ -72,7 +80,7 @@ const UserContextProvider = ({ children }) => {
         fetchMoreData()
     }, [])
     return (
-        <UserContext.Provider value={{ data, setData, cartItems, setCartItems, cartTotal, setCartTotal, cartSubTotal, setCartSubTotal, handleAddToCart, handleRemoveFromCart, cartProductQuantity }}>
+        <UserContext.Provider value={{ data, setData, cartItems, setCartItems, cartTotal, setCartTotal, cartSubTotal, setCartSubTotal, handleAddToCart, handleRemoveFromCart, cartProductQuantity,cartCount }}>
             {children}
         </UserContext.Provider>
     )

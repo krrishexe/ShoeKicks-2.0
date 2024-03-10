@@ -120,7 +120,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 3% 0px;
+    margin: 2% 0px;
     width: 100%;
     padding: 20px;
     /* background-color: #fff; */
@@ -173,6 +173,13 @@
     /* margin: 50px auto; */
     text-align: center;
     color: #e1e1e1;
+}
+.tcCenter1{
+    font-size: 30px;
+    font-family: 'Genos';
+    /* margin: 50px auto; */
+    text-align: center;
+    color: #000;
 }
 .twoFlex{
     /* padding:0 2%; */ 

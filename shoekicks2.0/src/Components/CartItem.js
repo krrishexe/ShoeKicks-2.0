@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import { MdClose } from 'react-icons/md'
 import "../Media/CSS/cart.css"
 import { RiDeleteBin6Line } from "react-icons/ri";
-
+import { Link } from 'react-router-dom'
 
 
 function CartItem({ item }) {
@@ -31,9 +31,11 @@ function CartItem({ item }) {
             <div className="cart-item-details">
                 <div className="cart-item-header">
                     {/* PRODUCT TITLE */}
-                    <div className="cart-item-title">
-                        {item.name}
-                    </div>
+                    <Link to={`/singleproduct/${item.id}`} style={{ textDecoration: 'none', cursor: 'pointer' }}>
+                        <div className="cart-item-title">
+                            {item.name}
+                        </div>
+                    </Link>
 
                     {/* PRODUCT SUBTITLE */}
 
@@ -49,14 +51,14 @@ function CartItem({ item }) {
                 <div className="cart-item-footer">
                     <div className="cart-item-options">
                         <div className="cart-item-option">
-                            <div className="cart-item-option-title">Size:</div>
+                            <div className="descc" style={{ color: 'rgba(0,0,0,0.5)' }}>Size:</div>
                             {item.selectedSize}
                         </div>
 
                         <div className="cart-item-option">
 
                             <span className='descc' style={{ color: 'rgba(0,0,0,0.5)' }}>Quantity : </span>
-                            <div className='quantity-buttons' style={{ color: 'rgba(0,0,0,0.5)', border: '1px solid rgba(0,0,0,0.5)' }}>
+                            <div className='quantity-buttons' style={{ color: 'rgba(0,0,0,0.5)', height: '40px', border: '1px solid rgba(0,0,0,0.5)' }}>
                                 <span style={{ color: 'rgba(0,0,0,0.5)', borderRight: '1px solid rgba(0,0,0,0.5)' }} onClick={() => cartProductQuantity('decrement', item)}>-</span>
                                 <span style={{ color: 'rgba(0,0,0,0.5)' }}>{item.quantity}</span>
                                 <span style={{ color: 'rgba(0,0,0,0.5)', borderLeft: '1px solid rgba(0,0,0,0.5)' }} onClick={() => cartProductQuantity('increment', item)}>+</span>

@@ -2,6 +2,9 @@ import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 import "../Media/CSS/style.css"
 import { FaShoppingCart } from 'react-icons/fa'
+import UserContext from '../Context/UserContext';
+import { useContext } from 'react'
+
 
 function Navbar() {
   const handleScroll = () => {
@@ -12,9 +15,10 @@ function Navbar() {
       document.getElementById("header").classList.remove("sticky")
     }
   }
+  const { cartCount } = useContext(UserContext)
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
-  }, [])
+  },)
 
   return (
     <>
@@ -26,7 +30,7 @@ function Navbar() {
             <li><NavLink activeClassname="active" to={"/Shop"}>Shop</NavLink></li>
             <li><NavLink activeClassname="active" to={"/Blog"}>Blog</NavLink></li>
             <li><NavLink activeClassname="active" to={"/Products"}>Products</NavLink></li>
-            <li><NavLink activeClassname="active" to={"/Cart"}> <FaShoppingCart /> <span className='cart-counter'>5</span> </NavLink></li>
+            <li><NavLink activeClassname="active" to={"/Cart"}> <FaShoppingCart /> {!!cartCount && <span className='cart-counter'>{cartCount}</span>} </NavLink></li>
           </ul>
         </div>
       </section>

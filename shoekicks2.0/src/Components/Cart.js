@@ -7,12 +7,13 @@ import { BsCartX } from "react-icons/bs";
 import "../Media/CSS/cart.css"
 import { Link } from 'react-router-dom'
 import { FaShopify } from "react-icons/fa";
+import Bo from './Bo'
 
 
 function Cart() {
 
   const { cartItems, cartSubTotal } = useContext(UserContext)
-
+  const [loading, setLoading] = useState(false)
   return (
     <div style={{ background: "#fff" }}>
       <div className="breadcrumb-area">
@@ -32,14 +33,13 @@ function Cart() {
           </div>
         </div>
         <div>
-          <h1 className='tcCenter'>ShoeKick Original's</h1>
+          <h1 className='tcCenter1'>Shopping Bag</h1>
         </div>
       </div>
 
       {
         !cartItems?.length && <div className='empty-cart'>
-          <BsCartX className='descc' />
-          <span className='genos'>No products in the cart.</span>
+          <Bo />
           <div style={{ display: 'block', height: '150px' }}></div>
         </div>
       }
@@ -49,7 +49,7 @@ function Cart() {
           <div className='container2'>
             <div className='row1'>
               <div style={{ flex: '2' }}>
-                <div style={{ fontSize: '24px', fontWeight: '600', color: '#fff', marginBottom: '10px' }}>
+                <div style={{ fontSize: '24px', fontWeight: '600', color: '#000', marginBottom: '10px' }}>
                   Cart Items :
                 </div>
                 {cartItems.map((item) => (
@@ -58,18 +58,32 @@ function Cart() {
               </div>
 
               <div className="summary">
-                <div className="summary-title">Summary</div>
+                <div style={{ fontSize: '24px', fontWeight: '600', color: '#000', marginTop: '10px', marginBottom: '10px' }}>
+                  Summary :
+                </div>
 
                 <div className="summary-content">
                   <div className="summary-subtotal">
                     <div className="subtotal-title">Subtotal</div>
-                    <div className="subtotal-value">&#8377;{'subTotal'}</div>
+                    <div className="subtotal-value"><button className="checkout-button" >
+                      Checkout : &#8377;{cartSubTotal}
+                      {loading && <img src="/spinner.svg" />}
+                    </button></div>
                   </div>
                   <div className="summary-note">
+
+                    <span style={{ color: 'red' }}>Note : </span>
                     The subtotal reflects the total price of your order, including duties and taxes, before any applicable discounts. It does not include delivery costs and international transaction fees.
                   </div>
+
                 </div>
               </div>
+
+
+              <div className="thankyou-message">
+                <span>Thank you</span>
+              </div>
+
             </div>
           </div>
 
