@@ -22,7 +22,7 @@ function Shoes() {
   const [quantity, setQuantity] = useState(1)
 
   const { id } = useParams()
-  const { handleAddToCart, handleRemoveFromCart } = useContext(UserContext) // Commented out as it's not used
+  const { handleAddToCart } = useContext(UserContext) // Commented out as it's not used
 
   const increment = () => {
     setQuantity((prev) => prev + 1)
@@ -169,7 +169,7 @@ function Shoes() {
                   </div>
                   <div style={{ marginTop: "20px", width: "600px" }}>
                     <button onClick={() => {
-                      handleAddToCart(item, quantity)
+                      handleAddToCart(item, quantity,selectedSize)
                       setQuantity(1)
                     }} className='add-to-cart'> <span className='IconContainer'><AiOutlineShoppingCart /></span > <p className='text1'>Add to cart</p> </button>
                   </div>

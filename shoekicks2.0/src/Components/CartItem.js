@@ -7,14 +7,15 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 
 
 
-function CartItem({item}) {
+function CartItem({ item }) {
 
-    const { cartItems, handleCartProductQuantity, handleRemoveFromCart } = useContext(UserContext)
+    const { cartItems, cartProductQuantity, handleRemoveFromCart } = useContext(UserContext)
 
     useEffect(() => {
         console.log(cartItems)
     }, [cartItems])
-    
+
+
     return (
         <div className="cart-item">
             {/* IMAGE START */}
@@ -26,81 +27,46 @@ function CartItem({item}) {
                     height={'120px'}
                 />
             </div>
-    
+
             <div className="cart-item-details">
                 <div className="cart-item-header">
                     {/* PRODUCT TITLE */}
                     <div className="cart-item-title">
                         {item.name}
                     </div>
-    
+
                     {/* PRODUCT SUBTITLE */}
-                    
-    
+
+
                     {/* PRODUCT PRICE */}
                     <div className="cart-item-price">
-                        MRP : &#8377;{item.price}
+                        MRP : {(Number(item.price.slice(2, item.price.length)) * item.quantity).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
                     </div>
                 </div>
-    
-                
-    
+
+
+
                 <div className="cart-item-footer">
                     <div className="cart-item-options">
                         <div className="cart-item-option">
                             <div className="cart-item-option-title">Size:</div>
-                            {/* <select
-                                className="cart-item-option-select"
-                                onChange={(e) =>
-                                    updateCartItem(e, "selectedSize")
-                                }
-                            >
-                                {p.size.data.map((item, i) => {
-                                    return (
-                                        <option
-                                            key={i}
-                                            value={item.size}
-                                            disabled={
-                                                !item.enabled ? true : false
-                                            }
-                                            selected={
-                                                data.selectedSize === item.size
-                                            }
-                                        >
-                                            {item.size}
-                                        </option>
-                                    );
-                                })}
-                            </select> */}
+                            {item.selectedSize}
                         </div>
-    
+
                         <div className="cart-item-option">
-                            <div className="cart-item-option-title">Quantity:</div>
-                            {/* <select
-                                className="cart-item-option-select"
-                                onChange={(e) => updateCartItem(e, "quantity")}
-                            >
-                                {Array.from(
-                                    { length: 10 },
-                                    (_, i) => i + 1
-                                ).map((q, i) => {
-                                    return (
-                                        <option
-                                            key={i}
-                                            value={q}
-                                            selected={data.quantity === q}
-                                        >
-                                            {q}
-                                        </option>
-                                    );
-                                })}
-                            </select> */}
+
+                            <span className='descc' style={{ color: 'rgba(0,0,0,0.5)' }}>Quantity : </span>
+                            <div className='quantity-buttons' style={{ color: 'rgba(0,0,0,0.5)', border: '1px solid rgba(0,0,0,0.5)' }}>
+                                <span style={{ color: 'rgba(0,0,0,0.5)', borderRight: '1px solid rgba(0,0,0,0.5)' }} onClick={() => cartProductQuantity('decrement', item)}>-</span>
+                                <span style={{ color: 'rgba(0,0,0,0.5)' }}>{item.quantity}</span>
+                                <span style={{ color: 'rgba(0,0,0,0.5)', borderLeft: '1px solid rgba(0,0,0,0.5)' }} onClick={() => cartProductQuantity('increment', item)}>+</span>
+                            </div>
                         </div>
                     </div>
                     <RiDeleteBin6Line
-                        // onClick={() =>
-                        //     dispatch(removeFromCart({ id: data.id }))
-                        // }
+                        onClick={() =>
+                            handleRemoveFromCart(item)
+                        }
                         className="cart-item-delete"
                     />
                 </div>

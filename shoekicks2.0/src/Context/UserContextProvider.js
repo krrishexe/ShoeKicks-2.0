@@ -31,12 +31,12 @@ const UserContextProvider = ({ children }) => {
 
     }, [cartItems])
 
-    const handleAddToCart = (product, quantity) => {
+    const handleAddToCart = (product, quantity, selectedSize) => {
 
         let items = [...cartItems]
         let index = items.findIndex((item) => item.id === product.id)
         if (index === -1) {
-            items.push({ ...product, quantity: 1 })
+            items.push({ ...product, quantity: 1, selectedSize })
         } else {
             items[index].quantity += quantity
         }
@@ -55,7 +55,17 @@ const UserContextProvider = ({ children }) => {
     }
 
     const cartProductQuantity = (type, product) => {
-
+        let items = [...cartItems]
+        let index = items.findIndex((item) => item.id === product.id)
+        if (type === 'increment') {
+            items[index].quantity += 1
+        } else {
+            items[index].quantity -= 1
+            if (items[index].quantity < 1) {
+                items[index].quantity = 1
+            }
+        }
+        setCartItems(items)
     }
 
     useEffect(() => {
