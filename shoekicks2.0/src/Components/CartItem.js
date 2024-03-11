@@ -11,10 +11,6 @@ function CartItem({ item }) {
 
     const { cartItems, cartProductQuantity, handleRemoveFromCart } = useContext(UserContext)
 
-    useEffect(() => {
-        console.log(cartItems)
-    }, [cartItems])
-
 
     return (
         <div className="cart-item">

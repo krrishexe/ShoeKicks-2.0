@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import CartItem from './CartItem'
 import UserContext from '../Context/UserContext'
@@ -8,12 +8,41 @@ import "../Media/CSS/cart.css"
 import { Link } from 'react-router-dom'
 import { FaShopify } from "react-icons/fa";
 import Bo from './Bo'
-
+import { loadStripe } from '@stripe/stripe-js'
 
 function Cart() {
 
   const { cartItems, cartSubTotal } = useContext(UserContext)
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    console.log(cartItems)
+  }, [cartItems])
+
+  const makePayment = async () => {
+    console.log("Inside make payment")
+    const stripe = await loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY)
+
+    const body = {
+      products: cartItems
+    }
+    const headers = {
+      'Content-Type': 'application/json'
+    }
+    const response = await fetch('http://localhost:5000/api/v1/user/create-checkout-session', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(body)
+    })
+    const session = await response.json()
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id
+    })
+    if (result.error) {
+      return alert(result.error)
+    }
+  }
+
   return (
     <div style={{ background: "#fff" }}>
       <div className="breadcrumb-area">
@@ -68,7 +97,7 @@ function Cart() {
                 <div className="summary-content">
                   <div className="summary-subtotal">
                     <div className="subtotal-title">Subtotal</div>
-                    <div className="subtotal-value"><button className="checkout-button" >
+                    <div className="subtotal-value"><button onClick={makePayment} className="checkout-button" >
                       Checkout : &#8377;{cartSubTotal}
                       {loading && <img src="/spinner.svg" />}
                     </button></div>

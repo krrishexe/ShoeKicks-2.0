@@ -32,6 +32,7 @@ function RelatedProducts() {
                             vendor={shoe.vendor}
                             images1={shoe.images[1]}
                             id={shoe.id}
+                            element={shoe}
                         />
                     })
                 }

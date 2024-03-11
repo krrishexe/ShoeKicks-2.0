@@ -13,6 +13,7 @@ import Cart from "./Components/Cart";
 import SingleProduct from "./Components/SingleProduct";
 import Footer from "./Components/Footer";
 import UserContextProvider from "./Context/UserContextProvider";
+import Success from "./Components/Success";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/Products" key="Products" element={<About />} />
           <Route exact path="/Cart" key="Cart" element={<Cart />} />
           <Route exact path="/singleproduct/:id" key="SingleProduct" element={<SingleProduct />} />
+          <Route exact path="/success/" key="success" element={<Success />} />
 
         </Routes>
         <Footer />

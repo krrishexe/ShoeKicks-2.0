@@ -5,8 +5,7 @@ const sendMail = require('../utils/Mailer.js')
 require('dotenv').config({
     path: './.env'
 })
-
-
+const stripe = require('stripe')(process.env.STRIPE_KEY)
 
 
 const generateAccessAndRefreshToken = async (userId) => {
@@ -130,6 +129,32 @@ const verifyMail = async (req, res) => {
     }
 }
 
+const createCheckoutSession = async (req, res) => {
+    try {
+        const { products } = req.body;
+        const lineItems = products.map((item) => ({
+            price_data: {
+                currency: "usd",
+                product_data: {
+                    name: item.name,
+                        images: [item.images[0]],
+                },
+                unit_amount: Math.round(Number(item.price.slice(2, item.price.length)))
+            },
+            quantity: item.quantity
+        }))
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            line_items: lineItems,
+            mode: 'payment',
+            success_url: 'http://localhost:3000/success',
+            cancel_url: 'http://localhost:3000/cancel'
+        })
+        res.json({ id: session.id })
 
+    } catch (error) {
+        console.log("Error creating checkout session : ", error)
+    }
+}
 
-module.exports = { registerUser, loginUser, logoutUser, verifyMail }
+module.exports = { registerUser, loginUser, logoutUser, verifyMail, createCheckoutSession }
