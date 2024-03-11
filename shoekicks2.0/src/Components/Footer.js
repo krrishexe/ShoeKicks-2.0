@@ -1,6 +1,12 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 function Footer() {
+
+    const location = useLocation();
+    if (location.pathname === "/signup") {
+      return null; // Return null to not render anything
+    }
   return (
     <div>
       <footer className="section-p1">

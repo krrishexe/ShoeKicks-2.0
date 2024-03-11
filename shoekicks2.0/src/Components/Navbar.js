@@ -4,6 +4,7 @@ import "../Media/CSS/style.css"
 import { FaShoppingCart } from 'react-icons/fa'
 import UserContext from '../Context/UserContext';
 import { useContext } from 'react'
+import { useLocation } from 'react-router-dom';
 
 
 function Navbar() {
@@ -15,10 +16,14 @@ function Navbar() {
       document.getElementById("header").classList.remove("sticky")
     }
   }
+  const location = useLocation();
   const { cartCount } = useContext(UserContext)
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
   },)
+  if (location.pathname === "/signup") {
+    return null; // Return null to not render anything
+  }
 
   return (
     <>
