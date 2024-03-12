@@ -151,7 +151,15 @@ button.normal{
         margin: 0 auto;
     }
 }
-
+.logout {
+    margin-top: 23px;
+    cursor: pointer;
+    font-size: 17px;
+  }
+  
+  .logout:hover {
+    border-bottom: 1px solid #b5042e;
+  }
 
 #hero{
     background-image: url("../images/wp9688170-jordan-shoe-desktop-wallpapers.jpg");

@@ -5,6 +5,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 import UserContext from '../Context/UserContext';
 import { useContext } from 'react'
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 
 function Navbar() {
@@ -19,6 +20,8 @@ function Navbar() {
   const location = useLocation();
   const { cartCount } = useContext(UserContext)
 
+
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
   }, [])
@@ -29,6 +32,30 @@ function Navbar() {
     return null
   }
   const user = JSON.parse(localStorage.getItem('user'));
+
+  const handleLogout = async () => {
+    try {
+      localStorage.removeItem('user');
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('refreshToken');
+      localStorage.removeItem('cartItems');
+
+      window.location.href = '/login';
+      // const accessToken = localStorage.getItem('accessToken');
+      // const url = `http://localhost:5000/api/v1/user/logout`;
+      // let data = await axios.post(url, { accessToken }, {
+      //   headers: {
+      //     Authorization: `Bearer ${accessToken}`
+      //   },
+      //   withCredentials: true,
+      // });
+      // console.log(data.data);
+
+    } catch (error) {
+      console.log("Error logging out user : ", error)
+
+    }
+  }
 
   return (
     <>
@@ -42,7 +69,7 @@ function Navbar() {
             <li><NavLink activeclassname="active" to={"/Cart"}> <FaShoppingCart /> {!!cartCount && <span className='cart-counter'>{cartCount}</span>} </NavLink></li>
             {
 
-              user ? <li><NavLink activeclassname="active" to={"/logout"}>Logout</NavLink></li> : <li><NavLink activeclassname="active" to={"/login"}>Login</NavLink></li>
+              user ? <li onClick={() => handleLogout()}> <p className='logout'>Logout</p></li> : <li><NavLink activeclassname="active" to={"/login"}>Login</NavLink></li>
             }
 
           </ul>

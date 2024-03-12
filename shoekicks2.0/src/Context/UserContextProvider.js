@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import UserContext from "./UserContext"
 import { useLocation } from 'react-router-dom'
+import axios from "axios"
 
 
 const UserContextProvider = ({ children }) => {
@@ -13,10 +14,9 @@ const UserContextProvider = ({ children }) => {
     const [cartTotal, setCartTotal] = useState(0)
     const [cartSubTotal, setCartSubTotal] = useState(0)
     const [cartCount, setCartCount] = useState(0)
-    const location = useLocation()
 
 
-    
+
     const fetchMoreData = async () => {
         // const url = `https://shoekicks.onrender.com/posts/`;
         const url = `http://localhost:5000/api/v1/posts`;
@@ -87,7 +87,7 @@ const UserContextProvider = ({ children }) => {
         fetchMoreData()
     }, [])
     return (
-        <UserContext.Provider value={{ data, setData, cartItems, setCartItems, cartTotal, setCartTotal, cartSubTotal, setCartSubTotal, handleAddToCart, handleRemoveFromCart, cartProductQuantity, cartCount,user,setUser }}>
+        <UserContext.Provider value={{ data, setData, cartItems, setCartItems, cartTotal, setCartTotal, cartSubTotal, setCartSubTotal, handleAddToCart, handleRemoveFromCart, cartProductQuantity, cartCount, user, setUser }}>
             {children}
         </UserContext.Provider>
     )

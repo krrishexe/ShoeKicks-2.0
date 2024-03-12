@@ -24,10 +24,6 @@ function Login() {
             console.log(values)
         }
     })
-    useEffect(() => {
-        console.log(values, errors)
-        console.log(user)
-    }, [values, errors, user])
     const [loading, setLoading] = useState(false)
     const [passwordBtn, setPasswordBtn] = useState(false)
 
@@ -177,7 +173,7 @@ function Login() {
                         </button>
                         <ToastContainer />
                         <p className="text-center">
-                            Already have an account? <Link to="/login" className="link">Sign In</Link>
+                            Don't have an account? <Link to="/signup" className="link">Sign Up</Link>
                         </p>
                         <p className="text-center line">Or Sign Up With</p>
                         <div className="social-buttons">
