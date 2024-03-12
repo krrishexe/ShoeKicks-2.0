@@ -1350,7 +1350,10 @@
   position: relative;
   margin: 30px 0;
 }
-
+.Toastify__toast {
+  min-height: 50px;
+  font-size: 14px;
+}
 .thankyou-message::before {
   content: "";
   position: absolute;

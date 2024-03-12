@@ -5,17 +5,18 @@ import { useLocation } from 'react-router-dom'
 
 const UserContextProvider = ({ children }) => {
     const [data, setData] = useState([])
+    const [user, setUser] = useState({})
     const [cartItems, setCartItems] = useState(() => {
         const savedCartItems = localStorage.getItem('cartItems');
         return savedCartItems ? JSON.parse(savedCartItems) : [];
-      });
+    });
     const [cartTotal, setCartTotal] = useState(0)
     const [cartSubTotal, setCartSubTotal] = useState(0)
     const [cartCount, setCartCount] = useState(0)
     const location = useLocation()
 
 
-
+    
     const fetchMoreData = async () => {
         // const url = `https://shoekicks.onrender.com/posts/`;
         const url = `http://localhost:5000/api/v1/posts`;
@@ -40,11 +41,11 @@ const UserContextProvider = ({ children }) => {
         cartItems.map((item) => count += item.quantity)
         setCartCount(count)
         let subTotal = 0;
-        cartItems.map((item) => 
+        cartItems.map((item) =>
             subTotal += (Number(item.price.slice(2, item.price.length)) * item.quantity)
         )
         setCartSubTotal(subTotal)
-    }, [cartItems,cartCount])
+    }, [cartItems, cartCount])
 
     const handleAddToCart = (product, quantity, selectedSize) => {
         let items = [...cartItems]
@@ -86,7 +87,7 @@ const UserContextProvider = ({ children }) => {
         fetchMoreData()
     }, [])
     return (
-        <UserContext.Provider value={{ data, setData, cartItems, setCartItems, cartTotal, setCartTotal, cartSubTotal, setCartSubTotal, handleAddToCart, handleRemoveFromCart, cartProductQuantity,cartCount }}>
+        <UserContext.Provider value={{ data, setData, cartItems, setCartItems, cartTotal, setCartTotal, cartSubTotal, setCartSubTotal, handleAddToCart, handleRemoveFromCart, cartProductQuantity, cartCount,user,setUser }}>
             {children}
         </UserContext.Provider>
     )

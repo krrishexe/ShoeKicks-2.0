@@ -12,7 +12,8 @@ import { GiConverseShoe } from "react-icons/gi";
 import { SiReebok } from "react-icons/si";
 import { FaShopify } from "react-icons/fa";
 import ReactImageMagnify from 'react-image-magnify';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Shoes() {
@@ -23,7 +24,7 @@ function Shoes() {
 
   const { id } = useParams()
   const { handleAddToCart } = useContext(UserContext) // Commented out as it's not used
-
+  const user = JSON.parse(localStorage.getItem('user'));
   const increment = () => {
     setQuantity((prev) => prev + 1)
   }
@@ -38,7 +39,36 @@ function Shoes() {
   const handleImageSwap = (index) => {
     setMainImage(particularData[0].images[index]);
   }
+  const handleBeforeAddToCart = (item, quantity, selectedSize) => {
+    if (user && user.isVerified === true) {
+      handleAddToCart(item, quantity, selectedSize)
+    } else if (user && user.isVerified === false) {
+      toast('Please verify your email to add items to cart', {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      })
+      return null;
+    } else {
+      toast('Please login to add items to cart', {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      })
+      return null;
 
+    }
+  }
   const fetchParticularData = async (id) => {
     const url = `http://localhost:5000/api/v1/posts/${id}`
     let data = await fetch(url, {
@@ -169,9 +199,10 @@ function Shoes() {
                   </div>
                   <div style={{ marginTop: "20px", width: "600px" }}>
                     <button onClick={() => {
-                      handleAddToCart(item, quantity,selectedSize)
+                      handleBeforeAddToCart(item, quantity, selectedSize)
                       setQuantity(1)
                     }} className='add-to-cart'> <span className='IconContainer'><AiOutlineShoppingCart /></span > <p className='text1'>Add to cart</p> </button>
+                    <ToastContainer />
                   </div>
 
                 </div>

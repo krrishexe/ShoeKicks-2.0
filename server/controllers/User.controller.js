@@ -5,7 +5,7 @@ const sendMail = require('../utils/Mailer.js')
 require('dotenv').config({
     path: './.env'
 })
-const stripe = require('stripe')(process.env.STRIPE_KEY)
+
 
 
 const generateAccessAndRefreshToken = async (userId) => {
@@ -24,6 +24,7 @@ const generateAccessAndRefreshToken = async (userId) => {
         console.log("Something went wrong while generating access and refresh token")
     }
 }
+
 
 const registerUser = async (req, res) => {
     try {
@@ -50,6 +51,33 @@ const registerUser = async (req, res) => {
     }
 }
 
+const getUserData = async (req, res) => {
+    try {
+        // If the user is logged in, req.user should be set by the verifyJWT middleware
+        const {accessToken} = req.body;
+        console.log("accessToken", accessToken)
+        // if (!accessToken) {
+        //     console.log("Unauthorized request")
+        //     return res.status(401).json({ message: "Unauthorized request" })
+        // }
+
+        const decodedInfo = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
+        console.log("decpdedInfo",decodedInfo)
+        const user = await User.findById(decodedInfo?.id).select("-password -refreshToken")
+        if (!user) {
+            return res.status(401).json({ message: "Invalid accessToken" })
+        }
+        console.log("user",user)
+        req.user = user;
+
+        return res.status(200).json({ message: "User details fetched successfully", user });
+    } catch (error) {
+        console.error("Error fetching user data:", error.message);
+        return res.status(500).json({ message: "Error fetching user data" });
+    }
+};
+
+
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -65,18 +93,17 @@ const loginUser = async (req, res) => {
             return res.json({ message: "Invalid credentials", status: 400 })
         }
         const { refreshToken, accessToken } = await generateAccessAndRefreshToken(user._id)
+        console.log(refreshToken, accessToken)
         const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
 
         const cookieOptions = {
             httpOnly: true,
-            secure: true
+            secure:true
         }
 
-        res
-            .status(200)
-            .cookie('refreshToken', refreshToken, cookieOptions)
-            .cookie('accessToken', accessToken, cookieOptions)
-            .json({ message: "User logged in successfully", status: 200, user: loggedInUser })
+        res.cookie('refreshToken', refreshToken, cookieOptions)
+        .cookie('accessToken', accessToken, cookieOptions)
+        .json({ message: "User logged in successfully", status: 200, user: loggedInUser,accessToken,refreshToken })
 
 
     } catch (error) {
@@ -131,13 +158,14 @@ const verifyMail = async (req, res) => {
 
 const createCheckoutSession = async (req, res) => {
     try {
+        const stripe = require('stripe')(process.env.STRIPE_KEY)
         const { products } = req.body;
         const lineItems = products.map((item) => ({
             price_data: {
                 currency: "usd",
                 product_data: {
                     name: item.name,
-                        images: [item.images[0]],
+                    images: [item.images[0]],
                 },
                 unit_amount: Math.round(Number(item.price.slice(2, item.price.length)))
             },
@@ -157,4 +185,4 @@ const createCheckoutSession = async (req, res) => {
     }
 }
 
-module.exports = { registerUser, loginUser, logoutUser, verifyMail, createCheckoutSession }
+module.exports = { registerUser, loginUser, logoutUser, verifyMail, createCheckoutSession, getUserData }

@@ -13,10 +13,10 @@ function About(props) {
           </picture>
         </div>
 
-            <div class="container">
-              <div class="big"></div>
-              <div class="smol-1"></div>
-              <div class="smol-2"></div>
+            <div className="container">
+              <div className="big"></div>
+              <div className="smol-1"></div>
+              <div className="smol-2"></div>
             </div>
 
             <div className="test" style={{ textAlign: 'center', margin: "50px 0px" }}>

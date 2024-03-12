@@ -18,14 +18,17 @@ function Navbar() {
   }
   const location = useLocation();
   const { cartCount } = useContext(UserContext)
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
-  },)
+  }, [])
+
   if (location.pathname === "/signup") {
     return null; // Return null to not render anything
-  }else if(location.pathname === '/login'){
+  } else if (location.pathname === '/login') {
     return null
   }
+  const user = JSON.parse(localStorage.getItem('user'));
 
   return (
     <>
@@ -33,11 +36,15 @@ function Navbar() {
         <NavLink to={"/"}><img src={require("../Media/images/site_logo.png")} className="logo" alt="ShoeKicks" /> </NavLink>
         <div>
           <ul id="navbar">
-            <li><NavLink activeClassname="active" to={"/"}>Home</NavLink></li>
-            <li><NavLink activeClassname="active" to={"/lebron"}>Lebron</NavLink></li>
-            <li><NavLink activeClassname="active" to={"/Products"}>Products</NavLink></li>
-            <li><NavLink activeClassname="active" to={"/Cart"}> <FaShoppingCart /> {!!cartCount && <span className='cart-counter'>{cartCount}</span>} </NavLink></li>
-            <li><NavLink activeClassname="active" to={"/login"}>Login</NavLink></li>
+            <li><NavLink activeclassname="active" to={"/"}>Home</NavLink></li>
+            <li><NavLink activeclassname="active" to={"/lebron"}>Lebron</NavLink></li>
+            <li><NavLink activeclassname="active" to={"/Products"}>Products</NavLink></li>
+            <li><NavLink activeclassname="active" to={"/Cart"}> <FaShoppingCart /> {!!cartCount && <span className='cart-counter'>{cartCount}</span>} </NavLink></li>
+            {
+
+              user ? <li><NavLink activeclassname="active" to={"/logout"}>Logout</NavLink></li> : <li><NavLink activeclassname="active" to={"/login"}>Login</NavLink></li>
+            }
+
           </ul>
         </div>
       </section>

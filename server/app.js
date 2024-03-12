@@ -12,10 +12,15 @@ require('dotenv').config({
 
 
 //MIDDLEWARES
-app.use(cors())
+const cookieParser = require('cookie-parser')
+app.use(cookieParser())
+const corsOptions = {
+  origin: true, //included origin as true
+  credentials: true, //included credentials as true
+};
+app.use(cors(corsOptions))
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
-
 //Routes
 const postsRoute = require('./routes/posts.js')
 app.use('/api/v1/posts', postsRoute);

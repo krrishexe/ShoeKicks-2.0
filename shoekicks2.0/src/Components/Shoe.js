@@ -85,19 +85,19 @@ const Shoe = (props) => {
                             <>
                                 <div className="bigCard">
                                     <div className='moreCards'>
-                                        <div class="product-card" >
+                                        <div className="product-card" >
                                             
-                                            <div class="product-tumb">
+                                            <div className="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
-                                            <div class="product-details">
-                                                <span class="product-catagory"> <Skeleton /> </span>
+                                            <div className="product-details">
+                                                <span className="product-catagory"> <Skeleton /> </span>
                                                 <h4><a href="/"> <Skeleton /> </a></h4>
-                                                <div class="product-bottom-details">
-                                                    <div class="product-price"><Skeleton /> </div>
-                                                    <div class="product-links">
-                                                        <a href="/"><i class="fa fa-heart"></i></a>
-                                                        <a href="/"><i class="fa fa-shopping-cart"></i></a>
+                                                <div className="product-bottom-details">
+                                                    <div className="product-price"><Skeleton /> </div>
+                                                    <div className="product-links">
+                                                        <a href="/"><i className="fa fa-heart"></i></a>
+                                                        <a href="/"><i className="fa fa-shopping-cart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -106,19 +106,19 @@ const Shoe = (props) => {
                                 </div>
                                 <div className="bigCard">
                                     <div className='moreCards'>
-                                        <div class="product-card" >
+                                        <div className="product-card" >
                                             
-                                            <div class="product-tumb">
+                                            <div className="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
-                                            <div class="product-details">
-                                                <span class="product-catagory"> <Skeleton /> </span>
+                                            <div className="product-details">
+                                                <span className="product-catagory"> <Skeleton /> </span>
                                                 <h4><a href="/"> <Skeleton /> </a></h4>
-                                                <div class="product-bottom-details">
-                                                    <div class="product-price"><Skeleton /> </div>
-                                                    <div class="product-links">
-                                                        <a href="/"><i class="fa fa-heart"></i></a>
-                                                        <a href="/"><i class="fa fa-shopping-cart"></i></a>
+                                                <div className="product-bottom-details">
+                                                    <div className="product-price"><Skeleton /> </div>
+                                                    <div className="product-links">
+                                                        <a href="/"><i className="fa fa-heart"></i></a>
+                                                        <a href="/"><i className="fa fa-shopping-cart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -127,19 +127,19 @@ const Shoe = (props) => {
                                 </div>
                                 <div className="bigCard">
                                     <div className='moreCards'>
-                                        <div class="product-card" >
+                                        <div className="product-card" >
                                             
-                                            <div class="product-tumb">
+                                            <div className="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
-                                            <div class="product-details">
-                                                <span class="product-catagory"> <Skeleton /> </span>
+                                            <div className="product-details">
+                                                <span className="product-catagory"> <Skeleton /> </span>
                                                 <h4><a href="/"> <Skeleton /> </a></h4>
-                                                <div class="product-bottom-details">
-                                                    <div class="product-price"><Skeleton /> </div>
-                                                    <div class="product-links">
-                                                        <a href="/"><i class="fa fa-heart"></i></a>
-                                                        <a href="/"><i class="fa fa-shopping-cart"></i></a>
+                                                <div className="product-bottom-details">
+                                                    <div className="product-price"><Skeleton /> </div>
+                                                    <div className="product-links">
+                                                        <a href="/"><i className="fa fa-heart"></i></a>
+                                                        <a href="/"><i className="fa fa-shopping-cart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -148,19 +148,19 @@ const Shoe = (props) => {
                                 </div>
                                 <div className="bigCard">
                                     <div className='moreCards'>
-                                        <div class="product-card" >
+                                        <div className="product-card" >
                                             
-                                            <div class="product-tumb">
+                                            <div className="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
-                                            <div class="product-details">
-                                                <span class="product-catagory"> <Skeleton /> </span>
+                                            <div className="product-details">
+                                                <span className="product-catagory"> <Skeleton /> </span>
                                                 <h4><a href="/"> <Skeleton /> </a></h4>
-                                                <div class="product-bottom-details">
-                                                    <div class="product-price"><Skeleton /> </div>
-                                                    <div class="product-links">
-                                                        <a href="/"><i class="fa fa-heart"></i></a>
-                                                        <a href="/"><i class="fa fa-shopping-cart"></i></a>
+                                                <div className="product-bottom-details">
+                                                    <div className="product-price"><Skeleton /> </div>
+                                                    <div className="product-links">
+                                                        <a href="/"><i className="fa fa-heart"></i></a>
+                                                        <a href="/"><i className="fa fa-shopping-cart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -169,19 +169,19 @@ const Shoe = (props) => {
                                 </div>
                                 <div className="bigCard">
                                     <div className='moreCards'>
-                                        <div class="product-card" >
+                                        <div className="product-card" >
                                             
-                                            <div class="product-tumb">
+                                            <div className="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
-                                            <div class="product-details">
-                                                <span class="product-catagory"> <Skeleton /> </span>
+                                            <div className="product-details">
+                                                <span className="product-catagory"> <Skeleton /> </span>
                                                 <h4><a href="/"> <Skeleton /> </a></h4>
-                                                <div class="product-bottom-details">
-                                                    <div class="product-price"><Skeleton /> </div>
-                                                    <div class="product-links">
-                                                        <a href="/"><i class="fa fa-heart"></i></a>
-                                                        <a href="/"><i class="fa fa-shopping-cart"></i></a>
+                                                <div className="product-bottom-details">
+                                                    <div className="product-price"><Skeleton /> </div>
+                                                    <div className="product-links">
+                                                        <a href="/"><i className="fa fa-heart"></i></a>
+                                                        <a href="/"><i className="fa fa-shopping-cart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -190,19 +190,19 @@ const Shoe = (props) => {
                                 </div>
                                 <div className="bigCard">
                                     <div className='moreCards'>
-                                        <div class="product-card" >
+                                        <div className="product-card" >
                                             
-                                            <div class="product-tumb">
+                                            <div className="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
-                                            <div class="product-details">
-                                                <span class="product-catagory"> <Skeleton /> </span>
+                                            <div className="product-details">
+                                                <span className="product-catagory"> <Skeleton /> </span>
                                                 <h4><a href="/"> <Skeleton /> </a></h4>
-                                                <div class="product-bottom-details">
-                                                    <div class="product-price"><Skeleton /> </div>
-                                                    <div class="product-links">
-                                                        <a href="/"><i class="fa fa-heart"></i></a>
-                                                        <a href="/"><i class="fa fa-shopping-cart"></i></a>
+                                                <div className="product-bottom-details">
+                                                    <div className="product-price"><Skeleton /> </div>
+                                                    <div className="product-links">
+                                                        <a href="/"><i className="fa fa-heart"></i></a>
+                                                        <a href="/"><i className="fa fa-shopping-cart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -220,10 +220,10 @@ const Shoe = (props) => {
                     }
                 </SkeletonTheme>
 
-                <div class="loading">
-                    <div class="ball"></div>
-                    <div class="ball"></div>
-                    <div class="ball"></div>
+                <div className="loading">
+                    <div className="ball"></div>
+                    <div className="ball"></div>
+                    <div className="ball"></div>
                 </div>
             </div>
             

@@ -12,7 +12,7 @@ import { loadStripe } from '@stripe/stripe-js'
 
 function Cart() {
 
-  const { cartItems, cartSubTotal } = useContext(UserContext)
+  const { cartItems, cartSubTotal,user } = useContext(UserContext)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {

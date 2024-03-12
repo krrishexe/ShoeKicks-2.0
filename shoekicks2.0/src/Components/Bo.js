@@ -41,9 +41,9 @@ function Bo() {
                 <div className="face">
                     <div className="earL" />
                     <div className="earR" />
-                    <div class='.container4'>
-                        <div class='eyel'></div>
-                        <div class='eyer'></div>
+                    <div className='.container4'>
+                        <div className='eyel'></div>
+                        <div className='eyer'></div>
                     </div>
                     <div className="hairs" />
                     <div className="nose" />

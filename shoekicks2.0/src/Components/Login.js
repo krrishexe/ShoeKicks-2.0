@@ -3,38 +3,47 @@ import { useFormik } from "formik";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
-import { signUpSchema } from "../models/index"
+import { loginSchema } from "../models/index"
 import axios from 'axios'
 import "../Media/CSS/signup.css"
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import UserContext from '../Context/UserContext';
+import { useContext } from 'react';
 
-const initialValues = { username: '', email: '', password: '' }
+const initialValues = { email: '', password: '' }
 
 function Login() {
+    const { user, setUser } = useContext(UserContext)
     const navigate = useNavigate();
 
     const { values, errors, handleBlur, handleChange, handleSubmit, touched } = useFormik({
         initialValues,
-        validationSchema: signUpSchema,
+        validationSchema: loginSchema,
         onSubmit: (values: any) => {
             console.log(values)
         }
     })
     useEffect(() => {
         console.log(values, errors)
-    }, [values, errors])
+        console.log(user)
+    }, [values, errors, user])
     const [loading, setLoading] = useState(false)
     const [passwordBtn, setPasswordBtn] = useState(false)
 
     const onLogin = async (e) => {
         try {
+
             e.preventDefault()
             setLoading(true);
-            const response = await axios.post('http://localhost:5000/api/v1/user/signup', values)
+            const response = await axios.post('http://localhost:5000/api/v1/user/login', values)
             if (response.data.status === 200) {
-                console.log("Sign up Successful " + response.data)
-                toast.success(`Signup successful 🦄 ${response.data.message} `, {
+                console.log(response.data)
+                localStorage.setItem('accessToken', response.data.accessToken)
+                localStorage.setItem('refreshToken', response.data.refreshToken)
+
+                console.log("Login Successful " + response.data)
+                toast.success(`Login successful 🦄 ${response.data.message} `, {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -44,7 +53,7 @@ function Login() {
                     progress: undefined,
                     theme: "dark",
                 });
-                toast.success(`Please check your inbox to verify your email! 🦄 ${response.data.message} `, {
+                toast.success(`You will be redirected to homepage in 🦄 5 seconds.`, {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -54,12 +63,30 @@ function Login() {
                     progress: undefined,
                     theme: "dark",
                 });
+                const getUserData = async () => {
+                    try {
+                        const url = `http://localhost:5000/api/v1/user/me`;
+                        const token = localStorage.getItem('accessToken');
+                        let data = await axios.post(url, { accessToken: token }, {
+                            headers: {
+                                Authorization: `Bearer ${token}`
+                            },
+                            withCredentials: true,
+                        });
+                        console.log(data.data);
+                        localStorage.setItem('user', JSON.stringify(data.data.user));
+                        setUser(data.data.user);
+                    } catch (error) {
+                        console.error("Error fetching user data:", error.message);
+                    }
+                };
+                getUserData()
                 setTimeout(() => {
-                    navigate(`/login`)
+                    navigate(`/`)
                 }, 5000);
             } else {
-                console.log("Signup Failed " + response.data.message)
-                toast.error(`Signup Failed ❌ ${response.data.message}`, {
+                console.log("Login Failed " + response.data.message)
+                toast.error(`Login Failed ❌ ${response.data.message}`, {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -69,15 +96,14 @@ function Login() {
                     progress: undefined,
                     theme: "dark",
                 });
-                values.username = ''
                 values.email = ''
                 values.password = ''
 
             }
 
         } catch (error) {
-            console.log("Signup Failed " + error.message)
-            toast.error(`Signup Failed ❌ ${error.message}`, {
+            console.log("Login Failed " + error.message)
+            toast.error(`Login Failed ❌ ${error.message}`, {
                 position: "bottom-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -147,7 +173,7 @@ function Login() {
                             disabled={Object.keys(errors).length > 0 || Object.values(values).some(value => !value)}
                             onClick={onLogin}
                         >
-                            {loading ? "" : "Sign Up"}
+                            {loading ? "" : "Login"}
                         </button>
                         <ToastContainer />
                         <p className="text-center">
