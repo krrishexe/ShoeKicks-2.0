@@ -6,7 +6,10 @@ function Footer() {
     const location = useLocation();
     if (location.pathname === "/signup") {
       return null; // Return null to not render anything
+    }else if(location.pathname === '/login'){
+      return null
     }
+  
   return (
     <div>
       <footer className="section-p1">

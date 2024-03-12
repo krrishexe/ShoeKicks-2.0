@@ -16,6 +16,7 @@ import UserContextProvider from "./Context/UserContextProvider";
 import Success from "./Components/Success";
 import Signup from "./Components/Signup";
 import VerifyEmail from "./Components/VerifyEmail";
+import Login from "./Components/Login";
 
 
 function App() {
@@ -35,7 +36,8 @@ function App() {
           <Route exact path="/Cart" key="Cart" element={<Cart />} />
           <Route exact path="/singleproduct/:id" key="SingleProduct" element={<SingleProduct />} />
           <Route exact path="/success/" key="success" element={<Success />} />
-          <Route exact path="/verifyemail/" key="success" element={<VerifyEmail />} />
+          <Route exact path="/verifyemail/" key="verifyemail" element={<VerifyEmail />} />
+          <Route exact path="/login/" key="login" element={<Login />} />
 
         </Routes>
         <Footer />
