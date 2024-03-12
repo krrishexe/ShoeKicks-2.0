@@ -3,9 +3,11 @@ import React from 'react'
 function ProductsItem1(props) {
     return (
         <div>
-            <div className="pro">
+            <div className="pro" onClick={() => {
+                window.location.href = props.link
+            }}>
 
-                
+
                 {/* <img src={props.images0} alt="" height="600px" width="300px" /> */}
                 <img src={props.src} alt="" height="600px" width="300px" />
                 <div className="des">
@@ -27,4 +29,3 @@ function ProductsItem1(props) {
 }
 
 export default ProductsItem1
- 

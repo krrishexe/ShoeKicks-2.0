@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 function Carousel() {
     return (
         <div>
@@ -20,7 +20,7 @@ function Carousel() {
                                     <h5>Premium Section</h5>
                                     {/* <p>Some representative placeholder content for the first slide.</p> */}
                                     <div className="slider-btn">
-                                        <button className="btn btn-1">Explore more</button>
+                                        <button className="btn btn-1"><Link style={{ textDecoration: 'none', color: '#000' }} to={'/Products'}>Explore More</Link></button>
                                     </div>
                                 </div>
                         </div>
