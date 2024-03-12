@@ -1,6 +1,7 @@
 const { User } = require('../models/User.js')
 const jwt = require('jsonwebtoken')
 const bcryptjs = require('bcryptjs')
+const nodemailer = require('nodemailer')
 const sendMail = require('../utils/Mailer.js')
 require('dotenv').config({
     path: './.env'
@@ -54,7 +55,7 @@ const registerUser = async (req, res) => {
 const getUserData = async (req, res) => {
     try {
         // If the user is logged in, req.user should be set by the verifyJWT middleware
-        const {accessToken} = req.body;
+        const { accessToken } = req.body;
         console.log("accessToken", accessToken)
         // if (!accessToken) {
         //     console.log("Unauthorized request")
@@ -62,12 +63,12 @@ const getUserData = async (req, res) => {
         // }
 
         const decodedInfo = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
-        console.log("decpdedInfo",decodedInfo)
+        console.log("decpdedInfo", decodedInfo)
         const user = await User.findById(decodedInfo?.id).select("-password -refreshToken")
         if (!user) {
             return res.status(401).json({ message: "Invalid accessToken" })
         }
-        console.log("user",user)
+        console.log("user", user)
         req.user = user;
 
         return res.status(200).json({ message: "User details fetched successfully", user });
@@ -98,12 +99,12 @@ const loginUser = async (req, res) => {
 
         const cookieOptions = {
             httpOnly: true,
-            secure:true
+            secure: true
         }
 
         res.cookie('refreshToken', refreshToken, cookieOptions)
-        .cookie('accessToken', accessToken, cookieOptions)
-        .json({ message: "User logged in successfully", status: 200, user: loggedInUser,accessToken,refreshToken })
+            .cookie('accessToken', accessToken, cookieOptions)
+            .json({ message: "User logged in successfully", status: 200, user: loggedInUser, accessToken, refreshToken })
 
 
     } catch (error) {
@@ -185,4 +186,34 @@ const createCheckoutSession = async (req, res) => {
     }
 }
 
-module.exports = { registerUser, loginUser, logoutUser, verifyMail, createCheckoutSession, getUserData }
+const handleNews = async (req, res) => {
+    try {
+
+        const { email } = req.body;
+        if (!email) {
+            return res.json({ message: "Please fill all the fields", status: 400 })
+        }
+        var transport = nodemailer.createTransport({
+            host: "sandbox.smtp.mailtrap.io",
+            port: 2525,
+            auth: {
+                user: "aa00a777b7613e",
+                pass: "027b74675e634f"
+            }
+        });
+
+        const mailOptions = {
+            from: 'aryan.yadav.9889@gmail.com',
+            to: email,
+            subject: 'Subscribe to our newsletter',
+            html: `<p>Thank you for subscribing to our newsletter. You will receive all the latest updates and offers on your email.</p>`
+        }
+        const mailResponse = await transport.sendMail(mailOptions)
+        return mailResponse;
+        res.json({ message: "Mail sent successfully", status: 200,mailResponse })
+    } catch (error) {
+        console.log("Error creating checkout session : ", error)
+    }
+}
+
+module.exports = { registerUser, loginUser, logoutUser, verifyMail, createCheckoutSession, getUserData, handleNews }

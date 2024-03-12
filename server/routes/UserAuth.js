@@ -1,5 +1,5 @@
 const express = require('express');
-const { registerUser, loginUser, logoutUser, verifyMail,createCheckoutSession,getUserData } = require('../controllers/User.controller');
+const { registerUser, loginUser, logoutUser, verifyMail,createCheckoutSession,getUserData,handleNews } = require('../controllers/User.controller');
 const verifyJWT = require('../middlewares/auth.middleware.js');
 const authRouter = express.Router();
 
@@ -10,5 +10,6 @@ authRouter.route('/logout').post(verifyJWT, logoutUser)
 authRouter.route('/verifyemail').post(verifyMail)
 authRouter.route('/create-checkout-session').post(createCheckoutSession)
 authRouter.route('/me').post(getUserData)
+authRouter.route('/handle-newsletter').post(handleNews)
 
 module.exports = authRouter;

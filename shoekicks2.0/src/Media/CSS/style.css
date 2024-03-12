@@ -492,10 +492,6 @@ button.normal{
 #newsletter span{
 color: #b5042e;
 }
-/* #newsletter .form{
-    display: flex;
-    width: 40%;
-} */
 #newsletter input{
     display: block;
     height: 3.125rem;
@@ -505,15 +501,17 @@ color: #b5042e;
     border-radius: 4px;
     outline: none;
 }
-/* .form{
+.form{
     display: flex;
-    justify-content: space-evenly;
-} */
+    align-items: center;
+
+}
 #newsletter button{
     display: block;
     background-color: #b5042e;
     color: #bfb4b3;
-    margin-top: 10px ;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 footer{
     display: flex;
