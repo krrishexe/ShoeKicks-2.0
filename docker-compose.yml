@@ -1,0 +1,34 @@
+version: '3'
+services:
+  server:
+    build: 
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    environment:
+      - DB_CONNECTION=mongodb+srv://krish:1212@cluster0.liofgxs.mongodb.net/
+      - VERIFY_TOKEN_SECRET=krish123
+      - ACCESS_TOKEN_SECRET=krish123
+      - REFRESH_TOKEN_SECRET=krish123
+      - STRIPE_KEY=sk_test_51OssNiSA8M310S6LyQ0m3UWqFEjJXmf0otLRQ3KB6jso7YhyWXk0Rwrcf5adaSnYjM8Sz00TJDzLBAJ3IoVTp49m000g3OWPKf
+      - CLIENT_ID=855474174431-7dsnhf27st2vr6afm4e0b8aobd6irn4h.apps.googleusercontent.com
+      - CLIENT_SECRET=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
+      - REDIRECT_URI=https://developers.google.com/oauthplayground
+      - REFRESH_TOKEN=1//04hlobWGt0wtQCgYIARAAGAQSNwF-L9IrfwmihEBTyKnAaJR3A1QlH4jGsIhzOVCt57NEsnnwftR7O2Qg128EWJWf4XQ2BbPG1gs
+      - ACCESS_TOKEN=ya29.a0Ad52N3_zW_2BJOUAxfuoqXjs6NQ2dC5WccAPHZKvuH-ZIrQnUpSgxezBSvgPOH_dDW97Z9P1G6kZkMvSeycRUX-005axBoAb6Bak2lwKFVBXk5xDSUKkD4MMLgCQvE8dp3H2oKa1lf5xwkJKztFCpeEnN24UVMKu4CE5aCgYKAW4SARESFQHGX2Mi4fzE3Z8MrO_15NfnqQZSZg0171
+    volumes:
+      - ./server:/server
+    restart: always
+
+  client:
+    build: 
+      context: ./shoekicks2.0
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      - REACT_APP_STRIPE_PUBLISHABLE_KEY=pk_test_51OssNiSA8M310S6LeHyVt8yxauM3FyK0cR8DVtmwPFdMc08a7sEA6NpGthdMS4Q4eGpm119fpLCXJeaVCghhlMg500wfIgmenm
+    volumes:
+      - ./shoekicks2.0:/shoekicks2.0
+    restart: always

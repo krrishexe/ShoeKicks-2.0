@@ -184,7 +184,7 @@ const createCheckoutSession = async (req, res) => {
             line_items: lineItems,
             mode: 'payment',
             success_url: 'http://localhost:3000/success',
-            cancel_url: 'http://localhost:3000/cancel'
+            cancel_url: 'http://localhost:3000/Cart'
         })
         res.json({ id: session.id })
 
