@@ -3,11 +3,18 @@ const jwt = require('jsonwebtoken')
 const bcryptjs = require('bcryptjs')
 const nodemailer = require('nodemailer')
 const sendMail = require('../utils/Mailer.js')
+const { google } = require('googleapis')
 require('dotenv').config({
     path: './.env'
 })
 
+const oAuthClient = new google.auth.OAuth2(
+    process.env.CLIENT_ID,
+    process.env.CLIENT_SECRET,
+    process.env.REDIRECT_URI
+)
 
+oAuthClient.setCredentials({ refresh_token: process.env.REFRESH_TOKEN })
 
 const generateAccessAndRefreshToken = async (userId) => {
     try {
@@ -190,18 +197,28 @@ const handleNews = async (req, res) => {
     try {
 
         const { email } = req.body;
+        console.log(email)
         if (!email) {
             return res.json({ message: "Please fill all the fields", status: 400 })
         }
+
+        const accessToken = await oAuthClient.getAccessToken()
+        let token = await accessToken.token;
+        console.log("token is : ", token)
         var transport = nodemailer.createTransport({
-            host: "sandbox.smtp.mailtrap.io",
-            port: 2525,
+            service: 'gmail',
             auth: {
-                user: "aa00a777b7613e",
-                pass: "027b74675e634f"
+                type: 'OAuth2',
+                user: 'aryan.yadav.9889@gmail.com',
+                clientId: process.env.CLIENT_ID,
+                clientSecret: process.env.CLIENT_SECRET,
+                refreshToken: process.env.REFRESH_TOKEN,
+                accessToken: token
+            },
+            tls: {
+                rejectUnauthorized: false
             }
         });
-
         const mailOptions = {
             from: 'aryan.yadav.9889@gmail.com',
             to: email,
@@ -209,8 +226,9 @@ const handleNews = async (req, res) => {
             html: `<p>Thank you for subscribing to our newsletter. You will receive all the latest updates and offers on your email.</p>`
         }
         const mailResponse = await transport.sendMail(mailOptions)
+        console.log(mailResponse)
         return mailResponse;
-        res.json({ message: "Mail sent successfully", status: 200,mailResponse })
+        res.json({ message: "Mail sent successfully", status: 200, mailResponse })
     } catch (error) {
         console.log("Error creating checkout session : ", error)
     }
