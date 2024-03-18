@@ -14,10 +14,8 @@ const Shoe = (props) => {
 
     useEffect(() => {
 
-        setTimeout(() => {
 
-            fetchMoreData();
-        }, 2000);
+        fetchMoreData();
 
 
         window.addEventListener('scroll', () => {
@@ -26,35 +24,36 @@ const Shoe = (props) => {
             // console.log({ scrollTop, scrollHeight, clientHeight });
 
             // console.log(past_height, scrollHeight)
-                    if (clientHeight + scrollTop >= scrollHeight - 400) {
-                        // console.log("to the bottom");
-                        // show the loading animation once 
+            if (clientHeight + scrollTop >= scrollHeight - 500) {
+                // console.log("to the bottom");
+                // show the loading animation once 
 
-                        if (scrollHeight > past_height){
-                        
-                            showLoading();
-                            past_height = scrollHeight;
-                        }
-                    }
-        
+                if (scrollHeight > past_height) {
+
+                    showLoading();
+                    past_height = scrollHeight;
+                }
+            }
+
         })
+
         const loading = document.querySelector('.loading')
-        
+
         function showLoading() {
             // animation visible 
             loading.classList.add('show');
             // loading more data once it reaches to the bottom
-            
+
             setTimeout(() => {
-                
+
                 fetchMoreData();
                 loading.classList.remove('show');
-                
-            }, 2000);
+
+            }, 3000);
 
         }
     }, [])
-    
+
 
     const fetchMoreData = async () => {
         const url = `http://localhost:5000/api/v1/posts`;
@@ -68,10 +67,10 @@ const Shoe = (props) => {
         });
         let parsedData = await data.json()
 
-        setProducts((parsedData[0].products).slice(0,6 + page * 12))
-        page+=1;
+        setProducts((parsedData[0].products).slice(0, 6 + page * 12))
+        page += 1;
         setLoading(false)
-       
+
     };
 
     return (
@@ -86,7 +85,7 @@ const Shoe = (props) => {
                                 <div className="bigCard">
                                     <div className='moreCards'>
                                         <div className="product-card" >
-                                            
+
                                             <div className="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
@@ -107,7 +106,7 @@ const Shoe = (props) => {
                                 <div className="bigCard">
                                     <div className='moreCards'>
                                         <div className="product-card" >
-                                            
+
                                             <div className="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
@@ -128,7 +127,7 @@ const Shoe = (props) => {
                                 <div className="bigCard">
                                     <div className='moreCards'>
                                         <div className="product-card" >
-                                            
+
                                             <div className="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
@@ -149,7 +148,7 @@ const Shoe = (props) => {
                                 <div className="bigCard">
                                     <div className='moreCards'>
                                         <div className="product-card" >
-                                            
+
                                             <div className="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
@@ -170,7 +169,7 @@ const Shoe = (props) => {
                                 <div className="bigCard">
                                     <div className='moreCards'>
                                         <div className="product-card" >
-                                            
+
                                             <div className="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
@@ -191,7 +190,7 @@ const Shoe = (props) => {
                                 <div className="bigCard">
                                     <div className='moreCards'>
                                         <div className="product-card" >
-                                            
+
                                             <div className="product-tumb">
                                                 <Skeleton height={303} width={380} />
                                             </div>
@@ -220,13 +219,28 @@ const Shoe = (props) => {
                     }
                 </SkeletonTheme>
 
-                <div className="loading">
-                    <div className="ball"></div>
-                    <div className="ball"></div>
-                    <div className="ball"></div>
+
+                <div aria-label="Orange and tan hamster running in a metal wheel" role="img" className="wheel-and-hamster loading">
+                    <div className="wheel" />
+                    <div className="hamster">
+                        <div className="hamster__body">
+                            <div className="hamster__head">
+                                <div className="hamster__ear" />
+                                <div className="hamster__eye" />
+                                <div className="hamster__nose" />
+                            </div>
+                            <div className="hamster__limb hamster__limb--fr" />
+                            <div className="hamster__limb hamster__limb--fl" />
+                            <div className="hamster__limb hamster__limb--br" />
+                            <div className="hamster__limb hamster__limb--bl" />
+                            <div className="hamster__tail" />
+                        </div>
+                    </div>
+                    <div className="spoke" />
                 </div>
+
             </div>
-            
+
 
 
         </div>
