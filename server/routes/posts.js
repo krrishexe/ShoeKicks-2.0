@@ -2,7 +2,8 @@ const express = require('express');
 const Post = require('../models/Post');
 const router = express.Router();
 const ObjectId = require('mongodb').ObjectID;
-
+const Redis = require('ioredis');
+const redis = new Redis();
 
 // THIS WAS INSERTED SO THAT IT DOES NOT THROW ANY ERROR RELATED TO CORS
 var cors = require('cors')
@@ -23,9 +24,24 @@ router.get('/:postId', async (req, res) => {
 })
 
 // GETS BACK ALL THE POST   
+// GETS BACK ALL THE POST   
 router.get('/', cors(corsOptions), async function (req, res) {
-    const posts = await Post.find();
-    res.json(posts)
+    const redisKey = 'posts';
+
+    // Try fetching the result from Redis first in case we have it cached
+    let cachedData = await redis.get(redisKey);
+    // console.log(cachedData)
+
+    if (cachedData) {
+        return res.json(JSON.parse(cachedData));
+    } else {
+        const posts = await Post.find();
+
+        // Save the API response in Redis store, data expire time in 3600 seconds, i.e. one hour
+        await redis.set(redisKey, JSON.stringify(posts), 'EX', 3600);
+
+        return res.json(posts);
+    }
 })
 
 // ADDS A NEW POST 
