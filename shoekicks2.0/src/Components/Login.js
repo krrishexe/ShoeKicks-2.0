@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import UserContext from '../Context/UserContext';
 import { useContext } from 'react';
+import { BASE_URL } from '../utils/constants';
 
 const initialValues = { email: '', password: '' }
 
@@ -32,7 +33,7 @@ function Login() {
 
             e.preventDefault()
             setLoading(true);
-            const response = await axios.post('http://localhost:5000/api/v1/user/login', values)
+            const response = await axios.post(`${BASE_URL}/user/login`, values)
             if (response.data.status === 200) {
                 console.log(response.data)
                 localStorage.setItem('accessToken', response.data.accessToken)
@@ -61,7 +62,7 @@ function Login() {
                 });
                 const getUserData = async () => {
                     try {
-                        const url = `http://localhost:5000/api/v1/user/me`;
+                        const url = `${BASE_URL}/user/me`;
                         const token = localStorage.getItem('accessToken');
                         let data = await axios.post(url, { accessToken: token }, {
                             headers: {

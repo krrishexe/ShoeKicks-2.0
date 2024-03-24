@@ -8,7 +8,7 @@ const redis = new Redis();
 // THIS WAS INSERTED SO THAT IT DOES NOT THROW ANY ERROR RELATED TO CORS
 var cors = require('cors')
 var corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: '*',
 }
 
 //GETS BACK A SPECIFIC POST

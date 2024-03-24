@@ -14,6 +14,7 @@ import { FaShopify } from "react-icons/fa";
 import ReactImageMagnify from 'react-image-magnify';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { BASE_URL } from '../utils/constants'
 
 
 function Shoes() {
@@ -70,7 +71,7 @@ function Shoes() {
     }
   }
   const fetchParticularData = async (id) => {
-    const url = `http://localhost:5000/api/v1/posts/${id}`
+    const url = `${BASE_URL}/posts/${id}`
     let data = await fetch(url, {
       mode: 'cors',
       method: 'GET',

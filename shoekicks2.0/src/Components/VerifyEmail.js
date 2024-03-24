@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { BASE_URL } from '../utils/constants';
 
 function VerifyEmail() {
     const [token, setToken] = useState('')
@@ -12,7 +13,7 @@ function VerifyEmail() {
     useEffect(() => {
         const verifyEmail = async () => {
             try {
-                const response = await axios.post(`http://localhost:5000/api/v1/user/verifyemail/`, { token })
+                const response = await axios.post(`${BASE_URL}/user/verifyemail/`, { token })
                 if (response.data.status === 200) {
                     console.log("Email verified successfully")
                     setIsVerified(true)

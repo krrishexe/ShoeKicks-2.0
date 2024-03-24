@@ -3,6 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import axios from 'axios';
+import { BASE_URL } from '../utils/constants';
 
 function Newsletter() {
     const [email, setMail] = useState('')
@@ -10,7 +11,7 @@ function Newsletter() {
         try {
             e.preventDefault()
             console.log("clicked")
-            const data = await axios.post("http://localhost:5000/api/v1/user/handle-newsletter", { email })
+            const data = await axios.post(`${BASE_URL}/user/handle-newsletter`, { email })
             console.log(data)
             if (data.data.status === 200) {
                 toast.success("Mail Sent Successfully ✅")

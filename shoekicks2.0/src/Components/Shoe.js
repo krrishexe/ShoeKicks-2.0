@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ShoeItem from './ShoeItem'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
+import { BASE_URL } from '../utils/constants';
 
 
 const Shoe = (props) => {
@@ -56,7 +57,7 @@ const Shoe = (props) => {
 
 
     const fetchMoreData = async () => {
-        const url = `http://localhost:5000/api/v1/posts`;
+        const url = `${BASE_URL}/posts`;
         // const url = `https://shoekicks.onrender.com/posts/`;
         let data = await fetch(url, {
             mode: 'cors',

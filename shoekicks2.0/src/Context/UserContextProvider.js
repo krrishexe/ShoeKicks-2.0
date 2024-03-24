@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import UserContext from "./UserContext"
 import { useLocation } from 'react-router-dom'
 import axios from "axios"
+import { BASE_URL } from "../utils/constants"
 
 
 const UserContextProvider = ({ children }) => {
@@ -19,7 +20,7 @@ const UserContextProvider = ({ children }) => {
 
     const fetchMoreData = async () => {
         // const url = `https://shoekicks.onrender.com/posts/`;
-        const url = `http://localhost:5000/api/v1/posts`;
+        const url = `${BASE_URL}/posts`;
         let data = await fetch(url, {
             mode: 'cors',
             method: 'GET',

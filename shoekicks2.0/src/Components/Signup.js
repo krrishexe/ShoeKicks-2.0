@@ -8,6 +8,7 @@ import axios from 'axios'
 import "../Media/CSS/signup.css"
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../utils/constants';
 
 const initialValues = { username: '', email: '', password: '' }
 
@@ -31,7 +32,7 @@ function Signup() {
         try {
             e.preventDefault()
             setLoading(true);
-            const response = await axios.post('http://localhost:5000/api/v1/user/signup', values)
+            const response = await axios.post(`${BASE_URL}/user/signup`, values)
             if (response.data.status === 200) {
                 console.log("Sign up Successful " + response.data)
                 toast.success(`Signup successful 🦄 ${response.data.message} `, {

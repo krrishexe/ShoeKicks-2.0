@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import { FaShopify } from "react-icons/fa";
 import Bo from './Bo'
 import { loadStripe } from '@stripe/stripe-js'
+import { BASE_URL } from '../utils/constants'
 
 function Cart() {
 
@@ -29,7 +30,7 @@ function Cart() {
     const headers = {
       'Content-Type': 'application/json'
     }
-    const response = await fetch('http://localhost:5000/api/v1/user/create-checkout-session', {
+    const response = await fetch(`${BASE_URL}/user/create-checkout-session`, {
       method: 'POST',
       headers,
       body: JSON.stringify(body)
